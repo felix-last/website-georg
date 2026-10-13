@@ -1,0 +1,16 @@
+---
+import { profile } from "../content/site";
+import { path } from "../lib/paths";
+---
+
+<footer class="site-footer wrap">
+  <a class="footer-brand" href={path()}>
+    {profile.name}
+    <span>{profile.role}</span>
+  </a>
+  <p>© {new Date().getFullYear()} · Website-Entwurf</p>
+  <nav aria-label="Rechtliche Informationen">
+    <a href={path("impressum/")}>Impressum</a>
+    <a href={path("datenschutz/")}>Datenschutz</a>
+  </nav>
+</footer>

@@ -1,0 +1,53 @@
+---
+import "@fontsource/geist/latin-300.css";
+import "@fontsource/geist/latin-400.css";
+import "@fontsource/geist/latin-500.css";
+import "../styles/global.css";
+import { path } from "../lib/paths";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+const {
+  title = "Georg [Nachname] · Psychologie & Sportpsychologie",
+  description = "Wissenschaft. Praxis. Mensch. Entwurf einer Website für Psychologie und Sportpsychologie – mit Raum für Fokus, Klarheit und neue Perspektiven.",
+} = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const launchReady = import.meta.env.PUBLIC_LAUNCH_READY === "true";
+---
+
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#eeece6" />
+    {!launchReady && <meta name="robots" content="noindex, nofollow" />}
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href={path("favicon.svg")} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="de_DE" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta
+      property="og:image"
+      content={new URL(path("images/forest-og.jpg"), Astro.site)}
+    />
+    <meta
+      property="og:image:alt"
+      content="Nebel über einem stillen Nadelwald"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+  </head>
+  <body>
+    <a class="skip-link" href="#inhalt">
+      Zum Inhalt springen
+    </a>
+    <slot />
+  </body>
+</html>

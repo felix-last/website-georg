@@ -1,0 +1,59 @@
+---
+import { profile, services } from "../content/site";
+import { path } from "../lib/paths";
+interface Props {
+  hero?: boolean;
+}
+const { hero = false } = Astro.props;
+---
+
+<header class:list={["site-header", { "on-hero": hero }]}>
+  <a
+    class="small-brand"
+    href={path()}
+    aria-label={`${profile.name} – Startseite`}
+  >
+    G<span class="brand-dot">.</span>
+  </a>
+  <details class="menu">
+    <summary aria-label="Menü öffnen oder schließen">
+      <span class="menu-word">Menü</span>
+      <span class="menu-icon" aria-hidden="true">
+        <i></i>
+        <i></i>
+        <i></i>
+      </span>
+    </summary>
+    <nav aria-label="Hauptnavigation">
+      <span class="eyebrow">Entdecken</span>
+      <a href={path("#ansatz")}>Ansatz</a>
+      {services.map((service) => (
+        <a href={path(`#${service.id}`)}>{service.label}</a>
+      ))}
+      <a href={path("#ueber-mich")}>Über mich</a>
+      <a href={path("#kontakt")} class="menu-contact">
+        Kontakt aufnehmen <span aria-hidden="true">↗</span>
+      </a>
+    </nav>
+  </details>
+</header>
+
+<script>
+  document.querySelectorAll<HTMLDetailsElement>(".menu").forEach((menu) => {
+    menu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        menu.open = false;
+      });
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && menu.open) {
+        menu.open = false;
+        menu.querySelector("summary")?.focus();
+      }
+    });
+    document.addEventListener("click", (event) => {
+      if (event.target instanceof Node && !menu.contains(event.target))
+        menu.open = false;
+    });
+  });
+</script>

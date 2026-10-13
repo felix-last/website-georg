@@ -1,0 +1,136 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import ServiceSection from "../components/ServiceSection.astro";
+import ContactForm from "../components/ContactForm.astro";
+import { profile, services } from "../content/site";
+import forest from "../assets/forest.png";
+import mountains from "../assets/mountains.png";
+---
+
+<Layout>
+  <main id="inhalt">
+    <section class="hero" aria-labelledby="hero-title">
+      <Image
+        class="hero-image"
+        src={forest}
+        alt=""
+        widths={[640, 1024, 1536, 1920]}
+        sizes="100vw"
+        format="webp"
+        loading="eager"
+        fetchpriority="high"
+      />
+      <div class="hero-shade"></div>
+      <Header hero />
+      <div class="hero-content wrap">
+        <p class="eyebrow hero-pretitle">Ein neuer Blick. Ein eigener Weg.</p>
+        <h1 id="hero-title">{profile.name}</h1>
+        <p class="hero-role">{profile.role}</p>
+        <nav class="hero-services" aria-label="Leistungsbereiche">
+          {services.map((service) => (
+            <a href={`#${service.id}`}>{service.label}</a>
+          ))}
+        </nav>
+      </div>
+      <a class="scroll-cue" href="#ansatz" aria-label="Den Ansatz kennenlernen">
+        <span></span>
+        <span aria-hidden="true">↓</span>
+      </a>
+      <p class="hero-location">
+        {profile.location}
+        <span aria-hidden="true"></span>
+      </p>
+    </section>
+
+    <section id="ansatz" class="intro wrap" aria-labelledby="approach-title">
+      <div class="intro-copy">
+        <p class="eyebrow">Psychologie</p>
+        <h2 id="approach-title">
+          Wissenschaft.
+          <br />
+          Praxis.
+          <br />
+          Mensch.
+        </h2>
+        <p>
+          Verstehen, was uns bewegt. Erkennen, was uns trägt. Psychologie
+          schafft Raum, um die eigenen Möglichkeiten und Grenzen bewusster
+          wahrzunehmen – im Sport, im Alltag und im beruflichen Kontext.
+        </p>
+        <p>
+          Hier entsteht eine persönliche Website für Georg [Nachname]. Der
+          Ansatz: sorgfältig hinschauen, gemeinsam reflektieren und neue
+          Perspektiven entwickeln.
+        </p>
+        <p class="content-note">
+          Inhaltsentwurf · Persönliches Profil und fachliche Angaben folgen.
+        </p>
+      </div>
+      <figure class="intro-image">
+        <Image
+          src={mountains}
+          alt="Eine kleine Wanderfigur auf einem Felsrücken vor nebelverhangenen Bergen; KI-generiertes Stimmungsbild"
+          widths={[480, 800, 1200]}
+          sizes="(max-width: 760px) 100vw, 50vw"
+          format="webp"
+          loading="lazy"
+        />
+        <figcaption>Perspektive beginnt mit Abstand.</figcaption>
+      </figure>
+      <div
+        id="ueber-mich"
+        class="profile-section"
+        aria-labelledby="profile-title"
+      >
+        <p id="profile-title" class="eyebrow line-label">
+          Über mich · Stationen
+        </p>
+        <div class="timeline">
+          <div>
+            <span>01</span>
+            <h3>Ausbildung</h3>
+            <p>
+              Verifizierte Abschlüsse und fachliche Qualifikationen ergänzen.
+            </p>
+          </div>
+          <div>
+            <span>02</span>
+            <h3>Erfahrung</h3>
+            <p>Berufliche Stationen und Tätigkeitsfelder ergänzen.</p>
+          </div>
+          <div>
+            <span>03</span>
+            <h3>Haltung</h3>
+            <p>Persönlichen Ansatz und Arbeitsweise beschreiben.</p>
+          </div>
+          <div>
+            <span>04</span>
+            <h3>Heute</h3>
+            <p>Standort, Formate und tatsächliches Angebot ergänzen.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="services wrap">
+      {services.map((service, index) => (
+        <ServiceSection
+          service={service}
+          index={index}
+          image={index === 0 ? mountains : index === 2 ? forest : undefined}
+          alt={
+            index === 0
+              ? "Weiter Blick über neblige Bergketten; KI-generiertes Stimmungsbild"
+              : "Stiller Nadelwald im Nebel; KI-generiertes Stimmungsbild"
+          }
+        />
+      ))}
+    </div>
+
+    <ContactForm />
+  </main>
+  <Footer />
+</Layout>

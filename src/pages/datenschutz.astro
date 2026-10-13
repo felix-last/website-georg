@@ -1,0 +1,101 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Layout
+  title="Datenschutz · Georg [Nachname]"
+  description="Datenschutzhinweise – Prüfvorlage mit offenen Angaben zu Verantwortlichkeit, Hosting und Kontaktverarbeitung."
+>
+  <Header />
+  <main id="inhalt" class="legal-page wrap">
+    <p class="eyebrow">Rechtliche Informationen</p>
+    <h1>Datenschutz</h1>
+    <p class="legal-warning">
+      Prüfvorlage – nicht zur Veröffentlichung freigegeben. Die Angaben müssen
+      an den tatsächlichen Betrieb angepasst und rechtlich geprüft werden.
+    </p>
+    <h2>Verantwortliche Stelle</h2>
+    <p>
+      [Vollständiger Name, Anschrift und Datenschutz-Kontakt ergänzen.
+      Gegebenenfalls Datenschutzbeauftragte prüfen.]
+    </p>
+    <h2>Aufruf dieser Website</h2>
+    <p>
+      Die Website wird als statische Seite für GitHub Pages vorbereitet. Beim
+      Abruf erhält der Hostinganbieter technisch notwendige Verbindungsdaten,
+      etwa die IP-Adresse und Informationen zum Browser. Anbieter,
+      Rechtsgrundlage, Zwecke, tatsächliche Speicherdauer, Auftragsverarbeitung
+      und gegebenenfalls Drittlandübermittlung sind vor Veröffentlichung zu
+      dokumentieren.
+    </p>
+    <p>
+      GitHub Pages und Cloudflare bieten in dieser Architektur keine
+      zugesicherte ausschließliche Verarbeitung in der EU. Vertragsgrundlagen,
+      Unterauftragnehmer und geeignete Garantien für mögliche
+      Drittlandübermittlungen müssen geprüft werden. Eine zusätzliche
+      Cloudflare-DNS- oder Proxy-Konfiguration ist gesondert zu bewerten.
+    </p>
+    <h2>Schrift, Bilder und Reichweitenmessung</h2>
+    <p>
+      Schriften und Bilder werden lokal mit der Website ausgeliefert. Dieser
+      Entwurf enthält keine Analyse- oder Marketingdienste und setzt selbst
+      keine Marketingcookies. Es gibt keine eingebetteten Videos, Karten oder
+      Social-Media-Inhalte.
+    </p>
+    <h2>Kontaktformular und E-Mail</h2>
+    <p>
+      Solange das Formular als Entwicklungsstand gekennzeichnet ist, werden über
+      dieses Formular keine Daten übermittelt. Nach Konfiguration werden Name,
+      E-Mail-Adresse, die freiwillige Nachricht und das Ergebnis des
+      Spam-Schutzes an einen Cloudflare Worker übermittelt. Vorgesehen ist der
+      Versand an das E-Mail-Postfach des Anbieters über Cloudflare Email Sending
+      und iCloud Mail.
+    </p>
+    <p>
+      Für die allgemeine Kontaktaufnahme sind Zweck und passende Rechtsgrundlage
+      (je nach Anfrage insbesondere Art. 6 Abs. 1 lit. b oder f DSGVO) zu
+      bestimmen. Verantwortliche Empfänger, genaue Anbieter, Verträge, mögliche
+      Drittlandübermittlungen und Löschfristen einschließlich des
+      E-Mail-Postfachs müssen ergänzt werden. Eine erhaltene E-Mail bleibt im
+      Postfach bis zur Löschung; technische Anbieterprotokolle sind getrennt von
+      der vorgesehenen speicherfreien Formularanwendung zu prüfen.
+    </p>
+    <p>
+      Bitte übermittle keine Gesundheitsdaten oder andere sensible persönliche
+      Informationen. Das Formular ist weder für Behandlung noch für Notfälle
+      vorgesehen.
+    </p>
+    <h2>Spam-Schutz mit Cloudflare Turnstile</h2>
+    <p>
+      Im konfigurierten Formular wird Turnstile erst über „Spam-Schutz
+      aktivieren“ geladen. Dabei verbindet sich dein Browser mit Cloudflare;
+      technisch erforderliche Angaben, etwa IP-Adresse und Browserinformationen,
+      können verarbeitet werden. Anbieterinformationen, konkrete Verarbeitung,
+      Rechtsgrundlage und gegebenenfalls erforderliche Einwilligung nach DSGVO
+      und § 25 TDDDG sind vor Aktivierung zu prüfen. Die
+      Aktivierungsschaltfläche allein ersetzt diese Prüfung nicht.
+    </p>
+    <h2>Deine Rechte</h2>
+    <p>
+      Nach Maßgabe der gesetzlichen Voraussetzungen hast du insbesondere Rechte
+      auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung und
+      Datenübertragbarkeit. Bei Verarbeitung auf Grundlage berechtigter
+      Interessen kannst du aus Gründen deiner besonderen Situation Widerspruch
+      einlegen. Eine erteilte Einwilligung kann für die Zukunft widerrufen
+      werden.
+    </p>
+    <p>
+      Du kannst dich bei einer Datenschutzaufsichtsbehörde beschweren.
+      [Zuständige Aufsichtsbehörde mit Kontakt ergänzen.]
+    </p>
+    <h2>Stand und Prüfung</h2>
+    <p>
+      [Prüfdatum ergänzen.] Diese Vorlage muss vor Freischaltung der Dienste
+      anhand der tatsächlichen Konfiguration, aktueller Anbieterunterlagen und
+      der individuellen Tätigkeit vervollständigt werden.
+    </p>
+  </main>
+  <Footer />
+</Layout>

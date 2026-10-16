@@ -135,3 +135,21 @@
   .hero-services:not(.is-docked) { gap: .25rem 1.35rem; }
   .hero-services:not(.is-docked) a { font-size: .92rem; }
 }
+
+/* Tinted frosted-glass dock: translucent surface with background blur. */
+.hero-services.is-docked {
+  background: rgba(25, 36, 34, 0.46);
+  -webkit-backdrop-filter: blur(22px) saturate(145%);
+  backdrop-filter: blur(22px) saturate(145%);
+  border-bottom: 1px solid rgba(255,255,255,0.18);
+  box-shadow: 0 8px 30px rgba(9,20,17,0.12), inset 0 1px rgba(255,255,255,0.09);
+  isolation: auto;
+}
+.hero-services.is-docked::before {
+  background: linear-gradient(180deg, rgba(36,48,44,0.23), rgba(20,29,27,0.1));
+  box-shadow: none;
+  pointer-events: none;
+}
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .hero-services.is-docked { background: rgba(27,36,33,0.94); }
+}

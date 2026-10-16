@@ -1,8 +1,8 @@
 // Replace explicitly marked placeholders only with verified, approved information.
 export const profile = {
   name: "Georg [Nachname]",
-  role: "Psychologie · Entwurf",
-  location: "Standort noch offen",
+  role: "Psychologe",
+  location: "Freiburg im Breisgau",
   email: null as string | null,
 };
 
@@ -10,7 +10,7 @@ export const services = [
   {
     id: "sportpsychologie",
     label: "Sportpsychologie",
-    title: "Größer\ndenken.",
+    title: "Ganzheitlich trainieren.\nGrößer denken.",
     text: "Fokus finden. Mit Druck umgehen. Den eigenen Weg im Sport gestalten. Hier entsteht ein Angebot für Menschen, die ihre mentale Seite im Training und im Wettkampf bewusster kennenlernen möchten.",
     note: "Entwurf · Zielgruppen, Methoden und Umfang werden ergänzt.",
     keywords: ["Fokus", "Klarheit", "Entwicklung"],

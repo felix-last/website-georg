@@ -444,3 +444,11 @@
   }
   .timeline .timeline-entry::before { left: 0; top: -4px; }
 }
+
+/* Keep oversized editorial type inside narrow viewports. */
+@media (max-width: 760px) {
+  .sport-feature .service-copy { min-width: 0; }
+  .sport-feature .service-copy h2 { max-width: 100%; overflow-wrap: anywhere; }
+  .sport-feature .service-copy h2 span,
+  .sport-feature .sport-grow { width: auto; max-width: 100%; white-space: normal; }
+}

@@ -34,9 +34,9 @@ export const services = [
   {
     id: "neuropsychologie",
     label: "Psychologische Begutachtung",
-    title: "Sorgfältig\nhinschauen.",
-    text: "Hier ist Raum für die Beschreibung eines neuropsychologischen Angebots. Fragestellungen, Verfahren und die erforderlichen Qualifikationen werden erst nach fachlicher Prüfung konkret benannt.",
-    note: "Platzhalter · Keine Aussage über vorhandene Befugnisse oder Qualifikationen.",
+    title: "Psychologische\nBegutachtung.",
+    text: "Psychologische und neuropsychologische Begutachtung in Freiburg im Breisgau. Die Untersuchungen erfolgen unter Verwendung standardisierter psychologischer und neuropsychologischer Verfahren. Dabei werden unter anderem fachliche Vorgaben und Empfehlungen der Gesellschaft für Neuropsychologie (GNP) berücksichtigt.",
+    note: "Auftraggeber: Sozial-, Arbeits- und Zivilgerichte; Berufsgenossenschaften und weitere Träger der gesetzlichen Unfallversicherung; private Unfall-, Berufsunfähigkeits-, Lebens-, Haftpflicht- und Krankenversicherungen; Versorgungsämter und weitere Behörden sowie Auftraggeber vertrauensärztlicher Gutachten.",
     keywords: ["Sorgfalt", "Verstehen", "Einordnung"],
   },
   {

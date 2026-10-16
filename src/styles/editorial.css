@@ -508,7 +508,7 @@ body { overflow-x: clip; }
 /* Nohemi display-font experiment, scoped to the sport headline only. */
 @font-face {
   font-family: "Nohemi";
-  src: url("../fonts/Nohemi-Bold.woff2") format("woff2");
+  src: url("/website-georg/fonts/Nohemi-Bold.woff2") format("woff2");
   font-style: normal;
   font-weight: 700;
   font-display: swap;

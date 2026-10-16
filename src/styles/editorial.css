@@ -519,3 +519,24 @@ body { overflow-x: clip; }
   letter-spacing: -.055em;
   line-height: .98;
 }
+
+/* Nohemi refinement: natural tracking and a white segment over the photograph. */
+.sport-feature .service-copy h2 {
+  letter-spacing: 0.005em;
+  line-height: 1.04;
+}
+@media (min-width: 761px) {
+  .sport-feature .service-copy h2 {
+    color: var(--ink);
+    background: linear-gradient(
+      90deg,
+      #fff 0,
+      #fff clamp(0px, 7vw, 120px),
+      var(--ink) clamp(0px, 7vw, 120px),
+      var(--ink) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}

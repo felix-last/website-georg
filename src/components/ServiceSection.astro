@@ -21,7 +21,7 @@ const { service, index, image, alt = "" } = Astro.props;
   id={service.id}
   class:list={[
     "service-section",
-    { reverse: index % 2 !== 0, "has-image": !!image },
+    { reverse: index % 2 !== 0, "has-image": !!image, "sport-feature": service.id === "sportpsychologie" },
   ]}
   aria-labelledby={`${service.id}-title`}
 >
@@ -49,8 +49,8 @@ const { service, index, image, alt = "" } = Astro.props;
   <div class="service-copy">
     <p class="eyebrow line-label">{service.label}</p>
     <h2 id={`${service.id}-title`}>
-      {service.title.split("\n").map((line) => (
-        <span>{line} </span>
+      {service.title.split("\n").map((line, lineIndex) => (
+        <span class:list={{ "sport-grow": service.id === "sportpsychologie" && lineIndex === 1 }}>{line} </span>
       ))}
     </h2>
     <p class="service-description">{service.text}</p>

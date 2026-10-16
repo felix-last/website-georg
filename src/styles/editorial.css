@@ -308,3 +308,19 @@
   .hero-services.is-docked .docked-menu { right: .5rem; }
 }
 @media(prefers-reduced-motion: reduce) { .hero-services.is-docked { animation: none; } }
+
+/* Full-viewport forest hero: remove the intentional 94svh gap on desktop and mobile. */
+.hero {
+  height: 100vh;
+  height: 100svh;
+  min-height: 690px;
+  max-height: none;
+}
+@media (max-width: 760px) {
+  .hero {
+    height: 100vh;
+    height: 100svh;
+    min-height: 690px;
+    max-height: none;
+  }
+}

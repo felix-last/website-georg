@@ -153,3 +153,21 @@
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
   .hero-services.is-docked { background: rgba(27,36,33,0.94); }
 }
+
+/* Hero hierarchy refinement */
+.hero h1 {
+  font-size: clamp(1.35rem, 1.85vw, 2.15rem);
+}
+.hero-services:not(.is-docked) a {
+  font-size: clamp(1.05rem, 1.6vw, 1.5rem);
+}
+.hero-services.is-docked {
+  background: rgba(16, 25, 23, 0.68);
+}
+.hero-services.is-docked::before {
+  background: linear-gradient(180deg, rgba(20, 30, 27, 0.24), rgba(10, 19, 17, 0.16));
+}
+@media (max-width: 760px) {
+  .hero h1 { font-size: 1.5rem; }
+  .hero-services:not(.is-docked) a { font-size: 1.05rem; }
+}

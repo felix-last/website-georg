@@ -52,7 +52,7 @@ const { service, index, image, alt = "" } = Astro.props;
       ))}
     </h2>
     <p class="service-description">{service.text}</p>
-    <p class="content-note">{service.note}</p>
+    <p class:list={["content-note", { "counseling-disclaimer": service.id === "beratung" }]}>{service.note}</p>
 
     {service.id === "sportpsychologie" && (
       <div class="sport-offer">

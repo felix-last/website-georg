@@ -84,3 +84,26 @@
   .hero-services.is-docked::-webkit-scrollbar { display: none; }
   .hero-services.is-docked a { flex-shrink: 0; white-space: nowrap; }
 }
+
+/* The dark dock fades in as the links move to their compact positions. */
+.hero-services.is-docked {
+  background: transparent;
+  box-shadow: none;
+  isolation: isolate;
+}
+.hero-services.is-docked::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: #202522;
+  box-shadow: 0 6px 28px #0c191322;
+  animation: dock-background-in 420ms ease-out both;
+}
+@keyframes dock-background-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@media(prefers-reduced-motion: reduce) {
+  .hero-services.is-docked::before { animation: none; }
+}

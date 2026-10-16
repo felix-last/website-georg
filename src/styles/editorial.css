@@ -357,3 +357,12 @@
 @media(prefers-reduced-motion:reduce) {
   .scroll-cue-delayed, .scroll-cue-delayed.is-visible { transition: none; }
 }
+
+/* Clear, accessible distinction between counseling and psychotherapy. */
+.counseling-disclaimer {
+  font-weight: 500;
+  color: var(--ink);
+  font-size: .9rem;
+  line-height: 1.55;
+  margin-top: 1.4rem;
+}

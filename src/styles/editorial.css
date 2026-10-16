@@ -346,3 +346,14 @@
     border-radius: 0;
   }
 }
+
+/* Scroll hint appears after 3 seconds, or immediately on first scroll. */
+.scroll-cue-delayed { opacity: 0; visibility: hidden; transform: translate(-50%, 9px); transition: opacity 550ms ease, transform 550ms ease, visibility 550ms; }
+.scroll-cue-delayed.is-visible { opacity: 1; visibility: visible; transform: translate(-50%, 0); }
+@media(max-width:760px) {
+  .scroll-cue-delayed { transform: translateY(9px); }
+  .scroll-cue-delayed.is-visible { transform: translateY(0); }
+}
+@media(prefers-reduced-motion:reduce) {
+  .scroll-cue-delayed, .scroll-cue-delayed.is-visible { transition: none; }
+}

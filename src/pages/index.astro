@@ -46,12 +46,6 @@ import mountains from "../assets/mountains.png";
       </p>
     </section>
 
-    <div class="section-navigation">
-      <nav aria-label="Leistungen – Schnellnavigation">
-        {services.map((service) => <a href={`#${service.id}`}>{service.label}</a>)}
-      </nav>
-    </div>
-
     <section id="ansatz" class="intro wrap" aria-labelledby="approach-title">
       <div class="intro-copy">
         <p class="eyebrow">Psychologie</p>
@@ -134,3 +128,24 @@ import mountains from "../assets/mountains.png";
   </main>
   <Footer />
 </Layout>
+
+<script>
+  const hero = document.querySelector<HTMLElement>(".hero");
+  const nav = document.querySelector<HTMLElement>(".hero-services");
+  const originalParent = nav?.parentElement;
+  if (hero && nav && originalParent) {
+    const updateNavigation = () => {
+      const docked = hero.getBoundingClientRect().bottom <= 70;
+      if (docked && !nav.classList.contains("is-docked")) {
+        document.body.appendChild(nav);
+        nav.classList.add("is-docked");
+      } else if (!docked && nav.classList.contains("is-docked")) {
+        originalParent.appendChild(nav);
+        nav.classList.remove("is-docked");
+      }
+    };
+    window.addEventListener("scroll", updateNavigation, { passive: true });
+    window.addEventListener("resize", updateNavigation);
+    updateNavigation();
+  }
+</script>

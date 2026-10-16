@@ -540,3 +540,23 @@ body { overflow-x: clip; }
     -webkit-text-fill-color: transparent;
   }
 }
+
+/* Safari: avoid nested backdrop-filter roots that block blur behind the dropdown. */
+.hero-services.is-docked:has(.docked-menu[open]) {
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  background: transparent;
+}
+.hero-services.is-docked:has(.docked-menu[open])::before {
+  opacity: 1;
+  animation: none;
+  background: rgba(16,25,23,.72);
+  -webkit-backdrop-filter: blur(22px) saturate(145%);
+  backdrop-filter: blur(22px) saturate(145%);
+}
+.site-header .menu[open] nav,
+.hero-services.is-docked .docked-menu[open] .docked-menu-panel {
+  background: rgba(18,29,27,.38);
+  -webkit-backdrop-filter: blur(36px) saturate(150%);
+  backdrop-filter: blur(36px) saturate(150%);
+}

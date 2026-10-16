@@ -34,6 +34,16 @@ import mountains from "../assets/mountains.png";
           {services.map((service) => (
             <a href={`#${service.id}`}>{service.label}</a>
           ))}
+          <details class="docked-menu">
+            <summary aria-label="Menü öffnen oder schließen" title="Menü">
+              <span class="docked-menu-icon" aria-hidden="true"><i></i><i></i><i></i></span>
+            </summary>
+            <div class="docked-menu-panel">
+              <a href="#ueber-mich">Über mich</a>
+              {services.map((service) => <a href={`#${service.id}`}>{service.label}</a>)}
+              <a href="#kontakt">Kontakt aufnehmen ↗</a>
+            </div>
+          </details>
         </nav>
       </div>
       <a class="scroll-cue" href="#ansatz" aria-label="Den Ansatz kennenlernen">
@@ -136,7 +146,11 @@ import mountains from "../assets/mountains.png";
   placeholder.className = "hero-services-placeholder";
 
   if (nav && originalParent) {
-    const links = Array.from(nav.querySelectorAll<HTMLAnchorElement>("a"));
+    const links = Array.from(nav.querySelectorAll<HTMLAnchorElement>(":scope > a"));
+    const dockedMenu = nav.querySelector<HTMLDetailsElement>(".docked-menu");
+    dockedMenu?.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => { if (dockedMenu) dockedMenu.open = false; }));
+    document.addEventListener("keydown", (event) => { if (event.key === "Escape" && dockedMenu?.open) { dockedMenu.open = false; dockedMenu.querySelector("summary")?.focus(); } });
+    document.addEventListener("click", (event) => { if (dockedMenu?.open && event.target instanceof Node && !dockedMenu.contains(event.target)) dockedMenu.open = false; });
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
     let currentAnimations: Animation[] = [];
 
@@ -160,6 +174,7 @@ import mountains from "../assets/mountains.png";
         nav.classList.remove("is-docked");
       }
 
+      if (dockedMenu) dockedMenu.open = false;
       if (reducedMotion.matches) return;
 
       const after = links.map((link) => link.getBoundingClientRect());

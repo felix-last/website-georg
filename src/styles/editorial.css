@@ -461,3 +461,15 @@ body { overflow-x: clip; }
 @media (max-width: 760px) {
   .service-copy h2, .service-copy h2 span { max-width: 100%; overflow-wrap: anywhere; }
 }
+
+/* Layout safety: clip only visual overlaps, never interactive sections. */
+.services { overflow: clip; }
+.service-section { position: relative; min-width: 0; overflow: clip; }
+.service-copy, .service-art, .service-image { min-width: 0; max-width: 100%; }
+.service-art { pointer-events: none; }
+.sport-feature .service-copy h2 { margin-left: 0; max-width: 100%; font-size: clamp(2.6rem, 5vw, 5.5rem); overflow-wrap: anywhere; }
+.sport-feature .sport-grow { width: auto; max-width: 100%; }
+@media (max-width: 760px) {
+  .sport-feature .service-copy h2 { font-size: clamp(2.35rem, 8.5vw, 3.8rem); }
+  .service-section { overflow: hidden; }
+}

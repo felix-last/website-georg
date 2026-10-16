@@ -46,7 +46,7 @@ import mountains from "../assets/mountains.png";
           </details>
         </nav>
       </div>
-      <a class="scroll-cue" href="#ansatz" aria-label="Den Ansatz kennenlernen">
+      <a class="scroll-cue scroll-cue-delayed" href="#ansatz" aria-label="Den Ansatz kennenlernen">
         <span></span>
         <span aria-hidden="true">↓</span>
       </a>
@@ -140,6 +140,20 @@ import mountains from "../assets/mountains.png";
 </Layout>
 
 <script>
+  const scrollCue = document.querySelector<HTMLElement>(".scroll-cue-delayed");
+  if (scrollCue) {
+    const reveal = () => scrollCue.classList.add("is-visible");
+    const timeout = window.setTimeout(reveal, 3000);
+    const onScroll = () => {
+      if (window.scrollY > 0) {
+        window.clearTimeout(timeout);
+        reveal();
+        window.removeEventListener("scroll", onScroll);
+      }
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    if (window.scrollY > 0) onScroll();
+  }
   const nav = document.querySelector<HTMLElement>(".hero-services");
   const originalParent = nav?.parentElement;
   const placeholder = document.createElement("div");

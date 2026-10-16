@@ -1,0 +1,29 @@
+/* Editorial hero and sticky section navigation — prototype v0.2 */
+:root { --red: #e02848; }
+.hero { min-height: 690px; height: 94svh; max-height: 1100px; }
+.hero-content { top: 24%; }
+.hero-pretitle { display: none; }
+.hero h1 { font-size: clamp(2rem, 3.3vw, 3.8rem); letter-spacing: -0.045em; }
+.hero-name-link { color: inherit; text-decoration: none; }
+.hero-name-link:hover { opacity: .84; }
+.hero-role { margin-top: .45rem; letter-spacing: .16em; font-size: .8rem; }
+.hero-services { justify-content: center; align-items: center; gap: clamp(.8rem, 2.5vw, 3rem); margin-top: clamp(5rem, 15vh, 11rem); }
+.hero-services a { text-align: center; white-space: nowrap; }
+.section-navigation { position: sticky; top: 0; z-index: 40; background: #202522; color: #fff; box-shadow: 0 6px 28px #0c191322; }
+.section-navigation nav { display: flex; justify-content: center; align-items: center; gap: clamp(.7rem, 2.7vw, 3rem); padding: .8rem var(--gutter); min-height: 62px; }
+.section-navigation a { font-size: clamp(.74rem, 1.05vw, .95rem); text-decoration: none; padding: .6rem .15rem; border-bottom: 1px solid transparent; }
+.section-navigation a:hover, .section-navigation a:focus-visible { border-bottom-color: #fff; }
+#ansatz, #ueber-mich, .service-section, #kontakt { scroll-margin-top: 84px; }
+.intro { padding-top: clamp(5rem, 9vw, 10rem); padding-bottom: clamp(5rem, 9vw, 10rem); }
+.profile-section { padding-top: clamp(4rem, 8vw, 8rem); }
+.service-section { padding-block: clamp(5rem, 9vw, 10rem); }
+@media(max-width: 1000px) { .hero-services { flex-wrap: wrap; gap: .4rem 1.4rem; } }
+@media(max-width: 760px) {
+  .hero { min-height: 690px; height: 94svh; }
+  .hero-content { top: 25%; }
+  .hero-services { display: flex; justify-content: center; gap: .1rem 1.1rem; margin-top: 5rem; }
+  .hero-services a { font-size: .9rem; padding: .6rem 0; }
+  .section-navigation nav { justify-content: flex-start; overflow-x: auto; scrollbar-width: none; }
+  .section-navigation nav::-webkit-scrollbar { display: none; }
+  .section-navigation a { white-space: nowrap; flex-shrink: 0; }
+}

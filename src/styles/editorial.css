@@ -560,3 +560,13 @@ body { overflow-x: clip; }
   -webkit-backdrop-filter: blur(36px) saturate(150%);
   backdrop-filter: blur(36px) saturate(150%);
 }
+
+/* Revert two-tone experiment: render the complete Nohemi headline in solid ink. */
+.sport-feature .service-copy h2,
+.sport-feature .service-copy h2 span {
+  color: var(--ink);
+  background: none;
+  -webkit-background-clip: border-box;
+  background-clip: border-box;
+  -webkit-text-fill-color: currentColor;
+}

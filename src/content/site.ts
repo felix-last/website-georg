@@ -19,8 +19,8 @@ export const services = [
     id: "beratung",
     label: "Psychologische Beratung",
     title: "Raum für\nneue Perspektiven.",
-    text: "Manchmal beginnt Veränderung mit einem Gespräch. Dieser Bereich ist für ein mögliches Beratungsangebot vorgesehen: innehalten, Situationen einordnen und nächste Schritte gemeinsam betrachten.",
-    note: "Platzhalter · Beratungsrahmen und Abgrenzung zur Psychotherapie sind zu klären.",
+    text: "Psychologische Beratung bietet Raum für Entlastung, Orientierung und emotionale Stabilisierung in belastenden Lebenssituationen. Sie kann insbesondere dazu dienen, die Wartezeit bis zum Beginn einer Psychotherapie unterstützend zu überbrücken.",
+    note: "Psychologische Beratung ist keine Psychotherapie und ersetzt keine psychotherapeutische oder psychiatrische Behandlung.",
     keywords: ["Orientierung", "Reflexion", "Perspektive"],
   },
   {

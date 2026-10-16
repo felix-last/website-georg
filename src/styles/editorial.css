@@ -113,3 +113,25 @@
 .hero-role { font-weight: 400; letter-spacing: .14em; }
 .hero-services a { font-weight: 500; letter-spacing: -.015em; }
 .hero-services.is-docked a { font-weight: 500; }
+
+/* Hero refinement: quieter identity, more spacious service choices. */
+.hero h1 {
+  font-size: clamp(1.65rem, 2.35vw, 2.65rem);
+  font-weight: 400;
+  letter-spacing: -0.035em;
+}
+.hero-role { font-size: .72rem; }
+.hero-services:not(.is-docked) {
+  gap: clamp(1.6rem, 3.6vw, 4.8rem);
+}
+.hero-services:not(.is-docked) a {
+  font-size: clamp(.9rem, 1.32vw, 1.2rem);
+}
+@media (max-width: 1000px) {
+  .hero-services:not(.is-docked) { gap: .5rem 2rem; }
+}
+@media (max-width: 760px) {
+  .hero h1 { font-size: 1.8rem; }
+  .hero-services:not(.is-docked) { gap: .25rem 1.35rem; }
+  .hero-services:not(.is-docked) a { font-size: .92rem; }
+}

@@ -130,26 +130,55 @@ import mountains from "../assets/mountains.png";
 </Layout>
 
 <script>
-  const hero = document.querySelector<HTMLElement>(".hero");
   const nav = document.querySelector<HTMLElement>(".hero-services");
   const originalParent = nav?.parentElement;
   const placeholder = document.createElement("div");
   placeholder.className = "hero-services-placeholder";
-  if (hero && nav && originalParent) {
+
+  if (nav && originalParent) {
+    const links = Array.from(nav.querySelectorAll<HTMLAnchorElement>("a"));
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let currentAnimations: Animation[] = [];
+
     const updateNavigation = () => {
       const docked = placeholder.isConnected
         ? placeholder.getBoundingClientRect().top <= 0
         : nav.getBoundingClientRect().top <= 0;
-      if (docked && !nav.classList.contains("is-docked")) {
+      if (docked === nav.classList.contains("is-docked")) return;
+
+      currentAnimations.forEach((animation) => animation.cancel());
+      currentAnimations = [];
+      const before = links.map((link) => link.getBoundingClientRect());
+
+      if (docked) {
         originalParent.insertBefore(placeholder, nav);
         document.body.appendChild(nav);
         nav.classList.add("is-docked");
-      } else if (!docked && nav.classList.contains("is-docked")) {
+      } else {
         originalParent.insertBefore(nav, placeholder);
         placeholder.remove();
         nav.classList.remove("is-docked");
       }
+
+      if (reducedMotion.matches) return;
+
+      const after = links.map((link) => link.getBoundingClientRect());
+      links.forEach((link, index) => {
+        const dx = before[index].left - after[index].left;
+        const dy = before[index].top - after[index].top;
+        const scale = before[index].width / Math.max(after[index].width, 1);
+        currentAnimations.push(
+          link.animate(
+            [
+              { transform: `translate(${dx}px, ${dy}px) scale(${scale})` },
+              { transform: "translate(0, 0) scale(1)" },
+            ],
+            { duration: 440, easing: "cubic-bezier(0.22, 1, 0.36, 1)" },
+          ),
+        );
+      });
     };
+
     window.addEventListener("scroll", updateNavigation, { passive: true });
     window.addEventListener("resize", updateNavigation);
     updateNavigation();

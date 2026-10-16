@@ -504,3 +504,18 @@ body { overflow-x: clip; }
   }
   .sport-feature .sport-grow { width: auto; max-width: 100%; }
 }
+
+/* Nohemi display-font experiment, scoped to the sport headline only. */
+@font-face {
+  font-family: "Nohemi";
+  src: url("../fonts/Nohemi-Bold.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+.sport-feature .service-copy h2 {
+  font-family: "Nohemi", "Geist", sans-serif;
+  font-weight: 700;
+  letter-spacing: -.055em;
+  line-height: .98;
+}

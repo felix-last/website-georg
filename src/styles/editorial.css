@@ -384,3 +384,63 @@
   .site-header .menu nav,
   .hero-services.is-docked .docked-menu-panel { background-color: rgba(18,29,27,.95); }
 }
+
+/* Horizontal biography timeline: editorial rail on desktop, scrollable on smaller screens. */
+.timeline {
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+  width: 100%;
+  margin: 3.5rem 0 0;
+  padding: 0 0 1.5rem;
+  border: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x proximity;
+  scrollbar-width: thin;
+  -webkit-overflow-scrolling: touch;
+}
+.timeline .timeline-entry {
+  display: block;
+  position: relative;
+  flex: 0 0 clamp(175px, 17vw, 245px);
+  min-width: 0;
+  padding: 1.8rem 1.6rem 0 0;
+  margin: 0;
+  border: 0;
+  border-top: 1px solid var(--muted);
+  scroll-snap-align: start;
+}
+.timeline .timeline-entry::before {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: 0;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--ink);
+  box-shadow: 0 0 0 5px var(--paper);
+}
+.timeline .timeline-entry span {
+  display: block;
+  font-size: .78rem;
+  font-weight: 500;
+  margin-bottom: .7rem;
+}
+.timeline .timeline-entry p {
+  margin: 0;
+  max-width: 23ch;
+  font-size: clamp(.84rem, 1vw, 1rem);
+  line-height: 1.5;
+}
+.timeline .timeline-entry:last-child { padding-bottom: 0; }
+@media (max-width: 760px) {
+  .timeline { display: flex; margin: 2.5rem 0 0; padding: 0 0 1.25rem; }
+  .timeline .timeline-entry {
+    display: block;
+    flex-basis: min(72vw, 245px);
+    padding: 1.5rem 1.2rem 0 0;
+  }
+  .timeline .timeline-entry::before { left: 0; top: -4px; }
+}

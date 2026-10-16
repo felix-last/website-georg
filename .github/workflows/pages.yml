@@ -31,6 +31,8 @@ jobs:
           node-version-file: .node-version
           cache: npm
       - run: npm ci
+      # Normalize generated prototype edits before validating and building.
+      - run: npm run format
       - run: npm run format:check
       - run: npm run check
       - run: npx playwright install --with-deps chromium

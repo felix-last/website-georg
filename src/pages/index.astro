@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
+import "../styles/editorial.css";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import ServiceSection from "../components/ServiceSection.astro";
@@ -27,7 +28,7 @@ import mountains from "../assets/mountains.png";
       <Header hero />
       <div class="hero-content wrap">
         <p class="eyebrow hero-pretitle">Ein neuer Blick. Ein eigener Weg.</p>
-        <h1 id="hero-title">{profile.name}</h1>
+        <h1 id="hero-title"><a class="hero-name-link" href="#ueber-mich" aria-label="Mehr über Georg erfahren">{profile.name}</a></h1>
         <p class="hero-role">{profile.role}</p>
         <nav class="hero-services" aria-label="Leistungsbereiche">
           {services.map((service) => (
@@ -44,6 +45,12 @@ import mountains from "../assets/mountains.png";
         <span aria-hidden="true"></span>
       </p>
     </section>
+
+    <div class="section-navigation">
+      <nav aria-label="Leistungen – Schnellnavigation">
+        {services.map((service) => <a href={`#${service.id}`}>{service.label}</a>)}
+      </nav>
+    </div>
 
     <section id="ansatz" class="intro wrap" aria-labelledby="approach-title">
       <div class="intro-copy">
@@ -86,7 +93,7 @@ import mountains from "../assets/mountains.png";
         aria-labelledby="profile-title"
       >
         <p id="profile-title" class="eyebrow line-label">
-          Über mich · Stationen
+          Über mich
         </p>
         <div class="timeline">
           <div>

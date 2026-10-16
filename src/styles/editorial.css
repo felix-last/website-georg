@@ -199,3 +199,42 @@
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
   .menu[open] nav { background: rgba(16,25,23,.96); }
 }
+
+/* A continuous, responsive chronological timeline instead of separate cards. */
+.timeline {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  margin-top: 3.5rem;
+  margin-left: clamp(.4rem, 2vw, 1.5rem);
+  padding-left: clamp(2rem, 4vw, 4rem);
+  border-left: 1px solid var(--muted);
+}
+.timeline .timeline-entry {
+  position: relative;
+  border: 0;
+  padding: 0 0 clamp(2rem, 3.5vw, 3.5rem);
+  display: grid;
+  grid-template-columns: minmax(6rem, 10rem) minmax(0, 1fr);
+  gap: clamp(1rem, 3vw, 3rem);
+  align-items: baseline;
+}
+.timeline .timeline-entry::before {
+  content: "";
+  position: absolute;
+  left: calc(-1 * clamp(2rem, 4vw, 4rem) - 4px);
+  top: .43rem;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--ink);
+  box-shadow: 0 0 0 5px var(--paper);
+}
+.timeline .timeline-entry:last-child { padding-bottom: 0; }
+.timeline .timeline-entry span { font-size: .8rem; font-weight: 500; }
+.timeline .timeline-entry p { max-width: 65ch; margin: 0; font-size: clamp(.95rem, 1.2vw, 1.15rem); color: var(--ink); }
+@media(max-width:760px) {
+  .timeline { grid-template-columns: 1fr; padding-left: 1.8rem; margin-left: .5rem; }
+  .timeline .timeline-entry { grid-template-columns: 1fr; gap: .35rem; padding-bottom: 1.8rem; }
+  .timeline .timeline-entry::before { left: calc(-1.8rem - 4px); }
+}

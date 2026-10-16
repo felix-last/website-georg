@@ -92,32 +92,25 @@ import mountains from "../assets/mountains.png";
         class="profile-section"
         aria-labelledby="profile-title"
       >
-        <p id="profile-title" class="eyebrow line-label">
-          Über mich
-        </p>
+        <h2 id="profile-title" class="eyebrow line-label">Über mich</h2>
         <div class="timeline">
-          <div>
-            <span>01</span>
-            <h3>Ausbildung</h3>
-            <p>
-              Verifizierte Abschlüsse und fachliche Qualifikationen ergänzen.
-            </p>
-          </div>
-          <div>
-            <span>02</span>
-            <h3>Erfahrung</h3>
-            <p>Berufliche Stationen und Tätigkeitsfelder ergänzen.</p>
-          </div>
-          <div>
-            <span>03</span>
-            <h3>Haltung</h3>
-            <p>Persönlichen Ansatz und Arbeitsweise beschreiben.</p>
-          </div>
-          <div>
-            <span>04</span>
-            <h3>Heute</h3>
-            <p>Standort, Formate und tatsächliches Angebot ergänzen.</p>
-          </div>
+          {[
+            ["Berlin", "Geboren in Berlin"],
+            ["Seit 2018", "Trainer C Leistungssport Segeln"],
+            ["2020", "Zertifikat Sexualmedizin · Universitätsklinikum Schleswig-Holstein"],
+            ["2023", "M.Sc. Psychologie · Humboldt-Universität zu Berlin"],
+            ["Seit 2023", "Psychedelic Substances Research Group"],
+            ["Seit 2023", "Angestrebte Promotion · Charité Berlin (laufend)"],
+            ["Seit 2024", "Neuropsychologischer Gutachter"],
+            ["Seit 2026", "Neuropsychologe · cts Reha-Klinik Stöckenhöfe"],
+            ["Seit 2026", "Sportpsychologe in Ausbildung"],
+            ["Seit 2026", "Notfallpsychologe in Ausbildung"],
+          ].map(([year,description]) => (
+            <div class="timeline-entry">
+              <span>{year}</span>
+              <p>{description}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>

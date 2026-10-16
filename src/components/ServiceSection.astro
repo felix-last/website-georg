@@ -55,6 +55,21 @@ const { service, index, image, alt = "" } = Astro.props;
     </h2>
     <p class="service-description">{service.text}</p>
     <p class="content-note">{service.note}</p>
+
+    {service.id === "sportpsychologie" && (
+      <div class="sport-offer">
+        <h3>Formate</h3>
+        <ul class="sport-formats">
+          <li>Einzeltraining</li>
+          <li>Mannschaftstraining</li>
+          <li>Trainer:innenberatung</li>
+          <li>Themenworkshops</li>
+        </ul>
+        <h3>Themen</h3>
+        <p class="sport-topics">Psychoedukation · Zielsetzung · Achtsamkeit · Kognitive Fähigkeiten · Entspannung · Selbstgesprächsregulation · Visualisierung · Selbstvertrauen · Erholungs- und Belastungsmanagement · Wettkampfvorbereitung und -begleitung · Routinen · Verletzungsmanagement</p>
+        <p class="content-note">Neuropsychologisches Concussion-Screening nach individueller Absprache.</p>
+      </div>
+    )}
     <div class="service-bottom">
       <a class="button" href="#kontakt">
         Erstgespräch anfragen <span aria-hidden="true">⟶</span>

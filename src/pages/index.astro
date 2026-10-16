@@ -8,6 +8,7 @@ import ServiceSection from "../components/ServiceSection.astro";
 import ContactForm from "../components/ContactForm.astro";
 import { profile, services } from "../content/site";
 import forest from "../assets/forest.png";
+import lighthouse from "../assets/Misty Beacon Over Calm Seas.png";
 import mountains from "../assets/mountains.png";
 ---
 
@@ -124,11 +125,11 @@ import mountains from "../assets/mountains.png";
         <ServiceSection
           service={service}
           index={index}
-          image={index === 0 ? mountains : index === 2 ? forest : undefined}
+          image={index === 0 ? mountains : index === 2 ? lighthouse : undefined}
           alt={
             index === 0
               ? "Weiter Blick über neblige Bergketten; KI-generiertes Stimmungsbild"
-              : "Stiller Nadelwald im Nebel; KI-generiertes Stimmungsbild"
+              : "Ruhige Meeresfläche im Nebel mit entferntem Leuchtturm; KI-generiertes Stimmungsbild"
           }
         />
       ))}

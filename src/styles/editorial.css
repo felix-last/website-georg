@@ -473,3 +473,34 @@ body { overflow-x: clip; }
   .sport-feature .service-copy h2 { font-size: clamp(2.35rem, 8.5vw, 3.8rem); }
   .service-section { overflow: hidden; }
 }
+
+/* Restore expressive sport typography while containing the biography rail. */
+.services { overflow: visible; }
+.service-section { overflow: visible; }
+.sport-feature .service-copy h2 {
+  margin-left: -13vw;
+  max-width: none;
+  font-size: clamp(3.2rem, 6.5vw, 8rem);
+  overflow-wrap: normal;
+}
+.sport-feature .sport-grow { width: max-content; max-width: 120%; }
+.timeline {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-x: contain;
+}
+.profile-section { min-width: 0; max-width: 100%; overflow: hidden; }
+@media(max-width: 760px) {
+  .services { overflow: visible; }
+  .service-section { overflow: visible; }
+  .sport-feature .service-copy h2 {
+    margin-left: 0;
+    max-width: 100%;
+    font-size: clamp(2.7rem, 10vw, 4rem);
+    overflow-wrap: anywhere;
+  }
+  .sport-feature .sport-grow { width: auto; max-width: 100%; }
+}

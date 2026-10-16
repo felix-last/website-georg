@@ -2,6 +2,7 @@ import { expect, test } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 
 test("editorial page is accessible, local and responsive", async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
   const external: string[] = [];
   page.on("request", (request) => {
     if (!new URL(request.url()).hostname.match(/^(127\.0\.0\.1|localhost)$/))
@@ -34,6 +35,7 @@ test("editorial page is accessible, local and responsive", async ({ page }) => {
 test("keyboard menu and legal links work under the project base path", async ({
   page,
 }) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
   await page.goto("./");
   const menu = page.locator(".menu summary");
   await menu.focus();
@@ -67,6 +69,7 @@ test("keyboard menu and legal links work under the project base path", async ({
 
 test.describe("configured form, with mocked external services", () => {
   test.beforeEach(async ({ page }) => {
+    await page.emulateMedia({ reducedMotion: "reduce" });
     await page.route(
       "https://challenges.cloudflare.com/turnstile/v0/api.js*",
       (route) =>

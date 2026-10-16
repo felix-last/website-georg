@@ -9,7 +9,7 @@ test("editorial page is accessible, local and responsive", async ({ page }) => {
   });
   await page.goto("./");
   await expect(page.getByRole("heading", { level: 1 })).toHaveText(
-    "Georg [Nachname]",
+    "Georg Schmeistenbeißer",
   );
   await expect(
     page.getByRole("heading", { name: /Wissenschaft\.\s*Praxis\.\s*Mensch\./ }),

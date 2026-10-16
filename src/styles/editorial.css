@@ -52,3 +52,35 @@
   .sport-feature .sport-grow { max-width: 100%; white-space: normal; }
 }
 @media(prefers-reduced-motion:reduce) { .sport-feature .sport-grow { animation: none; transform: none; } }
+
+/* The same five links transition from the hero into a fixed dark bar. */
+.hero-services.is-docked {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  margin: 0;
+  padding: .75rem var(--gutter);
+  min-height: 64px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #202522;
+  color: #fff;
+  box-shadow: 0 6px 28px #0c191322;
+  gap: clamp(.7rem,2.5vw,3rem);
+}
+.hero-services.is-docked a { font-size: clamp(.72rem,1.05vw,.95rem); padding: .55rem .1rem; }
+@media(max-width:760px) {
+  .hero-services.is-docked {
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    gap: 1.25rem;
+  }
+  .hero-services.is-docked::-webkit-scrollbar { display: none; }
+  .hero-services.is-docked a { flex-shrink: 0; white-space: nowrap; }
+}

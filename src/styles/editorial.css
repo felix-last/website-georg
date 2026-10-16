@@ -452,3 +452,12 @@
   .sport-feature .service-copy h2 span,
   .sport-feature .sport-grow { width: auto; max-width: 100%; white-space: normal; }
 }
+
+/* Keep large editorial lettering from widening the document or covering later sections. */
+body { overflow-x: clip; }
+.services, .service-section, .service-copy { min-width: 0; }
+.service-section { isolation: isolate; }
+.sport-feature .service-copy h2 { overflow-wrap: anywhere; }
+@media (max-width: 760px) {
+  .service-copy h2, .service-copy h2 span { max-width: 100%; overflow-wrap: anywhere; }
+}

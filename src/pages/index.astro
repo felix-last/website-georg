@@ -133,14 +133,20 @@ import mountains from "../assets/mountains.png";
   const hero = document.querySelector<HTMLElement>(".hero");
   const nav = document.querySelector<HTMLElement>(".hero-services");
   const originalParent = nav?.parentElement;
+  const placeholder = document.createElement("div");
+  placeholder.className = "hero-services-placeholder";
   if (hero && nav && originalParent) {
     const updateNavigation = () => {
-      const docked = hero.getBoundingClientRect().bottom <= 70;
+      const docked = placeholder.isConnected
+        ? placeholder.getBoundingClientRect().top <= 0
+        : nav.getBoundingClientRect().top <= 0;
       if (docked && !nav.classList.contains("is-docked")) {
+        originalParent.insertBefore(placeholder, nav);
         document.body.appendChild(nav);
         nav.classList.add("is-docked");
       } else if (!docked && nav.classList.contains("is-docked")) {
-        originalParent.appendChild(nav);
+        originalParent.insertBefore(nav, placeholder);
+        placeholder.remove();
         nav.classList.remove("is-docked");
       }
     };

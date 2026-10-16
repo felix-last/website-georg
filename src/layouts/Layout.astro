@@ -48,6 +48,15 @@ const launchReady = import.meta.env.PUBLIC_LAUNCH_READY === "true";
     <a class="skip-link" href="#inhalt">
       Zum Inhalt springen
     </a>
+    <script is:inline>
+      // Open the homepage at the top unless a specific section was requested.
+      if (!window.location.hash && window.location.pathname.replace(/\/$/, "").endsWith("/website-georg")) {
+        if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+        window.addEventListener("pageshow", () => {
+          window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+        });
+      }
+    </script>
     <slot />
   </body>
 </html>

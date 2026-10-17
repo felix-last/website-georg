@@ -2568,3 +2568,7 @@ html.programmatic-scroll { scroll-behavior: auto !important; }
     top: 63%;
   }
 }
+
+@media (max-width: 760px) {
+  #sportpsychologie .service-copy h2 > .sport-grow { top: 58%; }
+}

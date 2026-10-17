@@ -54,9 +54,23 @@ const { service, index, image, publicImage, alt = "" } = Astro.props;
         <p class="service-description">Wenn es draußen ganz still wird, wird es drinnen ganz laut.</p>
         <div class="service-details emergency-audiences">
           <h3>Für Betroffene:</h3>
-          <p class="needs-review">Psychologische Unterstützung nach außergewöhnlichen Belastungsereignissen – mit Raum für Orientierung und Stabilisierung.</p>
+          <p>Psychologische Unterstützung nach außergewöhnlichen Belastungsereignissen, beispielsweise bei:</p>
+          <ul>
+            <li>Unfällen und Unglücksfällen</li>
+            <li>schweren Erkrankungen und medizinischen Krisen</li>
+            <li>Tod, Trauer und Suizid</li>
+            <li>Gewalt, Bedrohungen und Überfällen</li>
+            <li>Naturkatastrophen und anderen Krisenereignissen</li>
+          </ul>
           <h3>Für Einsatzkräfte:</h3>
-          <p class="needs-review">Begleitung im Umgang mit belastenden Einsätzen und außergewöhnlichen beruflichen Anforderungen.</p>
+          <p>Psychologische Begleitung für Einsatzkräfte und Angehörige von Behörden und Organisationen mit Sicherheitsaufgaben (BOS), insbesondere nach:</p>
+          <ul>
+            <li>besonders belastenden Einsätzen</li>
+            <li>Konfrontation mit Tod, schweren Verletzungen oder Gewalt</li>
+            <li>außergewöhnlichen Einsatzlagen und Großschadensereignissen</li>
+            <li>psychisch belastenden beruflichen Situationen</li>
+          </ul>
+          <p class="emergency-scope">Je nach Situation umfasst die Unterstützung psychologische Akutintervention, Stabilisierung, Nachsorge und Beratung sowie die Vermittlung weiterführender Hilfen.</p>
         </div>
       </>
     ) : service.id === "neuropsychologie" ? (

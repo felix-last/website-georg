@@ -71,7 +71,6 @@ const { service, index, image, publicImage, alt = "" } = Astro.props;
             <li>psychisch belastenden beruflichen Situationen</li>
           </ul>
           <p class="emergency-scope">Je nach Situation umfasst die Unterstützung psychologische Akutintervention, Stabilisierung, Nachsorge und Beratung sowie die Vermittlung weiterführender Hilfen.</p>
-          <p class="content-note counseling-disclaimer">Dieses notfallpsychologische Angebot ist <u>keine Psychotherapie</u> und ersetzt keine psychotherapeutische oder psychiatrische Behandlung.</p>
         </div>
       </>
     ) : service.id === "neuropsychologie" ? (
@@ -83,6 +82,8 @@ const { service, index, image, publicImage, alt = "" } = Astro.props;
       <p class="content-note counseling-disclaimer">
         Psychologische Beratung ist <u>keine Psychotherapie</u> und ersetzt keine psychotherapeutische oder psychiatrische Behandlung.
       </p>
+    ) : service.id === "notfallpsychologie" ? (
+      <p class="content-note emergency-disclaimer">Dieses notfallpsychologische Angebot ist <strong><u>keine Psychotherapie</u></strong> und ersetzt keine psychotherapeutische oder psychiatrische Behandlung. Es handelt sich nicht um einen Notfalldienst. Bei akuter Gefahr wählen Sie <a href="tel:112">112</a>; bei dringendem, nicht lebensbedrohlichem medizinischem Hilfebedarf außerhalb regulärer Sprechzeiten erreichen Sie den ärztlichen Bereitschaftsdienst unter <a href="tel:116117">116117</a>.</p>
     ) : service.note ? (
       <p class="content-note">{service.note}</p>
     ) : null}

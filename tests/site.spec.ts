@@ -10,7 +10,7 @@ test("editorial page is accessible, local and responsive", async ({ page }) => {
   });
   await page.goto("./");
   await expect(page.getByRole("heading", { level: 1 })).toHaveText(
-    "Georg Schmeistenbeißer",
+    "Georg Leistenschneider",
   );
   await expect(
     page.getByRole("heading", { name: /Sport\.\s*Notfall\.\s*Neuro\./ }),

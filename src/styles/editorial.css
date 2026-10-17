@@ -1301,3 +1301,6 @@ a.contact-social-placeholder:focus-visible {
   #ueber-mich .intro-image { margin-top: 1rem; }
   #ueber-mich .intro-copy > p:not(.eyebrow) { line-height: 1.65; margin-bottom: 1rem; }
 }
+
+/* Disable native anchor easing while JS owns a scroll animation. */
+html.programmatic-scroll { scroll-behavior: auto !important; }

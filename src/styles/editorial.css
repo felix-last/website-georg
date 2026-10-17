@@ -700,3 +700,14 @@ body { overflow-x: clip; }
     opacity: 1;
   }
 }
+
+/* Preserve the oversized, scroll-animated Nohemi heading.
+   Clipping its parent hides the overhanging text and breaks the intended effect. */
+@media (prefers-reduced-motion: no-preference) {
+  .sport-feature .service-copy.reveal-item,
+  .sport-feature .service-copy.reveal-item.is-revealed {
+    clip-path: none;
+    transform: none;
+    transition: opacity 1200ms cubic-bezier(.22, 1, .36, 1);
+  }
+}

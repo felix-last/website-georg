@@ -1937,3 +1937,34 @@ html.programmatic-scroll { scroll-behavior: auto !important; }
     }
   }
 }
+
+/* Mobile emergency headline: Halt overlays the image, subtitle follows on one line. */
+@media (max-width: 760px) {
+  #notfallpsychologie .service-image { position: relative; z-index: 0; }
+  #notfallpsychologie .service-copy { position: relative; z-index: 2; overflow: visible; }
+  #notfallpsychologie .service-copy h2 {
+    margin-top: clamp(-5rem, -16vw, -3.5rem);
+    margin-bottom: 2.2rem;
+    overflow: visible;
+    max-width: none;
+    font-size: clamp(1.4rem, 5.7vw, 2rem);
+    line-height: 1.12;
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+  #notfallpsychologie .service-copy h2 > span:first-child {
+    display: block;
+    color: #fff;
+    font-size: clamp(2.7rem, 11vw, 4rem);
+    line-height: 1.1;
+    white-space: nowrap;
+    margin-bottom: .5rem;
+  }
+  #notfallpsychologie .service-copy h2 > span:last-child {
+    display: block;
+    white-space: nowrap;
+    color: var(--ink);
+    font-size: clamp(1.35rem, 5.5vw, 1.9rem);
+    letter-spacing: -.045em;
+  }
+}

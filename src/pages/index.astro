@@ -180,6 +180,19 @@ import mountains from "../assets/mountains.png";
   scrollCue?.addEventListener("click", gentleAboutScroll);
   heroNameLink?.addEventListener("click", gentleAboutScroll);
   document.querySelector<HTMLAnchorElement>(".mobile-monogram")?.addEventListener("click", gentleAboutScroll);
+  // On mobile, retain the GL mark once the hero name crosses the top bar.
+  const updateMobileNameDock = () => {
+    if (window.matchMedia("(max-width: 760px)").matches) {
+      const name = document.getElementById("hero-title");
+      const passed = !!name && name.getBoundingClientRect().bottom <= 60;
+      document.body.classList.toggle("mobile-name-passed", passed);
+    } else {
+      document.body.classList.remove("mobile-name-passed");
+    }
+  };
+  window.addEventListener("scroll", updateMobileNameDock, { passive: true });
+  window.addEventListener("resize", updateMobileNameDock);
+  updateMobileNameDock();
   const hero = document.querySelector<HTMLElement>(".hero");
   if (scrollCue && hero) {
     // Reveal after four seconds; then let the arrow respond to scrolling.

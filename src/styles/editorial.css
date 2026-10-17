@@ -1067,3 +1067,8 @@ a.contact-social-placeholder:focus-visible {
 /* Two clearly separated audiences in emergency psychology. */
 .emergency-audiences h3:not(:first-child) { margin-top: 1.6rem; }
 .emergency-audiences p { line-height: 1.6; max-width: 45ch; }
+
+/* Keep the linked Freiburg location visually understated. */
+.hero-location a, .hero-location a:hover, .hero-location a:focus-visible {
+  text-decoration: none;
+}

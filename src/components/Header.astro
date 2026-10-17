@@ -39,6 +39,19 @@ const { hero = false } = Astro.props;
 
 <script>
   document.querySelectorAll<HTMLDetailsElement>(".menu").forEach((menu) => {
+    const header = menu.closest<HTMLElement>(".site-header");
+    const panel = menu.querySelector<HTMLElement>("nav");
+    const positionPanel = () => {
+      if (!header || !panel || !menu.open || !header.classList.contains("on-hero")) return;
+      const gutter = parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--gutter")) || 24;
+      const dock = document.querySelector<HTMLElement>(".hero-services.is-docked");
+      const dockBottom = dock?.getBoundingClientRect().bottom ?? 0;
+      const naturalTop = header.getBoundingClientRect().top + gutter;
+      panel.style.top = Math.max(naturalTop, dockBottom + 12) + "px";
+    };
+    menu.addEventListener("toggle", positionPanel);
+    window.addEventListener("scroll", positionPanel, { passive: true });
+    window.addEventListener("resize", positionPanel);
     menu.querySelectorAll("a").forEach((link) => {
       link.addEventListener("click", () => {
         menu.open = false;

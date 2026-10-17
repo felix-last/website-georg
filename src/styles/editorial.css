@@ -1178,3 +1178,10 @@ a.contact-social-placeholder:focus-visible {
   padding-top: 1.5rem;
   margin-top: 2rem;
 }
+
+/* Match all three emergency section dividers to the description width. */
+#notfallpsychologie .service-description,
+#notfallpsychologie .emergency-audiences h3:not(:first-child),
+#notfallpsychologie .emergency-audiences .emergency-scope {
+  max-width: 45ch;
+}

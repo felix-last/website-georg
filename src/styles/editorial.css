@@ -1114,3 +1114,18 @@ a.contact-social-placeholder:focus-visible {
     font-size: clamp(1.45rem, 5.5vw, 2.5rem);
   }
 }
+
+/* Emergency psychology: quieter lists and one consolidated safety note. */
+#notfallpsychologie .emergency-audiences li {
+  border-bottom: 0;
+  padding: .3rem 0;
+}
+#notfallpsychologie .emergency-audiences .emergency-scope {
+  border-top: 0;
+  padding-top: 0;
+  margin-top: 1.5rem;
+}
+#notfallpsychologie .emergency-disclaimer {
+  margin-top: 1.5rem;
+  line-height: 1.65;
+}

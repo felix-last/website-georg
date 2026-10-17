@@ -13,7 +13,7 @@
 .section-navigation nav { display: flex; justify-content: center; align-items: center; gap: clamp(.7rem, 2.7vw, 3rem); padding: .8rem var(--gutter); min-height: 62px; }
 .section-navigation a { font-size: clamp(.74rem, 1.05vw, .95rem); text-decoration: none; padding: .6rem .15rem; border-bottom: 1px solid transparent; }
 .section-navigation a:hover, .section-navigation a:focus-visible { border-bottom-color: #fff; }
-#ansatz, #ueber-mich, .service-section, #kontakt { scroll-margin-top: 84px; }
+#ueber-mich, #vitae, .service-section, #kontakt { scroll-margin-top: 84px; }
 .intro { padding-top: clamp(5rem, 9vw, 10rem); padding-bottom: clamp(5rem, 9vw, 10rem); }
 .profile-section { padding-top: clamp(4rem, 8vw, 8rem); }
 .service-section { padding-block: clamp(5rem, 9vw, 10rem); }
@@ -1270,3 +1270,6 @@ a.contact-social-placeholder:focus-visible {
   text-decoration: underline;
   text-decoration-skip-ink: auto;
 }
+
+/* Approved biography copy and clear psychotherapy distinction. */
+.intro-copy .about-therapy-notice { margin-top: 1.6rem; line-height: 1.65; }

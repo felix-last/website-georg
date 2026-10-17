@@ -2051,3 +2051,29 @@ html.programmatic-scroll { scroll-behavior: auto !important; }
     transform: translateY(0);
   }
 }
+
+/* Keep the growing mobile headline in its own fixed layout area.
+   Text can push "denken." out of view, but cannot enlarge the page or
+   overlap the content below it. The whole heading scrolls away normally. */
+@media (max-width: 760px) {
+  #sportpsychologie.service-section {
+    overflow-x: clip;
+  }
+  #sportpsychologie .service-copy {
+    min-width: 0;
+    overflow: visible;
+  }
+  #sportpsychologie .service-copy h2 {
+    height: clamp(6.4rem, 24vw, 9rem);
+    min-height: 0;
+    margin-bottom: 1.8rem;
+    overflow: clip;
+    overflow-clip-margin: 0px;
+    contain: layout;
+  }
+  #sportpsychologie .service-copy h2 .sport-grow {
+    width: max-content;
+    max-width: none;
+    overflow: visible;
+  }
+}

@@ -145,3 +145,18 @@ test.describe("configured form, with mocked external services", () => {
     await expect(page.getByRole("status")).not.toContainText("Vielen Dank");
   });
 });
+
+test("hero name uses gentle scroll rather than an immediate anchor jump", async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: "no-preference" });
+  await page.goto("./");
+  await page.locator(".hero-name-link").click();
+  await page.waitForTimeout(350);
+  const mid = await page.evaluate(() => window.scrollY);
+  const target = await page.locator("#ueber-mich").evaluate(
+    (el) => el.getBoundingClientRect().top + window.scrollY - 105,
+  );
+  expect(mid).toBeGreaterThan(0);
+  expect(mid).toBeLessThan(target - 80);
+  await expect.poll(() => page.evaluate(() => window.scrollY), { timeout: 5000 })
+    .toBeGreaterThan(target - 30);
+});

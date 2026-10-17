@@ -1185,3 +1185,45 @@ a.contact-social-placeholder:focus-visible {
 #notfallpsychologie .emergency-audiences .emergency-scope {
   max-width: 45ch;
 }
+
+/* All emergency dividers use the exact same fixed responsive width,
+   independent of the width of their text containers. */
+#notfallpsychologie {
+  --emergency-divider-width: min(100%, 38ch);
+}
+#notfallpsychologie .service-description {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+#notfallpsychologie .service-description::after {
+  content: "";
+  display: block;
+  width: var(--emergency-divider-width);
+  height: 1px;
+  background: var(--rule);
+  margin-top: 1.5rem;
+}
+#notfallpsychologie .emergency-audiences h3:not(:first-child) {
+  border-top: 0;
+  padding-top: 0;
+}
+#notfallpsychologie .emergency-audiences h3:not(:first-child)::before {
+  content: "";
+  display: block;
+  width: var(--emergency-divider-width);
+  height: 1px;
+  background: var(--rule);
+  margin-bottom: 1.5rem;
+}
+#notfallpsychologie .emergency-audiences .emergency-scope {
+  border-top: 0;
+  padding-top: 0;
+}
+#notfallpsychologie .emergency-audiences .emergency-scope::before {
+  content: "";
+  display: block;
+  width: var(--emergency-divider-width);
+  height: 1px;
+  background: var(--rule);
+  margin-bottom: 1.5rem;
+}

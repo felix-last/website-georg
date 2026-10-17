@@ -21,10 +21,11 @@ const launchReady = import.meta.env.PUBLIC_LAUNCH_READY === "true";
 <html lang="de">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#eeece6" />
+    <meta name="theme-color" content="#eeece6" media="(min-width: 761px)" />
+    <meta name="theme-color" content="#213c36" media="(max-width: 760px)" />
     {!launchReady && <meta name="robots" content="noindex, nofollow" />}
     <link rel="canonical" href={canonical} />
     <link rel="icon" type="image/svg+xml" href={path("favicon.svg")} />

@@ -307,6 +307,20 @@ import mountains from "../assets/mountains.png";
       subtitle.style.fontSize = `${Math.max(12, 20 * available / naturalWidth)}px`;
     }
   };
+  const updateSportGrowth = () => {
+    const section = document.getElementById("sportpsychologie");
+    const word = section?.querySelector<HTMLElement>(".sport-grow-word");
+    const thinking = section?.querySelector<HTMLElement>(".sport-think-word");
+    if (!section || !word || !thinking || window.innerWidth > 760) return;
+    const rect = section.getBoundingClientRect();
+    const progress = Math.max(0, Math.min(1, (window.innerHeight - rect.top) / (window.innerHeight + rect.height * .6)));
+    const scale = 1 + progress * 1.8;
+    word.style.transform = `scale(${scale})`;
+    thinking.style.transform = `translateX(${word.offsetWidth * (scale - 1)}px)`;
+  };
+  window.addEventListener("scroll", updateSportGrowth, { passive: true });
+  window.addEventListener("resize", updateSportGrowth);
+  updateSportGrowth();
   window.addEventListener("resize", fitEmergencyTitle);
   document.fonts?.ready.then(fitEmergencyTitle);
   fitEmergencyTitle();

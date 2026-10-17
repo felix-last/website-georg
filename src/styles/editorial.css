@@ -785,3 +785,16 @@ body.nav-is-docked .site-header.on-hero .menu[open] nav {
   body.nav-is-docked .site-header.on-hero .menu > summary { right: .75rem; }
   body.nav-is-docked .hero-services.is-docked { padding-right: 65px; }
 }
+
+/* Slower, softer dissolve as each section enters the viewport. */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal-item {
+    transition:
+      clip-path 1900ms cubic-bezier(.22, 1, .36, 1),
+      opacity 1900ms cubic-bezier(.22, 1, .36, 1);
+  }
+  .sport-feature .service-copy.reveal-item,
+  .sport-feature .service-copy.reveal-item.is-revealed {
+    transition: opacity 1900ms cubic-bezier(.22, 1, .36, 1);
+  }
+}

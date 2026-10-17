@@ -50,7 +50,15 @@ const { service, index, image, publicImage, alt = "" } = Astro.props;
       ))}
     </h2>
     {service.id === "notfallpsychologie" ? (
-      <p class="service-description">Wenn es draußen ganz still wird, wird es drinnen ganz laut. <span class="needs-review">Notfallpsychologische Unterstützung kann nach außergewöhnlichen Belastungsereignissen dabei helfen, erste Orientierung und Stabilität zu finden.</span></p>
+      <>
+        <p class="service-description">Wenn es draußen ganz still wird, wird es drinnen ganz laut.</p>
+        <div class="service-details emergency-audiences">
+          <h3>Für Betroffene:</h3>
+          <p class="needs-review">Psychologische Unterstützung nach außergewöhnlichen Belastungsereignissen – mit Raum für Orientierung und Stabilisierung.</p>
+          <h3>Für Einsatzkräfte:</h3>
+          <p class="needs-review">Begleitung im Umgang mit belastenden Einsätzen und außergewöhnlichen beruflichen Anforderungen.</p>
+        </div>
+      </>
     ) : service.id === "neuropsychologie" ? (
       <p class="service-description">
         (Neuro-)psychologische Begutachtung in Freiburg im Breisgau{" "}

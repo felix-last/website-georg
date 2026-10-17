@@ -948,3 +948,27 @@ body.nav-is-docked .site-header.on-hero .menu[open] nav {
     transition-delay: 380ms;
   }
 }
+
+/* Progressive, one-time dissolve into bold for selected sport topics. */
+.sport-topics .topic-emphasis { position: relative; white-space: nowrap; }
+.sport-topics .topic-emphasis::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0 auto auto 0;
+  font-weight: 700;
+  color: var(--ink);
+  opacity: 0;
+  pointer-events: none;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .sport-topics.topic-emphasis-active .topic-emphasis::after {
+    animation: topic-bold-dissolve 1600ms ease-out forwards;
+  }
+  .sport-topics.topic-emphasis-active .topic-emphasis:nth-of-type(2)::after { animation-delay: 1100ms; }
+  .sport-topics.topic-emphasis-active .topic-emphasis:nth-of-type(3)::after { animation-delay: 2200ms; }
+  .sport-topics.topic-emphasis-active .topic-emphasis:nth-of-type(4)::after { animation-delay: 3300ms; }
+}
+@keyframes topic-bold-dissolve { from { opacity: 0; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) {
+  .sport-topics .topic-emphasis { font-weight: 700; color: var(--ink); }
+}

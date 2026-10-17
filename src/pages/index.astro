@@ -179,6 +179,7 @@ import mountains from "../assets/mountains.png";
   };
   scrollCue?.addEventListener("click", gentleAboutScroll);
   heroNameLink?.addEventListener("click", gentleAboutScroll);
+  document.querySelector<HTMLAnchorElement>(".mobile-monogram")?.addEventListener("click", gentleAboutScroll);
   const hero = document.querySelector<HTMLElement>(".hero");
   if (scrollCue && hero) {
     // Reveal after four seconds; then let the arrow respond to scrolling.
@@ -335,7 +336,7 @@ import mountains from "../assets/mountains.png";
     if (!link || !link.hash || link.origin !== window.location.origin ||
         link.pathname !== window.location.pathname) return;
     const id = decodeURIComponent(link.hash.slice(1));
-    if (!categoryIds.has(id) && !(id === "kontakt" && link.matches(".service-bottom .button"))) return;
+    if (!categoryIds.has(id) && !(id === "kontakt" && link.matches(".service-bottom .button, .mobile-contact-cta"))) return;
     const target = document.getElementById(id);
     if (!target) return;
     event.preventDefault();

@@ -667,3 +667,20 @@ body { overflow-x: clip; }
     transform: translate3d(0, 0, 0);
   }
 }
+
+/* Sport headline hierarchy: quieter lead-in, bigger statement at full scroll expansion. */
+.sport-feature .service-copy h2 .sport-lead {
+  display: block;
+  font-size: .66em;
+  line-height: 1.15;
+}
+.sport-feature .service-copy h2 .sport-grow {
+  display: block;
+  font-size: 1.12em;
+  line-height: 1.02;
+  transform-origin: left center;
+}
+@media (max-width: 760px) {
+  .sport-feature .service-copy h2 .sport-lead { font-size: .7em; }
+  .sport-feature .service-copy h2 .sport-grow { font-size: 1.04em; }
+}

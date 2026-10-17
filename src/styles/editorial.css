@@ -2243,3 +2243,54 @@ html.programmatic-scroll { scroll-behavior: auto !important; }
     transform-origin: left center;
   }
 }
+
+/* Mobile repairs: one final state for navigation and typography. */
+@media (max-width: 760px) {
+  /* The full bar is controlled exclusively by mobile-nav-active. */
+  .site-header.on-hero .mobile-sticky-bar,
+  body.mobile-name-passed:not(.mobile-nav-active) .site-header.on-hero .mobile-sticky-bar {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-100%);
+  }
+  body.mobile-nav-active .site-header.on-hero .mobile-sticky-bar {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+  /* A separate GL mark remains visible before the full bar appears. */
+  body.mobile-name-passed:not(.mobile-nav-active) .site-header.on-hero .mobile-monogram {
+    position: fixed;
+    visibility: visible;
+    pointer-events: auto;
+    top: calc(9px + env(safe-area-inset-top, 0px));
+    left: max(16px, env(safe-area-inset-left, 0px));
+    z-index: 125;
+  }
+  /* Fixed headline geometry: no animated font size or layout shifts. */
+  #sportpsychologie .service-copy h2 {
+    height: clamp(7rem, 27vw, 10rem);
+    margin-bottom: 1.2rem;
+    overflow: clip;
+    contain: layout;
+  }
+  #sportpsychologie .service-copy h2 .sport-grow-word {
+    animation: none !important;
+    font-size: 1em !important;
+    transform-origin: left center;
+    will-change: transform;
+  }
+  #sportpsychologie .service-copy h2 .sport-think-word {
+    transform-origin: left center;
+    will-change: transform;
+  }
+  #notfallpsychologie .service-copy h2 > span:last-child {
+    width: max-content;
+    max-width: none;
+    font-size: 20px;
+    white-space: nowrap;
+    letter-spacing: -.045em;
+  }
+}

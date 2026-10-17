@@ -213,3 +213,32 @@ import mountains from "../assets/mountains.png";
     updateNavigation();
   }
 </script>
+
+<script>
+  // Reveal content once as it enters the viewport; never hide it again.
+  const revealTargets = document.querySelectorAll<HTMLElement>(
+    ".intro-copy, .intro-image, .profile-section, .service-section .service-image, .service-section .service-art, .service-section .service-copy, .contact-intro, #contact-form",
+  );
+  const reducedMotionReveal = window.matchMedia("(prefers-reduced-motion: reduce)");
+  if ("IntersectionObserver" in window && !reducedMotionReveal.matches) {
+    const observer = new IntersectionObserver(
+      (entries, instance) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-revealed");
+            instance.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.08, rootMargin: "0px 0px -35px 0px" },
+    );
+    revealTargets.forEach((element) => {
+      element.classList.add("reveal-item");
+      if (element.getBoundingClientRect().top < window.innerHeight * 0.9) {
+        element.classList.add("is-revealed");
+      } else {
+        observer.observe(element);
+      }
+    });
+  }
+</script>

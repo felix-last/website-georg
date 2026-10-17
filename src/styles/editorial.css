@@ -585,3 +585,12 @@ body { overflow-x: clip; }
 .sport-feature .button { background: #ba4718; color: #fff; }
 .sport-feature .button:hover,
 .sport-feature .button:focus-visible { background: #99380f; }
+
+/* Sport CTA: centered, more substantial label, no directional glyph. */
+.sport-feature .service-bottom .button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: 600;
+}

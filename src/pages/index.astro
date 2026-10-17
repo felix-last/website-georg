@@ -145,7 +145,7 @@ import mountains from "../assets/mountains.png";
   const hero = document.querySelector<HTMLElement>(".hero");
   if (scrollCue && hero) {
     // Reveal after four seconds; then let the arrow respond to scrolling.
-    window.setTimeout(() => scrollCue.classList.add("is-visible"), 4000);
+    window.setTimeout(() => scrollCue.classList.add("is-visible"), 2000);
     const updateScrollCue = () => {
       const progress = Math.min(1, Math.max(0, window.scrollY / Math.max(hero.offsetHeight, 1)));
       scrollCue.style.setProperty("--scroll-progress", String(progress));

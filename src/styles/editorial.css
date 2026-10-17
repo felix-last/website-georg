@@ -899,3 +899,24 @@ body.nav-is-docked .site-header.on-hero .menu[open] nav {
   color: #ba4718;
   -webkit-text-fill-color: #ba4718;
 }
+
+/* Gentle long dissolve: remove the curtain-like clip-path reveal. */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal-item {
+    clip-path: none;
+    opacity: 0;
+    transform: none;
+    transition: opacity 2600ms cubic-bezier(.22, 1, .36, 1);
+  }
+  .reveal-item.is-revealed {
+    clip-path: none;
+    opacity: 1;
+    transform: none;
+  }
+  .sport-feature .service-copy.reveal-item,
+  .sport-feature .service-copy.reveal-item.is-revealed {
+    clip-path: none;
+    transform: none;
+    transition: opacity 2600ms cubic-bezier(.22, 1, .36, 1);
+  }
+}

@@ -2469,7 +2469,7 @@ html.programmatic-scroll { scroll-behavior: auto !important; }
     align-self: baseline;
     line-height: 1;
     vertical-align: baseline;
-    transform: none !important;
+    transform: none;
     animation: none !important;
   }
 }

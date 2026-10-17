@@ -752,3 +752,11 @@ body { overflow-x: clip; }
 @media(max-width:760px) {
   #neuropsychologie .service-copy h2 { font-size: clamp(1.65rem, 6.2vw, 2.8rem); }
 }
+
+/* Side dropdown sits slightly closer to the right viewport edge. */
+.site-header.on-hero .menu nav {
+  right: clamp(.75rem, 2vw, 2rem);
+}
+.hero-services.is-docked .docked-menu-panel {
+  right: -.35rem;
+}

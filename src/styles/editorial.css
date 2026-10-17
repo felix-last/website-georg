@@ -2107,3 +2107,46 @@ html.programmatic-scroll { scroll-behavior: auto !important; }
     white-space: nowrap;
   }
 }
+
+/* Mobile hero: stronger spacing, farther flight, and G-to-GL transition. */
+@media (max-width: 760px) {
+  .hero-services:not(.is-docked) {
+    gap: .3rem;
+  }
+  .hero-services:not(.is-docked) > a {
+    font-weight: 750;
+    padding-block: .6rem;
+    transform-origin: left center;
+    transform: translate3d(calc(var(--mobile-collapse, 0) * 57vw), calc(var(--mobile-collapse, 0) * -16vh), 0)
+      scale(calc(1 - var(--mobile-collapse, 0) * .62));
+    opacity: calc(1 - var(--mobile-collapse, 0));
+  }
+  .hero-services:not(.is-docked) > a:nth-of-type(1) {
+    translate: 0 calc(var(--mobile-collapse, 0) * 34px);
+  }
+  .hero-services:not(.is-docked) > a:nth-of-type(3) {
+    translate: 0 calc(var(--mobile-collapse, 0) * -34px);
+  }
+  .site-header.on-hero .mobile-monogram {
+    display: inline-flex;
+    align-items: center;
+    gap: 0;
+    white-space: nowrap;
+  }
+  .site-header.on-hero .mobile-monogram-l {
+    display: inline-block;
+    max-width: 0;
+    opacity: 0;
+    overflow: hidden;
+    transform: translateX(-.3em);
+    transition: max-width 420ms ease, opacity 420ms ease, transform 420ms ease;
+  }
+  body.mobile-name-passed .site-header.on-hero .mobile-monogram-l {
+    max-width: 1em;
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@media (max-width: 760px) and (prefers-reduced-motion: reduce) {
+  .site-header.on-hero .mobile-monogram-l { transition: none; }
+}

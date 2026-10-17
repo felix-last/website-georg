@@ -892,3 +892,10 @@ body.nav-is-docked .site-header.on-hero .menu[open] nav {
   border-color: #fff;
   text-decoration: none;
 }
+
+/* Match the sport CTA orange for the word "Größer" only. */
+.sport-feature .service-copy h2 .sport-accent {
+  display: inline;
+  color: #ba4718;
+  -webkit-text-fill-color: #ba4718;
+}

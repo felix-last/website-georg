@@ -720,3 +720,6 @@ body { overflow-x: clip; }
   .sport-formats li { font-size: 1rem; }
   .sport-topics { font-size: 1rem; }
 }
+
+/* No divider above the sport psychology formats. */
+.sport-offer { border-top: none; }

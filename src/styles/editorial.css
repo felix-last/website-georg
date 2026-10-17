@@ -2427,3 +2427,24 @@ html.programmatic-scroll { scroll-behavior: auto !important; }
 @media (max-width: 760px) {
   #neuropsychologie .service-copy > .line-label { display: none; }
 }
+
+/* Professional links are part of the existing footer, not a new row/section. */
+.site-footer .footer-social {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: clamp(.8rem, 1.5vw, 1.5rem);
+  font-size: .73rem;
+}
+.site-footer .footer-social a {
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  padding-block: .6rem;
+}
+.site-footer .footer-social a:hover,
+.site-footer .footer-social a:focus-visible {
+  border-bottom-color: currentColor;
+}
+@media (max-width: 760px) {
+  .site-footer .footer-social { gap: 1.4rem; }
+}

@@ -15,6 +15,10 @@ const { hero = false } = Astro.props;
   >
     G<span class="brand-dot">.</span>
   </a>
+  <div class="mobile-sticky-bar" aria-label="Mobile Navigation">
+    <a class="mobile-monogram" href={path("#ueber-mich")} aria-label="GL – Über mich">GL</a>
+    <a class="mobile-contact-cta" href={path("#kontakt")}>Kontakt</a>
+  </div>
   <details class="menu">
     <summary aria-label="Menü öffnen oder schließen">
       <span class="menu-word">Menü</span>

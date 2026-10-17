@@ -236,6 +236,10 @@ import mountains from "../assets/mountains.png";
         const distance = Math.max(1, window.innerHeight * .44 - 62);
         const progress = Math.max(0, Math.min(1, (scroll - start) / distance));
         nav.style.setProperty("--mobile-collapse", String(progress));
+        links.forEach((link) => {
+          const finalRight = rect.left + link.offsetLeft + link.offsetWidth * 0.35;
+          link.style.setProperty("--flight-x", String(window.innerWidth - 18 - finalRight) + "px");
+        });
         // The last category catches up with the others near the burger.
         // Reveal the full-width bar at that point, rather than waiting for
         // the original category container to leave the viewport.

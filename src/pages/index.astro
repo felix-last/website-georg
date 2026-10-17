@@ -188,6 +188,7 @@ import mountains from "../assets/mountains.png";
         nav.classList.remove("is-docked");
       }
 
+      document.body.classList.toggle("nav-is-docked", docked);
       if (dockedMenu) dockedMenu.open = false;
       if (reducedMotion.matches) return;
 

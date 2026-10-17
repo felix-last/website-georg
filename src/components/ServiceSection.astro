@@ -69,7 +69,7 @@ const { service, index, image, alt = "" } = Astro.props;
     )}
     <div class="service-bottom">
       <a class="button" href="#kontakt">
-        Erstgespräch anfragen <span aria-hidden="true">⟶</span>
+        Erstgespräch anfragen{service.id !== "sportpsychologie" && <span aria-hidden="true"> ⟶</span>}
       </a>
 
     </div>

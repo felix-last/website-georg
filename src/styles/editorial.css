@@ -2483,3 +2483,15 @@ html.programmatic-scroll { scroll-behavior: auto !important; }
     transform-origin: left top;
   }
 }
+
+/* Mobile categories: accelerate horizontal travel early toward the burger. */
+@media (max-width: 760px) {
+  .hero-services:not(.is-docked) > a {
+    --flight-early: clamp(0, calc(var(--flight) * 1.55), 1);
+    transform: translate3d(
+      calc(var(--flight-early) * var(--flight-x, 62vw)),
+      calc(var(--flight) * var(--flight-y, -18vh)),
+      0
+    ) scale(calc(1 - var(--flight) * .65));
+  }
+}

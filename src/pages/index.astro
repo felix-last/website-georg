@@ -316,8 +316,11 @@ import mountains from "../assets/mountains.png";
     event.preventDefault();
     cancelCategoryScroll();
     const start = window.scrollY;
-    const offset = window.innerWidth <= 760 ? 110 : 145;
-    const destination = Math.max(0, target.getBoundingClientRect().top + start - offset);
+    // Align the top of the actual image, not the section's outer border or padding.
+    const visual = target.querySelector<HTMLElement>(".service-image, .service-art");
+    const offset = window.innerWidth <= 760 ? 90 : 105;
+    const anchorTop = (visual ?? target).getBoundingClientRect().top;
+    const destination = Math.max(0, anchorTop + start - offset);
     const distance = destination - start;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       window.scrollTo({ top: destination, behavior: "instant" });

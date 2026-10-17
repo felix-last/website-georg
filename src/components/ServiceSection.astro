@@ -11,29 +11,30 @@ interface Props {
   };
   index: number;
   image?: ImageMetadata;
+  publicImage?: string;
   alt?: string;
 }
-const { service, index, image, alt = "" } = Astro.props;
+const { service, index, image, publicImage, alt = "" } = Astro.props;
 ---
 
 <section
   id={service.id}
   class:list={[
     "service-section",
-    { reverse: index % 2 !== 0, "has-image": !!image, "sport-feature": service.id === "sportpsychologie" },
+    { reverse: index % 2 !== 0, "has-image": !!(image || publicImage), "sport-feature": service.id === "sportpsychologie" },
   ]}
   aria-labelledby={`${service.id}-title`}
 >
-  {image ? (
+  {image || publicImage ? (
     <div class="service-image">
-      <Image
+      {image ? <Image
         src={image}
         alt={alt}
         widths={[480, 800, 1200]}
         sizes="(max-width: 760px) 100vw, 50vw"
         format="webp"
         loading="lazy"
-      />
+      /> : <img src={publicImage} alt={alt} loading="lazy" decoding="async" width="594" height="594" />}
     </div>
   ) : (
     <div class="service-art" aria-hidden="true">

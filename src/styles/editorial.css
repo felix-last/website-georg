@@ -2393,3 +2393,33 @@ html.programmatic-scroll { scroll-behavior: auto !important; }
     padding-top: 0;
   }
 }
+
+/* Mobile: three clearly readable sport lines before zoom begins. */
+@media (max-width: 760px) {
+  #sportpsychologie .service-copy h2 {
+    height: clamp(8.4rem, 35vw, 12rem);
+    margin-bottom: 1.2rem;
+    overflow: clip;
+  }
+  #sportpsychologie .service-copy h2 > .sport-lead {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    white-space: nowrap;
+    line-height: 1.03;
+    font-size: clamp(1.6rem, 7.2vw, 2.65rem);
+  }
+  #sportpsychologie .service-copy h2 .sport-train-word {
+    display: block;
+    color: #5e6566;
+    -webkit-text-fill-color: #5e6566;
+  }
+  #sportpsychologie .service-copy h2 > .sport-grow {
+    top: 57%;
+    font-size: clamp(1.45rem, 6.2vw, 2.3rem);
+    gap: .18em;
+  }
+  #notfallpsychologie .service-copy h2 > span:first-child {
+    margin-bottom: .1rem;
+  }
+}

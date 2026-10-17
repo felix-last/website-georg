@@ -259,3 +259,21 @@ import mountains from "../assets/mountains.png";
     });
   }
 </script>
+
+<script>
+  // Start the staggered bold dissolve only once the topic list is visible.
+  const topics = document.querySelector<HTMLElement>(".sport-topics");
+  if (topics && window.matchMedia("(prefers-reduced-motion: no-preference)").matches) {
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver((entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          topics.classList.add("topic-emphasis-active");
+          observer.disconnect();
+        }
+      }, { threshold: 0.35 });
+      observer.observe(topics);
+    } else {
+      topics.classList.add("topic-emphasis-active");
+    }
+  }
+</script>

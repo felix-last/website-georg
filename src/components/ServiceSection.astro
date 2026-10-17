@@ -48,7 +48,9 @@ const { service, index, image, alt = "" } = Astro.props;
         <span class:list={{ "sport-grow": service.id === "sportpsychologie" && lineIndex === 1, "sport-lead": service.id === "sportpsychologie" && lineIndex === 0 }}>{service.id === "sportpsychologie" && lineIndex === 0 ? <><span class="sport-accent">Ganzheitlich</span> trainieren.</> : service.id === "sportpsychologie" && lineIndex === 1 ? <>Größer <span class="sport-accent">denken.</span></> : line} </span>
       ))}
     </h2>
-    <p class:list={["service-description", { "needs-review": service.id === "notfallpsychologie" }]}>{service.text}</p>
+    {service.id === "notfallpsychologie" ? (
+      <p class="service-description">Wenn es draußen ganz still wird, wird es drinnen ganz laut. <span class="needs-review">Notfallpsychologische Unterstützung kann nach außergewöhnlichen Belastungsereignissen dabei helfen, erste Orientierung und Stabilität zu finden.</span></p>
+    ) : <p class="service-description">{service.text}</p>}
     {service.id === "beratung" ? (
       <p class="content-note counseling-disclaimer">
         Psychologische Beratung ist <u>keine Psychotherapie</u> und ersetzt keine psychotherapeutische oder psychiatrische Behandlung.

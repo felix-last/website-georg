@@ -659,8 +659,8 @@ body { overflow-x: clip; }
     opacity: 0;
     transform: translate3d(0, 26px, 0);
     transition:
-      opacity 850ms cubic-bezier(.22, 1, .36, 1),
-      transform 850ms cubic-bezier(.22, 1, .36, 1);
+      opacity 1200ms cubic-bezier(.22, 1, .36, 1),
+      transform 1200ms cubic-bezier(.22, 1, .36, 1);
   }
   .reveal-item.is-revealed {
     opacity: 1;

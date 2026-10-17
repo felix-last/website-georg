@@ -1304,3 +1304,40 @@ a.contact-social-placeholder:focus-visible {
 
 /* Disable native anchor easing while JS owns a scroll animation. */
 html.programmatic-scroll { scroll-behavior: auto !important; }
+
+/* About: full-width editorial lead, then a balanced text / portrait split. */
+#ueber-mich .about-lead {
+  grid-column: 1 / -1;
+  min-width: 0;
+}
+#ueber-mich .about-lead h2 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: clamp(1rem, 3vw, 4rem);
+  row-gap: .2rem;
+  margin: 2rem 0 1.5rem;
+  font-size: clamp(3rem, 6.5vw, 7.5rem);
+  line-height: 1.08;
+  letter-spacing: -.055em;
+}
+#ueber-mich .about-lead h2 span { white-space: nowrap; }
+#ueber-mich .about-lead > p:not(.eyebrow) {
+  font-size: clamp(1.1rem, 1.65vw, 1.5rem);
+  line-height: 1.55;
+  max-width: 75ch;
+  margin-bottom: clamp(1rem, 3vw, 3rem);
+}
+@media (min-width: 761px) {
+  #ueber-mich .intro-image { margin-top: clamp(1rem, 3vw, 3rem); }
+  #ueber-mich .intro-copy { padding-top: 0; }
+}
+@media (max-width: 760px) {
+  #ueber-mich .about-lead h2 {
+    display: block;
+    font-size: clamp(2.8rem, 10vw, 4.5rem);
+  }
+  #ueber-mich .about-lead h2 span { display: block; }
+  #ueber-mich .about-lead > p:not(.eyebrow) { font-size: 1.08rem; }
+  #ueber-mich .intro-image { margin-top: .5rem; }
+}

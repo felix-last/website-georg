@@ -1083,3 +1083,34 @@ a.contact-social-placeholder:focus-visible {
   border-top: 1px solid var(--rule);
   line-height: 1.6;
 }
+
+/* Assessment: consistent heading wrapping and clearly separated content groups. */
+#neuropsychologie .service-copy {
+  min-width: 0;
+}
+#neuropsychologie .service-copy h2 {
+  font-size: clamp(1.8rem, 3vw, 3.3rem);
+  line-height: 1.12;
+  letter-spacing: -.035em;
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: manual;
+}
+#neuropsychologie .service-copy h2 span {
+  display: block;
+  max-width: 100%;
+  overflow-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+#neuropsychologie .service-details h3:not(:first-child) {
+  margin-top: 2.5rem;
+}
+#neuropsychologie .service-details li {
+  overflow-wrap: break-word;
+}
+@media (max-width: 760px) {
+  #neuropsychologie .service-copy h2 {
+    font-size: clamp(1.45rem, 5.5vw, 2.5rem);
+  }
+}

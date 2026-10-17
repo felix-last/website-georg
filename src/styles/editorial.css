@@ -760,3 +760,28 @@ body { overflow-x: clip; }
 .hero-services.is-docked .docked-menu-panel {
   right: -.35rem;
 }
+
+/* Keep the original hamburger at the top-right when the hero menu docks.
+   Avoid swapping to a second icon inside the sticky bar. */
+body.nav-is-docked .site-header.on-hero { z-index: 120; }
+body.nav-is-docked .site-header.on-hero .menu > summary {
+  position: fixed;
+  top: 9px;
+  right: clamp(1rem, 2.2vw, 2.5rem);
+  height: 44px;
+  z-index: 122;
+  color: #fff;
+}
+body.nav-is-docked .hero-services.is-docked .docked-menu { display: none; }
+body.nav-is-docked .hero-services.is-docked {
+  padding-right: clamp(5.5rem, 9vw, 9rem);
+}
+body.nav-is-docked .site-header.on-hero .menu[open] nav {
+  top: 76px !important;
+  right: clamp(.75rem, 2vw, 2rem);
+  z-index: 121;
+}
+@media(max-width:760px) {
+  body.nav-is-docked .site-header.on-hero .menu > summary { right: .75rem; }
+  body.nav-is-docked .hero-services.is-docked { padding-right: 65px; }
+}

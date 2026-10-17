@@ -229,11 +229,14 @@ import mountains from "../assets/mountains.png";
           nav.classList.remove("is-docked");
         }
         const rect = nav.getBoundingClientRect();
-        const start = window.innerHeight * 0.44;
-        const end = 62;
-        const progress = Math.max(0, Math.min(1, (start - rect.top) / (start - end)));
+        // Use the untransformed nav box and clamp rubber-band overscroll to zero.
+        // The animation begins only after actual downward page scrolling.
+        const scroll = Math.max(0, window.scrollY);
+        const start = Math.max(0, nav.getBoundingClientRect().top + scroll - window.innerHeight * .44);
+        const distance = Math.max(1, window.innerHeight * .44 - 62);
+        const progress = Math.max(0, Math.min(1, (scroll - start) / distance));
         nav.style.setProperty("--mobile-collapse", String(progress));
-        const active = rect.bottom <= 62;
+        const active = scroll > 0 && rect.bottom <= 62;
         document.body.classList.toggle("mobile-nav-active", active);
         document.body.classList.remove("nav-is-docked");
         return;

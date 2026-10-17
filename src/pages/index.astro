@@ -239,7 +239,7 @@ import mountains from "../assets/mountains.png";
         // The last category catches up with the others near the burger.
         // Reveal the full-width bar at that point, rather than waiting for
         // the original category container to leave the viewport.
-        const active = scroll > 0 && progress >= 0.82;
+        const active = document.body.classList.contains("mobile-name-passed");
         document.body.classList.toggle("mobile-nav-active", active);
         document.body.classList.remove("nav-is-docked");
         return;

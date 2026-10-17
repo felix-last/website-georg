@@ -319,8 +319,9 @@ import mountains from "../assets/mountains.png";
     // Align the top of the actual image, not the section's outer border or padding.
     const visual = target.querySelector<HTMLElement>(".service-image, .service-art");
     const offset = window.innerWidth <= 760 ? 90 : 105;
-    const anchorTop = (visual ?? target).getBoundingClientRect().top;
-    const destination = Math.max(0, anchorTop + start - offset);
+    const anchor = visual ?? target;
+    const targetY = () => Math.max(0, anchor.getBoundingClientRect().top + window.scrollY - offset);
+    const destination = targetY();
     const distance = destination - start;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       window.scrollTo({ top: destination, behavior: "instant" });
@@ -332,9 +333,14 @@ import mountains from "../assets/mountains.png";
     const animate = (now: number) => {
       const t = Math.min(1, (now - started) / duration);
       const eased = t * t * t * (t * (t * 6 - 15) + 10);
-      window.scrollTo({ top: start + distance * eased, behavior: "instant" });
+      // Recalculate the image position as the sticky navigation changes layout.
+      const currentDestination = targetY();
+      window.scrollTo({ top: start + (currentDestination - start) * eased, behavior: "instant" });
       if (t < 1) categoryScrollFrame = requestAnimationFrame(animate);
-      else history.pushState(null, "", link.hash);
+      else {
+        window.scrollTo({ top: targetY(), behavior: "instant" });
+        history.pushState(null, "", link.hash);
+      }
     };
     categoryScrollFrame = requestAnimationFrame(animate);
   });

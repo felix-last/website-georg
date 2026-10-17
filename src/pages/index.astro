@@ -320,7 +320,7 @@ import mountains from "../assets/mountains.png";
     const thinking = section?.querySelector<HTMLElement>(".sport-think-word");
     if (!section || !word || !thinking || window.innerWidth > 760) return;
     const rect = word.parentElement?.getBoundingClientRect() ?? section.getBoundingClientRect();
-    const progress = Math.max(0, Math.min(1, (window.innerHeight * 0.75 - rect.top) / Math.max(window.innerHeight * .8, 1)));
+    const progress = Math.max(0, Math.min(1, (window.innerHeight * 0.9 - rect.top) / Math.max(window.innerHeight * .8, 1)));
     // Scale the word smoothly without changing the layout below.
     const line = word.parentElement;
     const image = section.querySelector<HTMLElement>(".service-image");

@@ -236,7 +236,10 @@ import mountains from "../assets/mountains.png";
         const distance = Math.max(1, window.innerHeight * .44 - 62);
         const progress = Math.max(0, Math.min(1, (scroll - start) / distance));
         nav.style.setProperty("--mobile-collapse", String(progress));
-        const active = scroll > 0 && rect.bottom <= 62;
+        // The last category catches up with the others near the burger.
+        // Reveal the full-width bar at that point, rather than waiting for
+        // the original category container to leave the viewport.
+        const active = scroll > 0 && progress >= 0.88;
         document.body.classList.toggle("mobile-nav-active", active);
         document.body.classList.remove("nav-is-docked");
         return;

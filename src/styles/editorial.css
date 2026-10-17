@@ -2547,3 +2547,14 @@ html.programmatic-scroll { scroll-behavior: auto !important; }
     padding-top: .45rem;
   }
 }
+
+/* Remove bright separator edge from the mobile sport frosted copy overlay. */
+@media (max-width: 760px) {
+  #sportpsychologie .service-copy .service-description {
+    border-top: 0;
+    box-shadow: none;
+  }
+  #sportpsychologie .service-copy h2 {
+    border-bottom: 0;
+  }
+}

@@ -652,3 +652,18 @@ body { overflow-x: clip; }
   overflow-y: auto;
   z-index: 20;
 }
+
+/* Apple-inspired one-time reveal: understated lift and fade on first entry. */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal-item {
+    opacity: 0;
+    transform: translate3d(0, 26px, 0);
+    transition:
+      opacity 850ms cubic-bezier(.22, 1, .36, 1),
+      transform 850ms cubic-bezier(.22, 1, .36, 1);
+  }
+  .reveal-item.is-revealed {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}

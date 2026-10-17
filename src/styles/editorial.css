@@ -798,3 +798,29 @@ body.nav-is-docked .site-header.on-hero .menu[open] nav {
     transition: opacity 1900ms cubic-bezier(.22, 1, .36, 1);
   }
 }
+
+/* CTA reveal is deliberately later than its section, with a short dissolve. */
+@media (prefers-reduced-motion: no-preference) {
+  .cta-reveal {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 950ms ease 500ms, transform 950ms cubic-bezier(.22,1,.36,1) 500ms;
+  }
+  .cta-reveal.cta-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* The word Menu fades away at docking; only the original hamburger remains. */
+body.nav-is-docked .site-header.on-hero .menu-word {
+  opacity: 0;
+  width: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.site-header.on-hero .menu-word { transition: opacity 240ms ease, width 240ms ease; }
+body.nav-is-docked .site-header.on-hero .menu > summary {
+  min-width: 44px;
+  justify-content: center;
+  gap: 0;
+}

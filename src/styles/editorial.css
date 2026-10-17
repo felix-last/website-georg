@@ -824,3 +824,28 @@ body.nav-is-docked .site-header.on-hero .menu > summary {
   justify-content: center;
   gap: 0;
 }
+
+/* Dock hamburger as soon as its own position reaches the viewport top. */
+body.burger-is-docked .site-header.on-hero { z-index: 120; }
+body.burger-is-docked .site-header.on-hero .menu > summary {
+  position: fixed;
+  top: 9px;
+  right: clamp(1rem, 2.2vw, 2.5rem);
+  height: 44px;
+  z-index: 122;
+  color: #fff;
+}
+body.burger-is-docked .site-header.on-hero .menu-word {
+  opacity: 0;
+  width: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+body.burger-is-docked .site-header.on-hero .menu > summary {
+  min-width: 44px;
+  justify-content: center;
+  gap: 0;
+}
+@media(max-width:760px) {
+  body.burger-is-docked .site-header.on-hero .menu > summary { right: .75rem; }
+}

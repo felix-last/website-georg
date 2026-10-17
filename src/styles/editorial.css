@@ -972,3 +972,6 @@ body.nav-is-docked .site-header.on-hero .menu[open] nav {
 @media (prefers-reduced-motion: reduce) {
   .sport-topics .topic-emphasis { font-weight: 700; color: var(--ink); }
 }
+
+/* The approved "Über mich" section label stays neutral, unlike draft copy. */
+.intro-copy.needs-review > .eyebrow { color: var(--muted); }

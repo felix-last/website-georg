@@ -75,7 +75,7 @@ const { service, index, image, publicImage, alt = "" } = Astro.props;
       </>
     ) : service.id === "neuropsychologie" ? (
       <p class="service-description">
-        (Neuro-)psychologische Begutachtung in Freiburg im Breisgau für Gerichte, Unfallversicherungsträger, Versicherungen und Behörden. Die Untersuchung erfolgt mit standardisierten psychologischen und neuropsychologischen Verfahren unter Berücksichtigung fachlicher Vorgaben und Empfehlungen der Gesellschaft für Neuropsychologie (GNP).
+        In Freiburg im Breisgau biete ich (neuro-)psychologische Begutachtungen an. Schwerpunkte sind die Beurteilung der Arbeitsfähigkeit und kognitiven Leistungsfähigkeit sowie Zustands- und Zusammenhangsbegutachtungen. Je nach gutachtlicher Fragestellung gehört dazu auch die Einschätzung von Beeinträchtigungen, die für die Minderung der Erwerbsfähigkeit (MdE) relevant sein können. Grundlage sind standardisierte psychologische und neuropsychologische Untersuchungsverfahren unter Berücksichtigung fachlicher Empfehlungen der Gesellschaft für Neuropsychologie (GNP).
       </p>
     ) : <p class="service-description">{service.text}</p>}
     {service.id === "beratung" ? (
@@ -103,13 +103,6 @@ const { service, index, image, publicImage, alt = "" } = Astro.props;
     )}
     {service.id === "neuropsychologie" && (
       <div class="service-details">
-        <h3>Begutachtungsschwerpunkte</h3>
-        <ul>
-          <li>Arbeitsfähigkeitsbegutachtung</li>
-          <li>Beurteilung der Minderung der Erwerbsfähigkeit (MdE)</li>
-          <li>Zustands- und Zusammenhangsbegutachtung</li>
-          <li>Begutachtung der kognitiven Leistungsfähigkeit</li>
-        </ul>
         <h3>Auftraggeber:innen</h3>
         <ul>
           <li>Sozial-, Arbeits- und Zivilgerichte</li>

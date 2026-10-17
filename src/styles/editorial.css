@@ -1837,3 +1837,36 @@ html.programmatic-scroll { scroll-behavior: auto !important; }
     transform: translateY(-4px) rotate(-45deg);
   }
 }
+
+/* Mobile hero category alignment and tighter convergence toward the burger. */
+@media (max-width: 760px) {
+  .hero-content.wrap { padding-left: max(12px, env(safe-area-inset-left, 0px)); }
+  .hero-services:not(.is-docked) {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 0;
+    width: 100%;
+  }
+  .hero-services:not(.is-docked) > a {
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: .48rem 0;
+    text-align: left;
+    font-weight: 700;
+    font-size: clamp(1.4rem, 6.15vw, 1.95rem);
+    letter-spacing: -.04em;
+    line-height: 1.15;
+    transform-origin: right center;
+    transform: translate3d(calc(var(--mobile-collapse, 0) * 29vw), calc(var(--mobile-collapse, 0) * -13vh), 0)
+      scale(calc(1 - var(--mobile-collapse, 0) * .55));
+  }
+  .hero-services:not(.is-docked) > a:nth-of-type(1) {
+    translate: 0 calc(var(--mobile-collapse, 0) * 22px);
+  }
+  .hero-services:not(.is-docked) > a:nth-of-type(3) {
+    translate: 0 calc(var(--mobile-collapse, 0) * -22px);
+  }
+}

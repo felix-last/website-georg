@@ -1870,3 +1870,30 @@ html.programmatic-scroll { scroll-behavior: auto !important; }
     translate: 0 calc(var(--mobile-collapse, 0) * -22px);
   }
 }
+
+/* GL docks independently as soon as the full hero name leaves the top bar. */
+@media (max-width: 760px) {
+  body.mobile-name-passed .site-header.on-hero .mobile-monogram {
+    position: fixed;
+    top: calc(9px + env(safe-area-inset-top, 0px));
+    left: max(20px, env(safe-area-inset-left, 0px));
+    z-index: 125;
+    height: 44px;
+    min-width: 44px;
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 1rem;
+    font-weight: 650;
+    text-decoration: none;
+    pointer-events: auto;
+  }
+  body.mobile-name-passed:not(.mobile-nav-active) .site-header.on-hero .mobile-sticky-bar {
+    visibility: visible;
+    pointer-events: none;
+  }
+  body.mobile-name-passed:not(.mobile-nav-active) .site-header.on-hero .mobile-monogram {
+    visibility: visible;
+    pointer-events: auto;
+  }
+}

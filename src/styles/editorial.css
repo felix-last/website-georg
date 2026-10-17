@@ -1813,3 +1813,10 @@ html.programmatic-scroll { scroll-behavior: auto !important; }
     to { transform: scale(1.35); }
   }
 }
+
+/* Professional links sit below the complete contact form on every viewport. */
+#kontakt > .contact-social {
+  grid-column: 1 / -1;
+  justify-content: flex-start;
+  margin-top: 1.5rem;
+}

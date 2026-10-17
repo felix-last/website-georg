@@ -1034,3 +1034,20 @@ body.nav-is-docked .site-header.on-hero .menu[open] nav {
   color: var(--ink);
   opacity: 1;
 }
+
+/* Single text layer: smoothly interpolate Geist weight, no duplicate glyphs. */
+.sport-topics .topic-emphasis {
+  display: inline;
+  position: static;
+  white-space: normal;
+  font-weight: 400;
+  font-synthesis: none;
+  transition: font-weight 1200ms ease;
+}
+.sport-topics .topic-emphasis::after { content: none !important; }
+.sport-topics .topic-emphasis .topic-bold,
+.sport-topics .topic-emphasis .topic-normal { display: none; }
+.sport-topics .topic-emphasis.is-bold { font-weight: 700; }
+@media (prefers-reduced-motion: reduce) {
+  .sport-topics .topic-emphasis { font-weight: 700; transition: none; }
+}

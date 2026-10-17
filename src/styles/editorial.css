@@ -1851,7 +1851,8 @@ html.programmatic-scroll { scroll-behavior: auto !important; }
   }
   .hero-services:not(.is-docked) > a {
     display: block;
-    width: 100%;
+    width: max-content;
+    max-width: 100%;
     margin: 0;
     padding: .48rem 0;
     text-align: left;
@@ -1859,9 +1860,7 @@ html.programmatic-scroll { scroll-behavior: auto !important; }
     font-size: clamp(1.4rem, 6.15vw, 1.95rem);
     letter-spacing: -.04em;
     line-height: 1.15;
-    transform-origin: right center;
-    transform: translate3d(calc(var(--mobile-collapse, 0) * 29vw), calc(var(--mobile-collapse, 0) * -13vh), 0)
-      scale(calc(1 - var(--mobile-collapse, 0) * .55));
+    transform-origin: left center;
   }
   .hero-services:not(.is-docked) > a:nth-of-type(1) {
     translate: 0 calc(var(--mobile-collapse, 0) * 22px);
@@ -2117,15 +2116,6 @@ html.programmatic-scroll { scroll-behavior: auto !important; }
     font-weight: 750;
     padding-block: .6rem;
     transform-origin: left center;
-    transform: translate3d(calc(var(--mobile-collapse, 0) * 57vw), calc(var(--mobile-collapse, 0) * -16vh), 0)
-      scale(calc(1 - var(--mobile-collapse, 0) * .62));
-    opacity: calc(1 - var(--mobile-collapse, 0));
-  }
-  .hero-services:not(.is-docked) > a:nth-of-type(1) {
-    translate: 0 calc(var(--mobile-collapse, 0) * 34px);
-  }
-  .hero-services:not(.is-docked) > a:nth-of-type(3) {
-    translate: 0 calc(var(--mobile-collapse, 0) * -34px);
   }
   .site-header.on-hero .mobile-monogram {
     display: inline-flex;

@@ -1484,3 +1484,98 @@ html.programmatic-scroll { scroll-behavior: auto !important; }
   .hero-services.is-docked { gap: .55rem; }
   #ueber-mich .about-lead h2 { font-size: 10vw; }
 }
+
+/* Mobile refinement: category headings, dramatic sport typography and burger-only dock. */
+.mobile-service-label { display: none; }
+@media (max-width: 760px) {
+  #ueber-mich #profile-title {
+    font-size: .78rem;
+    line-height: 1.4;
+    letter-spacing: .12em;
+    font-weight: 500;
+    margin: 0 0 1rem;
+  }
+  .hero h1 { font-size: clamp(1.25rem, 4.6vw, 1.65rem); }
+  .hero-services:not(.is-docked) a {
+    font-size: clamp(1.22rem, 5.3vw, 1.55rem);
+    padding-block: .65rem;
+  }
+  .service-section .mobile-service-label {
+    display: block;
+    order: -1;
+    margin: 0 0 -.5rem;
+    color: var(--muted);
+    font-size: .8rem;
+    letter-spacing: .1em;
+  }
+  #sportpsychologie .service-copy > .line-label,
+  #notfallpsychologie .service-copy > .line-label { display: none; }
+  #sportpsychologie.service-section { gap: 1rem; }
+  #sportpsychologie .service-image { position: relative; z-index: 0; }
+  #sportpsychologie .service-copy {
+    position: relative;
+    z-index: 2;
+    overflow: visible;
+  }
+  #sportpsychologie .service-copy h2 {
+    position: relative;
+    z-index: 3;
+    margin-top: clamp(-6.5rem, -19vw, -4rem);
+    margin-bottom: 2.25rem;
+    font-size: clamp(2.6rem, 9.6vw, 4.4rem);
+    line-height: 1.02;
+    overflow: visible;
+    transform-origin: left bottom;
+  }
+  #sportpsychologie .service-copy h2 .sport-grow {
+    display: block;
+    font-size: 1.12em;
+    transform-origin: left center;
+  }
+  #sportpsychologie .service-copy h2 .sport-lead {
+    display: block;
+    font-size: .7em;
+  }
+  #sportpsychologie .service-copy h2 .sport-accent {
+    color: #ba4718;
+    -webkit-text-fill-color: #ba4718;
+  }
+  /* Keep the growing heading legible over the mountain image. */
+  #sportpsychologie .service-copy h2 .sport-lead { color: #fff; }
+  /* The mobile dock has no category bar: links collapse into the persistent burger. */
+  .hero-services.is-docked {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    height: 0;
+    min-height: 0;
+    padding: 0;
+    border: 0;
+    box-shadow: none;
+    background: transparent;
+  }
+  .hero-services.is-docked::before { display: none; }
+  .hero-services.is-docked > a {
+    opacity: 0;
+    transform: translateX(20vw) scale(.65);
+    transition: opacity 420ms ease, transform 520ms cubic-bezier(.22,1,.36,1);
+  }
+  body.burger-is-docked .site-header.on-hero .menu > summary,
+  body.nav-is-docked .site-header.on-hero .menu > summary {
+    right: 12px;
+    top: 9px;
+    width: 44px;
+    min-width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(20,29,27,.76);
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+    transform: none;
+    color: white;
+  }
+  body.burger-is-docked .site-header.on-hero .menu-word { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-services.is-docked > a { transition: none; }
+}

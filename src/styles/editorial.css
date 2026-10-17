@@ -1149,3 +1149,32 @@ a.contact-social-placeholder:focus-visible {
     scroll-margin-top: 110px;
   }
 }
+
+/* Emergency psychology: subtle separators for the introduction, audiences and scope. */
+#notfallpsychologie .service-description {
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--rule);
+}
+#notfallpsychologie .emergency-audiences {
+  margin-top: 1.5rem;
+}
+#notfallpsychologie .emergency-audiences ul {
+  list-style: disc;
+  padding-left: 1.35rem;
+}
+#notfallpsychologie .emergency-audiences li {
+  display: list-item;
+  list-style: disc;
+  padding: .25rem 0;
+  border: 0;
+}
+#notfallpsychologie .emergency-audiences h3:not(:first-child) {
+  border-top: 1px solid var(--rule);
+  padding-top: 1.5rem;
+  margin-top: 2rem;
+}
+#notfallpsychologie .emergency-audiences .emergency-scope {
+  border-top: 1px solid var(--rule);
+  padding-top: 1.5rem;
+  margin-top: 2rem;
+}

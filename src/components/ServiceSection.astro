@@ -51,6 +51,18 @@ const { service, index, image, publicImage, alt = "" } = Astro.props;
     </h2>
     {service.id === "notfallpsychologie" ? (
       <p class="service-description">Wenn es draußen ganz still wird, wird es drinnen ganz laut. <span class="needs-review">Notfallpsychologische Unterstützung kann nach außergewöhnlichen Belastungsereignissen dabei helfen, erste Orientierung und Stabilität zu finden.</span></p>
+    ) : service.id === "neuropsychologie" ? (
+      <p class="service-description">
+        (Neuro-)psychologische Begutachtung in Freiburg im Breisgau{" "}
+        <a
+          class="assessment-map-link"
+          href="https://www.google.com/maps/search/?api=1&query=Freiburg+im+Breisgau"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Freiburg im Breisgau auf Google Maps öffnen (neuer Tab)"
+        >↗ Google Maps</a>
+        {" "}für Gerichte, Unfallversicherungsträger, Versicherungen und Behörden. Die Untersuchung erfolgt mit standardisierten psychologischen und neuropsychologischen Verfahren unter Berücksichtigung fachlicher Vorgaben und Empfehlungen der Gesellschaft für Neuropsychologie (GNP).
+      </p>
     ) : <p class="service-description">{service.text}</p>}
     {service.id === "beratung" ? (
       <p class="content-note counseling-disclaimer">

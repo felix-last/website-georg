@@ -2473,3 +2473,13 @@ html.programmatic-scroll { scroll-behavior: auto !important; }
     animation: none !important;
   }
 }
+
+/* Allow the scroll script to scale Größer again (earlier !important blocked it). */
+@media (max-width: 760px) {
+  #sportpsychologie .service-copy h2 .sport-grow-word,
+  #sportpsychologie .service-copy h2 .sport-think-word {
+    transform: none;
+    animation: none !important;
+    transform-origin: left top;
+  }
+}

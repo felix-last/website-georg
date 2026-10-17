@@ -594,3 +594,9 @@ body { overflow-x: clip; }
   text-align: center;
   font-weight: 600;
 }
+
+/* Side-menu experiment: equal viewport offsets at top and right. */
+.site-header.on-hero .menu nav {
+  top: var(--gutter);
+  right: var(--gutter);
+}

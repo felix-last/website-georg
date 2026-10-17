@@ -1679,3 +1679,76 @@ html.programmatic-scroll { scroll-behavior: auto !important; }
     margin: 0;
   }
 }
+
+/* Mobile full-width navigation, reversible on upward scroll. */
+@media (max-width: 760px) {
+  .site-header.on-hero .mobile-sticky-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: calc(60px + env(safe-area-inset-top, 0px));
+    padding: env(safe-area-inset-top, 0px) 68px 0 max(20px, env(safe-area-inset-left, 0px));
+    border: 0;
+    border-bottom: 1px solid rgba(255,255,255,.18);
+    border-radius: 0;
+    background: rgba(20,29,27,.82);
+    box-sizing: border-box;
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+  body.mobile-nav-active .site-header.on-hero .mobile-sticky-bar {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+  body.burger-is-docked:not(.mobile-nav-active) .site-header.on-hero .mobile-sticky-bar,
+  body.nav-is-docked:not(.mobile-nav-active) .site-header.on-hero .mobile-sticky-bar {
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+  .site-header.on-hero .mobile-contact-cta {
+    min-height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  body.mobile-nav-active .site-header.on-hero { z-index: 120; }
+  body.mobile-nav-active .site-header.on-hero .menu > summary {
+    position: fixed;
+    top: calc(8px + env(safe-area-inset-top, 0px));
+    right: max(12px, env(safe-area-inset-right, 0px));
+    width: 44px;
+    height: 44px;
+    z-index: 125;
+    background: transparent;
+    border-radius: 0;
+    transform: none;
+    color: white;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+  /* Links shrink and drift toward the hamburger as the hero scrolls away. */
+  .hero-services:not(.is-docked) > a {
+    transform-origin: right center;
+    transform: translate3d(calc(var(--mobile-collapse, 0) * 26vw), calc(var(--mobile-collapse, 0) * -13vh), 0)
+      scale(calc(1 - var(--mobile-collapse, 0) * .55));
+    opacity: calc(1 - var(--mobile-collapse, 0));
+    will-change: transform, opacity;
+  }
+  .hero-services:not(.is-docked) {
+    pointer-events: auto;
+  }
+  body.mobile-nav-active .hero-services:not(.is-docked) {
+    pointer-events: none;
+  }
+}
+@media (max-width: 760px) and (prefers-reduced-motion: reduce) {
+  .hero-services:not(.is-docked) > a { transform: none; }
+}

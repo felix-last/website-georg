@@ -2024,3 +2024,30 @@ html.programmatic-scroll { scroll-behavior: auto !important; }
     z-index: 125;
   }
 }
+
+/* Show the full mobile bar only after the three hero categories disappear. */
+@media (max-width: 760px) {
+  body.mobile-name-passed:not(.mobile-nav-active) .site-header.on-hero .mobile-sticky-bar {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-100%);
+  }
+  body.mobile-name-passed:not(.mobile-nav-active) .site-header.on-hero .mobile-monogram {
+    position: fixed;
+    top: calc(9px + env(safe-area-inset-top, 0px));
+    left: max(16px, env(safe-area-inset-left, 0px));
+    z-index: 125;
+    display: flex;
+    align-items: center;
+    height: 44px;
+    visibility: visible;
+    pointer-events: auto;
+  }
+  body.mobile-nav-active .site-header.on-hero .mobile-sticky-bar {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+}

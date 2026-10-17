@@ -207,6 +207,26 @@ import mountains from "../assets/mountains.png";
     let currentAnimations: Animation[] = [];
 
     const updateNavigation = () => {
+      if (window.matchMedia("(max-width: 760px)").matches) {
+        // On mobile, keep the categories in the hero: they visually converge
+        // on the hamburger instead of becoming a second sticky navigation.
+        if (nav.classList.contains("is-docked")) {
+          originalParent.insertBefore(nav, placeholder);
+          placeholder.remove();
+          nav.classList.remove("is-docked");
+        }
+        const rect = nav.getBoundingClientRect();
+        const start = window.innerHeight * 0.44;
+        const end = 62;
+        const progress = Math.max(0, Math.min(1, (start - rect.top) / (start - end)));
+        nav.style.setProperty("--mobile-collapse", String(progress));
+        const active = rect.bottom <= 62;
+        document.body.classList.toggle("mobile-nav-active", active);
+        document.body.classList.remove("nav-is-docked");
+        return;
+      }
+      document.body.classList.remove("mobile-nav-active");
+      nav.style.removeProperty("--mobile-collapse");
       const docked = placeholder.isConnected
         ? placeholder.getBoundingClientRect().top <= 0
         : nav.getBoundingClientRect().top <= 0;

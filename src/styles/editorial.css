@@ -2198,3 +2198,34 @@ html.programmatic-scroll { scroll-behavior: auto !important; }
     background: var(--paper);
   }
 }
+
+/* Mobile hero: stagger departure, accelerate trailing links to catch up,
+   then fade all three together at the burger. */
+@media (max-width: 760px) {
+  .hero-services:not(.is-docked) > a {
+    --flight: clamp(0, calc((var(--mobile-collapse, 0) - var(--flight-delay, 0)) / (1 - var(--flight-delay, 0))), 1);
+    transform-origin: left center;
+    transform: translate3d(
+      calc(var(--flight) * var(--flight-x, 62vw)),
+      calc(var(--flight) * var(--flight-y, -18vh)),
+      0
+    ) scale(calc(1 - var(--flight) * .65));
+    translate: none;
+    opacity: clamp(0, calc((1 - var(--mobile-collapse, 0)) * 5), 1);
+  }
+  .hero-services:not(.is-docked) > a:nth-of-type(1) {
+    --flight-delay: 0;
+    --flight-x: 62vw;
+    --flight-y: -18vh;
+  }
+  .hero-services:not(.is-docked) > a:nth-of-type(2) {
+    --flight-delay: .16;
+    --flight-x: 62vw;
+    --flight-y: -23vh;
+  }
+  .hero-services:not(.is-docked) > a:nth-of-type(3) {
+    --flight-delay: .32;
+    --flight-x: 62vw;
+    --flight-y: -28vh;
+  }
+}

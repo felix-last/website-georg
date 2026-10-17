@@ -723,3 +723,12 @@ body { overflow-x: clip; }
 
 /* No divider above the sport psychology formats. */
 .sport-offer { border-top: none; }
+
+/* Consistent spacing between sport introduction, formats and topics. */
+.sport-feature .service-description { margin-bottom: 0; }
+.sport-feature .sport-offer {
+  margin-top: 2rem;
+  padding-top: 0;
+}
+.sport-feature .sport-offer h3 { margin: 0 0 .85rem; }
+.sport-feature .sport-formats { margin-bottom: 2rem; }

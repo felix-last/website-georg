@@ -242,4 +242,20 @@ import mountains from "../assets/mountains.png";
       }
     });
   }
+
+  // CTAs receive their own delayed reveal after the surrounding content.
+  const ctaTargets = document.querySelectorAll<HTMLElement>(".service-bottom");
+  if ("IntersectionObserver" in window && !reducedMotionReveal.matches) {
+    const ctaObserver = new IntersectionObserver((entries, instance) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("cta-visible");
+        instance.unobserve(entry.target);
+      });
+    }, { threshold: 0.1, rootMargin: "0px 0px -20px 0px" });
+    ctaTargets.forEach((cta) => {
+      cta.classList.add("cta-reveal");
+      ctaObserver.observe(cta);
+    });
+  }
 </script>

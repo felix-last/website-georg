@@ -849,3 +849,16 @@ body.burger-is-docked .site-header.on-hero .menu > summary {
 @media(max-width:760px) {
   body.burger-is-docked .site-header.on-hero .menu > summary { right: .75rem; }
 }
+
+/* Gradual outward drift from the first burger dock to the full navigation bar. */
+body.burger-is-docked .site-header.on-hero .menu > summary {
+  transform: translateX(calc((1 - var(--burger-drift, 0)) * -28px));
+}
+@media (max-width: 760px) {
+  body.burger-is-docked .site-header.on-hero .menu > summary {
+    transform: translateX(calc((1 - var(--burger-drift, 0)) * -14px));
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  body.burger-is-docked .site-header.on-hero .menu > summary { transform: none; }
+}

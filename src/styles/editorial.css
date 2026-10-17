@@ -906,7 +906,7 @@ body.nav-is-docked .site-header.on-hero .menu[open] nav {
     clip-path: none;
     opacity: 0;
     transform: none;
-    transition: opacity 2600ms cubic-bezier(.22, 1, .36, 1);
+    transition: opacity 3400ms cubic-bezier(.22, 1, .36, 1);
   }
   .reveal-item.is-revealed {
     clip-path: none;
@@ -917,7 +917,7 @@ body.nav-is-docked .site-header.on-hero .menu[open] nav {
   .sport-feature .service-copy.reveal-item.is-revealed {
     clip-path: none;
     transform: none;
-    transition: opacity 2600ms cubic-bezier(.22, 1, .36, 1);
+    transition: opacity 3400ms cubic-bezier(.22, 1, .36, 1);
   }
 }
 

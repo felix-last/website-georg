@@ -2448,3 +2448,23 @@ html.programmatic-scroll { scroll-behavior: auto !important; }
 @media (max-width: 760px) {
   .site-footer .footer-social { gap: 1.4rem; }
 }
+
+/* Mobile sport: align both words on the lower edge and grow downward. */
+@media (max-width: 760px) {
+  #sportpsychologie .service-copy h2 > .sport-grow {
+    align-items: baseline;
+    top: 56%;
+    gap: .14em;
+    font-size: clamp(1.65rem, 7.1vw, 2.55rem);
+    line-height: 1;
+  }
+  #sportpsychologie .service-copy h2 .sport-grow-word {
+    transform-origin: left top;
+    line-height: 1;
+  }
+  #sportpsychologie .service-copy h2 .sport-think-word {
+    align-self: baseline;
+    line-height: 1;
+    transform-origin: left top;
+  }
+}

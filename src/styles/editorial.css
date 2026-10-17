@@ -711,3 +711,12 @@ body { overflow-x: clip; }
     transition: opacity 1200ms cubic-bezier(.22, 1, .36, 1);
   }
 }
+
+/* More legible sport psychology formats and topics. */
+.sport-offer h3 { font-size: .88rem; }
+.sport-formats li { font-size: 1.08rem; line-height: 1.5; }
+.sport-topics { font-size: 1.05rem; line-height: 1.85; }
+@media (max-width: 760px) {
+  .sport-formats li { font-size: 1rem; }
+  .sport-topics { font-size: 1rem; }
+}

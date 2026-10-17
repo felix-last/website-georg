@@ -642,3 +642,13 @@ body { overflow-x: clip; }
   color: var(--ink);
   border-color: var(--ink);
 }
+
+/* Open hero side menu follows the page, then rests below the fixed top bar. */
+.site-header.on-hero .menu[open] nav {
+  position: fixed;
+  top: var(--gutter);
+  right: var(--gutter);
+  max-height: calc(100dvh - 92px);
+  overflow-y: auto;
+  z-index: 20;
+}

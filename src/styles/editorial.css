@@ -862,3 +862,11 @@ body.burger-is-docked .site-header.on-hero .menu > summary {
 @media (prefers-reduced-motion: reduce) {
   body.burger-is-docked .site-header.on-hero .menu > summary { transform: none; }
 }
+
+/* Keep the side panel anchored below the hamburger even after the nav docks. */
+body.nav-is-docked .site-header.on-hero .menu[open] nav {
+  top: auto;
+}
+.site-header.on-hero .menu[open] nav {
+  transition: top 120ms linear;
+}

@@ -321,9 +321,18 @@ import mountains from "../assets/mountains.png";
     if (!section || !word || !thinking || window.innerWidth > 760) return;
     const rect = section.getBoundingClientRect();
     const progress = Math.max(0, Math.min(1, (window.innerHeight / 3 - rect.top) / Math.max(window.innerHeight * .8, 1)));
-    const scale = 1 + progress * 1.8;
-    word.style.transform = `scale(${scale})`;
-    thinking.style.transform = `translateX(${word.offsetWidth * (scale - 1)}px)`;
+    // Grow actual vector font glyphs instead of scaling a rasterized text layer.
+    // Keep both words on one baseline and cap growth to the image width.
+    word.style.transform = "none";
+    thinking.style.transform = "none";
+    word.style.fontSize = "1em";
+    const line = word.parentElement;
+    const image = section.querySelector<HTMLElement>(".service-image");
+    const width = image?.getBoundingClientRect().width ?? window.innerWidth - 32;
+    const base = word.getBoundingClientRect().width;
+    const rest = thinking.getBoundingClientRect().width + (line ? parseFloat(getComputedStyle(line).gap) || 8 : 8);
+    const maxScale = Math.max(1, Math.min(2.35, (width - rest - 8) / Math.max(base, 1)));
+    word.style.fontSize = `${1 + progress * (maxScale - 1)}em`;
   };
   window.addEventListener("scroll", updateSportGrowth, { passive: true });
   window.addEventListener("resize", updateSportGrowth);

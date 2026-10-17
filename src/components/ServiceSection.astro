@@ -52,6 +52,7 @@ const { service, index, image, publicImage, alt = "" } = Astro.props;
     {service.id === "notfallpsychologie" ? (
       <>
         <p class="service-description">Wenn es draußen ganz still wird, wird es drinnen ganz laut.</p>
+        <hr class="emergency-divider" aria-hidden="true" />
         <div class="service-details emergency-audiences">
           <h3>Für Betroffene:</h3>
           <p>Psychologische Unterstützung nach außergewöhnlichen Belastungsereignissen, beispielsweise bei:</p>
@@ -62,6 +63,7 @@ const { service, index, image, publicImage, alt = "" } = Astro.props;
             <li>Gewalt, Bedrohungen und Überfällen</li>
             <li>Naturkatastrophen und anderen Krisenereignissen</li>
           </ul>
+          <hr class="emergency-divider" aria-hidden="true" />
           <h3>Für Einsatzkräfte:</h3>
           <p>Psychologische Begleitung für Einsatzkräfte und Angehörige von Behörden und Organisationen mit Sicherheitsaufgaben (BOS), insbesondere nach:</p>
           <ul>
@@ -70,6 +72,7 @@ const { service, index, image, publicImage, alt = "" } = Astro.props;
             <li>außergewöhnlichen Einsatzlagen und Großschadensereignissen</li>
             <li>psychisch belastenden beruflichen Situationen</li>
           </ul>
+          <hr class="emergency-divider" aria-hidden="true" />
           <p class="emergency-scope">Je nach Situation umfasst die Unterstützung psychologische Akutintervention, Stabilisierung, Nachsorge und Beratung sowie die Vermittlung weiterführender Hilfen.</p>
         </div>
       </>

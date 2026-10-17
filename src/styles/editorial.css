@@ -2572,3 +2572,30 @@ html.programmatic-scroll { scroll-behavior: auto !important; }
 @media (max-width: 760px) {
   #sportpsychologie .service-copy h2 > .sport-grow { top: 58%; }
 }
+
+/* Mobile sport headline: single line below photo, followed by growing slogan. */
+@media (max-width: 760px) {
+  #sportpsychologie .service-copy h2 {
+    height: clamp(6rem, 23vw, 8rem);
+    margin-top: 0;
+    margin-bottom: -.5rem;
+  }
+  #sportpsychologie .service-copy h2 > .sport-lead {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: baseline;
+    gap: .23em;
+    width: 100%;
+    font-size: clamp(1.1rem, 5.05vw, 1.7rem);
+    line-height: 1.12;
+    white-space: nowrap;
+  }
+  #sportpsychologie .service-copy h2 .sport-train-word {
+    display: inline;
+    white-space: nowrap;
+  }
+  #sportpsychologie .service-copy h2 > .sport-grow {
+    top: 48%;
+  }
+}

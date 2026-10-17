@@ -613,3 +613,17 @@ body { overflow-x: clip; }
     transition: none;
   }
 }
+
+/* Sport psychology CTA: larger label and centered button. */
+.sport-feature .service-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.sport-feature .service-bottom .button {
+  font-size: 1.05rem;
+  font-weight: 600;
+  text-align: center;
+  justify-content: center;
+  margin-inline: auto;
+}

@@ -580,3 +580,8 @@ body { overflow-x: clip; }
 .sport-feature .button:focus-visible {
   background: #cc5525;
 }
+
+/* Accessible burnt-orange CTA: white text reaches WCAG AA contrast. */
+.sport-feature .button { background: #ba4718; color: #fff; }
+.sport-feature .button:hover,
+.sport-feature .button:focus-visible { background: #99380f; }

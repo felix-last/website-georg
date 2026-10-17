@@ -1752,3 +1752,64 @@ html.programmatic-scroll { scroll-behavior: auto !important; }
 @media (max-width: 760px) and (prefers-reduced-motion: reduce) {
   .hero-services:not(.is-docked) > a { transform: none; }
 }
+
+/* Sport headline: warm orange / cool gray, with independent growing Größer. */
+.sport-feature .sport-grow-word { display: inline-block; transform-origin: left center; }
+.sport-feature .sport-think-word { display: inline-block; }
+@media (max-width: 760px) {
+  #sportpsychologie .service-copy h2 {
+    margin-top: clamp(-3.5rem, -10vw, -2.25rem);
+    margin-bottom: 2.5rem;
+    overflow: visible;
+    max-width: none;
+    font-size: clamp(2.65rem, 10vw, 4.5rem);
+  }
+  #sportpsychologie .service-copy h2 .sport-lead {
+    display: block;
+    font-size: .73em;
+    line-height: 1.06;
+    color: #5e6566;
+    -webkit-text-fill-color: #5e6566;
+    white-space: nowrap;
+    overflow: visible;
+  }
+  #sportpsychologie .service-copy h2 .sport-lead .sport-accent {
+    color: #ba4718;
+    -webkit-text-fill-color: #ba4718;
+  }
+  #sportpsychologie .service-copy h2 .sport-grow {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: nowrap;
+    gap: .22em;
+    width: max-content;
+    max-width: none;
+    white-space: nowrap;
+    overflow: visible;
+    font-size: 1.08em;
+    transform: none;
+    animation: none;
+    color: #5e6566;
+  }
+  #sportpsychologie .service-copy h2 .sport-grow-word {
+    display: inline-block;
+    color: #ba4718;
+    -webkit-text-fill-color: #ba4718;
+    transform-origin: left center;
+  }
+  #sportpsychologie .service-copy h2 .sport-think-word {
+    color: #5e6566;
+    -webkit-text-fill-color: #5e6566;
+  }
+}
+@media (max-width: 760px) and (prefers-reduced-motion: no-preference) {
+  #sportpsychologie .service-copy h2 .sport-grow-word {
+    animation: mobile-groesser-grow linear both;
+    animation-timeline: view();
+    animation-range: entry 5% cover 65%;
+  }
+  @keyframes mobile-groesser-grow {
+    from { transform: scale(1); }
+    to { transform: scale(1.35); }
+  }
+}

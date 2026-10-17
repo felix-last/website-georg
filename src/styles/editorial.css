@@ -600,3 +600,16 @@ body { overflow-x: clip; }
   top: var(--gutter);
   right: var(--gutter);
 }
+
+/* The delayed scroll hint reacts subtly to the user's scroll position. */
+.scroll-cue-delayed.is-visible span:last-child {
+  display: inline-block;
+  transform: translateY(calc(var(--scroll-progress, 0) * 15px));
+  transition: transform 100ms linear;
+}
+@media (prefers-reduced-motion: reduce) {
+  .scroll-cue-delayed.is-visible span:last-child {
+    transform: none;
+    transition: none;
+  }
+}

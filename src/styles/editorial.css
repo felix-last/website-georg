@@ -627,3 +627,18 @@ body { overflow-x: clip; }
   justify-content: center;
   margin-inline: auto;
 }
+
+/* Understated CTAs outside sport psychology: outlined, neutral, editorial. */
+.service-section:not(.sport-feature) .service-bottom .button {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--muted);
+  font-weight: 400;
+  box-shadow: none;
+}
+.service-section:not(.sport-feature) .service-bottom .button:hover,
+.service-section:not(.sport-feature) .service-bottom .button:focus-visible {
+  background: rgba(41, 46, 49, .07);
+  color: var(--ink);
+  border-color: var(--ink);
+}

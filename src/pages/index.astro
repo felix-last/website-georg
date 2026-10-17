@@ -156,9 +156,15 @@ import mountains from "../assets/mountains.png";
     event.preventDefault();
     const start = window.scrollY;
     const destination = Math.max(0, target.getBoundingClientRect().top + start - 105);
+    // Temporarily override native CSS smooth scrolling; otherwise Safari may
+    // animate each requestAnimationFrame step a second time.
+    const root = document.documentElement;
+    const previousScrollBehavior = root.style.scrollBehavior;
+    root.style.scrollBehavior = "auto";
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       window.scrollTo({ top: destination, behavior: "instant" });
       history.pushState(null, "", "#ueber-mich");
+      root.style.scrollBehavior = previousScrollBehavior;
       return;
     }
     const duration = 2400;
@@ -168,7 +174,10 @@ import mountains from "../assets/mountains.png";
       const eased = t * t * t * (t * (t * 6 - 15) + 10);
       window.scrollTo({ top: start + (destination - start) * eased, behavior: "instant" });
       if (t < 1) requestAnimationFrame(animate);
-      else history.pushState(null, "", "#ueber-mich");
+      else {
+        history.pushState(null, "", "#ueber-mich");
+        root.style.scrollBehavior = previousScrollBehavior;
+      }
     };
     requestAnimationFrame(animate);
   };

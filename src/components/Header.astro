@@ -42,12 +42,14 @@ const { hero = false } = Astro.props;
     const header = menu.closest<HTMLElement>(".site-header");
     const panel = menu.querySelector<HTMLElement>("nav");
     const positionPanel = () => {
-      if (!header || !panel || !menu.open || !header.classList.contains("on-hero")) return;
-      const gutter = parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--gutter")) || 24;
-      const dock = document.querySelector<HTMLElement>(".hero-services.is-docked");
-      const dockBottom = dock?.getBoundingClientRect().bottom ?? 0;
-      const naturalTop = header.getBoundingClientRect().top + gutter;
-      panel.style.top = Math.max(naturalTop, dockBottom + 12) + "px";
+      if (!header || !panel || !header.classList.contains("on-hero")) return;
+      const summary = menu.querySelector<HTMLElement>("summary");
+      if (!summary) return;
+      // Anchor the open panel to the hamburger/cross at every scroll position.
+      const trigger = summary.getBoundingClientRect();
+      const top = Math.max(0, trigger.bottom + 12);
+      panel.style.top = top + "px";
+      panel.style.maxHeight = Math.max(160, window.innerHeight - top - 12) + "px";
     };
     menu.addEventListener("toggle", positionPanel);
     window.addEventListener("scroll", positionPanel, { passive: true });

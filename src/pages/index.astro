@@ -149,7 +149,8 @@ import mountains from "../assets/mountains.png";
 <script>
   const scrollCue = document.querySelector<HTMLElement>(".scroll-cue-delayed");
   // Gentle, longer scroll from the hero arrow to the About section.
-  scrollCue?.addEventListener("click", (event) => {
+  const heroNameLink = document.querySelector<HTMLAnchorElement>(".hero-name-link");
+  const gentleAboutScroll = (event: MouseEvent) => {
     const target = document.getElementById("ueber-mich");
     if (!target) return;
     event.preventDefault();
@@ -170,7 +171,9 @@ import mountains from "../assets/mountains.png";
       else history.pushState(null, "", "#ueber-mich");
     };
     requestAnimationFrame(animate);
-  });
+  };
+  scrollCue?.addEventListener("click", gentleAboutScroll);
+  heroNameLink?.addEventListener("click", gentleAboutScroll);
   const hero = document.querySelector<HTMLElement>(".hero");
   if (scrollCue && hero) {
     // Reveal after four seconds; then let the arrow respond to scrolling.

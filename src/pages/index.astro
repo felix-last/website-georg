@@ -327,7 +327,7 @@ import mountains from "../assets/mountains.png";
     const available = image?.getBoundingClientRect().width ?? window.innerWidth - 32;
     const base = word.offsetWidth;
     const rest = thinking.offsetWidth + (line ? parseFloat(getComputedStyle(line).gap) || 8 : 8);
-    const maximum = Math.max(1, Math.min(1.85, (available - rest - 8) / Math.max(base, 1)));
+    const maximum = Math.max(1, Math.min(2.05, (available - rest - 2) / Math.max(base, 1)));
     const scale = 1 + progress * (maximum - 1);
     word.style.transform = "scale(" + scale + ")";
     thinking.style.transform = "translateX(" + (base * (scale - 1)) + "px)";

@@ -570,3 +570,13 @@ body { overflow-x: clip; }
   background-clip: border-box;
   -webkit-text-fill-color: currentColor;
 }
+
+/* Warm orange CTA exclusive to sport psychology. */
+.sport-feature .button {
+  background: #e86c35;
+  color: #fff;
+}
+.sport-feature .button:hover,
+.sport-feature .button:focus-visible {
+  background: #cc5525;
+}

@@ -36,7 +36,7 @@ export const allServices = [
     id: "neuropsychologie",
     label: "Psychologische Begutachtung",
     title: "(Neuro-)psychologische\nBegutachtung.",
-    text: "In Freiburg im Breisgau biete ich (neuro-)psychologische Begutachtungen an. Im Rahmen von Zustands- und Zusammenhangsbegutachtungen beurteile ich insbesondere die kognitive Leistungsfähigkeit, arbeitsbezogene Einschränkungen und Befunde, die für die Einschätzung einer Minderung der Erwerbsfähigkeit (MdE) relevant sein können. Durch meine bisherige berufliche Tätigkeit verfüge ich über Erfahrung mit Post-COVID, Schädel-Hirn-Traumata und neurologischen Erkrankungen. Die Untersuchungen erfolgen mit standardisierten psychologischen und neuropsychologischen Verfahren. Dabei orientiere ich mich an den Leitlinien zur neuropsychologischen Begutachtung nach Neumann-Zielke et al. (2015).",
+    text: "In Freiburg im Breisgau biete ich (neuro-)psychologische Begutachtungen an. Im Rahmen von Zustands- und Zusammenhangsbegutachtungen beurteile ich insbesondere die kognitive Leistungsfähigkeit, arbeitsbezogene Einschränkungen und Befunde, die für die Einschätzung einer Minderung der Erwerbsfähigkeit (MdE) relevant sein können. Durch meine bisherige berufliche Tätigkeit verfüge ich über Erfahrung mit Post-COVID, Schädel-Hirn-Traumata und neurologischen Erkrankungen. Die Untersuchungen erfolgen mit standardisierten psychologischen und neuropsychologischen Verfahren. Dabei orientiere ich mich an der Leitlinie zur neuropsychologischen Begutachtung nach Neumann-Zielke et al. (2015).",
     note: "",
     keywords: ["Sorgfalt", "Verstehen", "Einordnung"],
   },

@@ -1063,3 +1063,7 @@ a.contact-social-placeholder:focus-visible {
   background: rgba(41,46,49,.08);
   border-color: var(--ink);
 }
+
+/* Two clearly separated audiences in emergency psychology. */
+.emergency-audiences h3:not(:first-child) { margin-top: 1.6rem; }
+.emergency-audiences p { line-height: 1.6; max-width: 45ch; }

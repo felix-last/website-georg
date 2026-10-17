@@ -939,3 +939,12 @@ body.nav-is-docked .site-header.on-hero .menu[open] nav {
   border-bottom: 1px solid var(--rule);
   line-height: 1.5;
 }
+
+/* Let each content block settle into view before its 2.6s dissolve begins. */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal-item,
+  .sport-feature .service-copy.reveal-item,
+  .sport-feature .service-copy.reveal-item.is-revealed {
+    transition-delay: 380ms;
+  }
+}

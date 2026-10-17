@@ -975,3 +975,35 @@ body.nav-is-docked .site-header.on-hero .menu[open] nav {
 
 /* The approved "Über mich" section label stays neutral, unlike draft copy. */
 .intro-copy.needs-review > .eyebrow { color: var(--muted); }
+
+/* Align regular and bold topic labels on exactly the same grid cell.
+   Reserve the bold width from the start so adjacent words never jump. */
+.sport-topics .topic-emphasis {
+  display: inline-grid;
+  vertical-align: baseline;
+  white-space: nowrap;
+}
+.sport-topics .topic-normal,
+.sport-topics .topic-bold {
+  grid-area: 1 / 1;
+  align-self: baseline;
+}
+.sport-topics .topic-bold {
+  font-weight: 700;
+  color: var(--ink);
+  opacity: 0;
+  pointer-events: none;
+}
+.sport-topics .topic-emphasis::after { content: none !important; }
+@media (prefers-reduced-motion: no-preference) {
+  .sport-topics.topic-emphasis-active .topic-bold {
+    animation: topic-bold-dissolve 1600ms ease-out forwards;
+  }
+  .sport-topics.topic-emphasis-active .topic-emphasis:nth-of-type(2) .topic-bold { animation-delay: 1100ms; }
+  .sport-topics.topic-emphasis-active .topic-emphasis:nth-of-type(3) .topic-bold { animation-delay: 2200ms; }
+  .sport-topics.topic-emphasis-active .topic-emphasis:nth-of-type(4) .topic-bold { animation-delay: 3300ms; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sport-topics .topic-bold { opacity: 1; }
+  .sport-topics .topic-normal { visibility: hidden; }
+}

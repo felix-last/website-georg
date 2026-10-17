@@ -2348,3 +2348,28 @@ html.programmatic-scroll { scroll-behavior: auto !important; }
     transform: translateY(0);
   }
 }
+
+/* Mobile final positioning refinements. */
+@media (max-width: 760px) {
+  #sportpsychologie .service-copy h2 > .sport-grow {
+    top: 36%;
+    transform-origin: left top;
+    align-items: flex-start;
+  }
+  #sportpsychologie .service-copy h2 .sport-grow-word,
+  #sportpsychologie .service-copy h2 .sport-think-word {
+    transform-origin: left top;
+  }
+  #notfallpsychologie .service-copy h2 > span:first-child {
+    margin-bottom: .35rem;
+  }
+  #notfallpsychologie .service-copy h2 {
+    margin-top: -4rem;
+  }
+  #kontakt > .contact-social {
+    border-top: 1px solid var(--rule);
+    border-bottom: 0;
+    padding-top: 1.2rem;
+    margin-top: 1.5rem;
+  }
+}

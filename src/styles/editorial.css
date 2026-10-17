@@ -1129,3 +1129,13 @@ a.contact-social-placeholder:focus-visible {
   margin-top: 1.5rem;
   line-height: 1.65;
 }
+
+/* Hero experiment: lower the three service labels without moving the name. */
+.hero-services:not(.is-docked) {
+  margin-top: clamp(6rem, 19vh, 13rem);
+}
+@media (max-width: 760px) {
+  .hero-services:not(.is-docked) {
+    margin-top: 6rem;
+  }
+}

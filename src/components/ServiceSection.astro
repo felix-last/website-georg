@@ -48,7 +48,7 @@ const { service, index, image, alt = "" } = Astro.props;
         <span class:list={{ "sport-grow": service.id === "sportpsychologie" && lineIndex === 1, "sport-lead": service.id === "sportpsychologie" && lineIndex === 0 }}>{service.id === "sportpsychologie" && lineIndex === 0 ? <><span class="sport-accent">Ganzheitlich</span> trainieren.</> : service.id === "sportpsychologie" && lineIndex === 1 ? <>Größer <span class="sport-accent">denken.</span></> : line} </span>
       ))}
     </h2>
-    <p class="service-description">{service.text}</p>
+    <p class:list={["service-description", { "needs-review": service.id === "notfallpsychologie" }]}>{service.text}</p>
     {service.id === "beratung" ? (
       <p class="content-note counseling-disclaimer">
         Psychologische Beratung ist <u>keine Psychotherapie</u> und ersetzt keine psychotherapeutische oder psychiatrische Behandlung.
@@ -70,9 +70,34 @@ const { service, index, image, alt = "" } = Astro.props;
         <p class="sport-topics">Psychoedukation · Zielsetzung · Achtsamkeit · Kognitive Fähigkeiten · Entspannung · Selbstgesprächsregulation · Visualisierung · Selbstvertrauen · Erholungs- und Belastungsmanagement · Wettkampfvorbereitung und -begleitung · Routinen · Verletzungsmanagement · Concussion-Screening</p>
       </div>
     )}
+    {service.id === "neuropsychologie" && (
+      <div class="service-details">
+        <h3>Auftraggeber:innen</h3>
+        <ul>
+          <li>Sozial-, Arbeits- und Zivilgerichte</li>
+          <li>Berufsgenossenschaften und weitere Träger der gesetzlichen Unfallversicherung</li>
+          <li>Private Versicherungen, insbesondere Unfall-, Berufsunfähigkeits-, Lebens-, Haftpflicht- und Krankenversicherungen</li>
+          <li>Versorgungsämter und weitere Behörden</li>
+        </ul>
+      </div>
+    )}
+    {service.id === "unternehmen" && (
+      <div class="service-details">
+        <h3>Workshop-Themen</h3>
+        <ul>
+          <li>Führungskräfteentwicklung und Führung unter Druck</li>
+          <li>Kommunikation und Konfliktmanagement</li>
+          <li>Krisenmanagement</li>
+          <li>Stress, Belastung und Erholung</li>
+          <li>Mentale Leistungsfähigkeit</li>
+          <li>Teamdynamik</li>
+          <li>Resilienz und Change Management</li>
+        </ul>
+      </div>
+    )}
     <div class="service-bottom">
       <a class="button" href="#kontakt">
-        Erstgespräch anfragen{service.id !== "sportpsychologie" && <span aria-hidden="true"> ⟶</span>}
+        {service.id === "neuropsychologie" ? "Gutachten anfragen" : service.id === "unternehmen" ? "Workshop anfragen" : "Erstgespräch anfragen"}{service.id !== "sportpsychologie" && <span aria-hidden="true"> ⟶</span>}
       </a>
 
     </div>

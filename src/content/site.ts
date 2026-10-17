@@ -36,7 +36,7 @@ export const allServices = [
     id: "neuropsychologie",
     label: "Psychologische Begutachtung",
     title: "(Neuro-)psychologische\nBegutachtung.",
-    text: "(Neuro-)psychologische Begutachtung in Freiburg im Breisgau für Gerichte, Unfallversicherungsträger, Versicherungen und Behörden. Die Untersuchung erfolgt mit standardisierten psychologischen und neuropsychologischen Verfahren unter Berücksichtigung fachlicher Vorgaben und Empfehlungen der Gesellschaft für Neuropsychologie (GNP).",
+    text: "In Freiburg im Breisgau biete ich (neuro-)psychologische Begutachtungen an. Schwerpunkte sind die Beurteilung der Arbeitsfähigkeit und kognitiven Leistungsfähigkeit sowie Zustands- und Zusammenhangsbegutachtungen. Je nach gutachtlicher Fragestellung gehört dazu auch die Einschätzung von Beeinträchtigungen, die für die Minderung der Erwerbsfähigkeit (MdE) relevant sein können. Grundlage sind standardisierte psychologische und neuropsychologische Untersuchungsverfahren unter Berücksichtigung fachlicher Empfehlungen der Gesellschaft für Neuropsychologie (GNP).",
     note: "",
     keywords: ["Sorgfalt", "Verstehen", "Einordnung"],
   },

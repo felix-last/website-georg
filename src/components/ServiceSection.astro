@@ -25,7 +25,7 @@ const { service, index, image, publicImage, alt = "" } = Astro.props;
   ]}
   aria-labelledby={`${service.id}-title`}
 >
-  {(service.id === "sportpsychologie" || service.id === "notfallpsychologie") && <p class="mobile-service-label eyebrow">{service.label}</p>}
+  {(service.id === "sportpsychologie" || service.id === "notfallpsychologie" || service.id === "neuropsychologie") && <p class="mobile-service-label eyebrow">{service.label}</p>}
   {image || publicImage ? (
     <div class="service-image">
       {image ? <Image

@@ -269,12 +269,18 @@ import mountains from "../assets/mountains.png";
       const observer = new IntersectionObserver((entries) => {
         if (entries.some((entry) => entry.isIntersecting)) {
           topics.classList.add("topic-emphasis-active");
+          topics.querySelectorAll<HTMLElement>(".topic-emphasis").forEach((word, index) => {
+            window.setTimeout(() => word.classList.add("is-bold"), index * 1100);
+          });
           observer.disconnect();
         }
       }, { threshold: 0.35 });
       observer.observe(topics);
     } else {
       topics.classList.add("topic-emphasis-active");
+      topics.querySelectorAll<HTMLElement>(".topic-emphasis").forEach((word, index) => {
+        window.setTimeout(() => word.classList.add("is-bold"), index * 1100);
+      });
     }
   }
 </script>

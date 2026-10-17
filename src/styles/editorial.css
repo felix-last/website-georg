@@ -1139,3 +1139,13 @@ a.contact-social-placeholder:focus-visible {
     margin-top: 6rem;
   }
 }
+
+/* Keep category headings comfortably below the sticky bar on direct anchor visits. */
+#sportpsychologie, #notfallpsychologie, #neuropsychologie {
+  scroll-margin-top: 145px;
+}
+@media (max-width: 760px) {
+  #sportpsychologie, #notfallpsychologie, #neuropsychologie {
+    scroll-margin-top: 110px;
+  }
+}

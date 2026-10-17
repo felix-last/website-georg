@@ -2229,3 +2229,17 @@ html.programmatic-scroll { scroll-behavior: auto !important; }
     --flight-y: -28vh;
   }
 }
+
+/* Fit the emergency subtitle to the full image width on mobile. */
+@media (max-width: 760px) {
+  #notfallpsychologie .service-copy h2 > span:last-child {
+    display: block;
+    width: max-content;
+    max-width: none;
+    font-size: clamp(1.35rem, 6.2vw, 2.4rem);
+    line-height: 1.1;
+    letter-spacing: -.055em;
+    white-space: nowrap;
+    transform-origin: left center;
+  }
+}

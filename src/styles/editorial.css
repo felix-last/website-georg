@@ -732,3 +732,23 @@ body { overflow-x: clip; }
 }
 .sport-feature .sport-offer h3 { margin: 0 0 .85rem; }
 .sport-feature .sport-formats { margin-bottom: 2rem; }
+
+/* Long assessment heading: wrap at word boundaries instead of clipping or splitting words. */
+#neuropsychologie .service-copy h2 {
+  font-size: clamp(2rem, 3.3vw, 3.7rem);
+  letter-spacing: -.04em;
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
+}
+#neuropsychologie .service-copy h2 span {
+  display: block;
+  max-width: 100%;
+  white-space: normal;
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
+}
+@media(max-width:760px) {
+  #neuropsychologie .service-copy h2 { font-size: clamp(1.65rem, 6.2vw, 2.8rem); }
+}

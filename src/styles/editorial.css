@@ -1051,3 +1051,15 @@ body.nav-is-docked .site-header.on-hero .menu[open] nav {
 @media (prefers-reduced-motion: reduce) {
   .sport-topics .topic-emphasis { font-weight: 700; transition: none; }
 }
+
+/* Linked professional profiles are understated but clearly interactive. */
+a.contact-social-placeholder {
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 200ms ease, border-color 200ms ease;
+}
+a.contact-social-placeholder:hover,
+a.contact-social-placeholder:focus-visible {
+  background: rgba(41,46,49,.08);
+  border-color: var(--ink);
+}

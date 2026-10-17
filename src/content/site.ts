@@ -27,7 +27,7 @@ export const services = [
     id: "notfallpsychologie",
     label: "Notfallpsychologie",
     title: "Halt in\nbesonderen Momenten.",
-    text: "Ein vorgesehener Bereich für psychologische Unterstützung nach außergewöhnlichen Belastungen. Das konkrete Angebot, die fachlichen Voraussetzungen und die Erreichbarkeit werden vor Veröffentlichung geklärt.",
+    text: "Wenn es draußen ganz still wird, wird es drinnen ganz laut. Notfallpsychologische Unterstützung kann nach außergewöhnlichen Belastungsereignissen dabei helfen, erste Orientierung und Stabilität zu finden.",
     note: "Platzhalter · Kein Notfalldienst. Bei unmittelbarer Gefahr: 112.",
     keywords: ["Halt", "Begleitung", "Stabilität"],
   },

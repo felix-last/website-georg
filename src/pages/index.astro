@@ -320,14 +320,14 @@ import mountains from "../assets/mountains.png";
     const thinking = section?.querySelector<HTMLElement>(".sport-think-word");
     if (!section || !word || !thinking || window.innerWidth > 760) return;
     const rect = section.getBoundingClientRect();
-    const progress = Math.max(0, Math.min(1, (window.innerHeight / 3 - rect.top) / Math.max(window.innerHeight * .8, 1)));
+    const progress = Math.max(0, Math.min(1, (window.innerHeight / 2 - rect.top) / Math.max(window.innerHeight * .8, 1)));
     // Scale the word smoothly without changing the layout below.
     const line = word.parentElement;
     const image = section.querySelector<HTMLElement>(".service-image");
     const available = image?.getBoundingClientRect().width ?? window.innerWidth - 32;
     const base = word.offsetWidth;
     const rest = thinking.offsetWidth + (line ? parseFloat(getComputedStyle(line).gap) || 8 : 8);
-    const maximum = Math.max(1, 2.3);
+    const maximum = 2.4;
     const scale = 1 + progress * (maximum - 1);
     word.style.transform = "scale(" + scale + ")";
     thinking.style.transform = "translateX(" + (base * (scale - 1)) + "px)";

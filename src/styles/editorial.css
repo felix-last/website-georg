@@ -1273,3 +1273,31 @@ a.contact-social-placeholder:focus-visible {
 
 /* Approved biography copy and clear psychotherapy distinction. */
 .intro-copy .about-therapy-notice { margin-top: 1.6rem; line-height: 1.65; }
+
+/* About layout: balance longer biography with a deliberately lower portrait. */
+@media (min-width: 761px) {
+  #ueber-mich.intro {
+    grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr);
+    column-gap: clamp(2.5rem, 5vw, 6rem);
+    align-items: start;
+  }
+  #ueber-mich .intro-image {
+    margin-top: clamp(7rem, 13vw, 13rem);
+    width: 100%;
+  }
+  #ueber-mich .intro-image img {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    object-position: center;
+  }
+  #ueber-mich .intro-copy > p:not(.eyebrow) {
+    max-width: 57ch;
+    line-height: 1.68;
+    margin-bottom: 1.15rem;
+  }
+}
+@media (max-width: 760px) {
+  #ueber-mich .intro-image { margin-top: 1rem; }
+  #ueber-mich .intro-copy > p:not(.eyebrow) { line-height: 1.65; margin-bottom: 1rem; }
+}

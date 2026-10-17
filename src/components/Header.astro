@@ -30,7 +30,7 @@ const { hero = false } = Astro.props;
         <a href={path(`#${service.id}`)}>{service.label}</a>
       ))}
       <a href={path("#kontakt")} class="menu-contact">
-        Kontakt aufnehmen <span aria-hidden="true">↗</span>
+        Kontakt aufnehmen
       </a>
     </nav>
   </details>
@@ -75,6 +75,31 @@ const { hero = false } = Astro.props;
     updateBurgerDock();
 
     window.addEventListener("resize", positionPanel);
+    const contactLink = menu.querySelector<HTMLAnchorElement>(".menu-contact");
+    contactLink?.addEventListener("click", (event) => {
+      const target = document.querySelector<HTMLElement>("#kontakt");
+      if (!target || location.pathname !== contactLink.pathname) return;
+      event.preventDefault();
+      menu.open = false;
+      const start = window.scrollY;
+      const destination = target.getBoundingClientRect().top + start - 70;
+      const delta = destination - start;
+      const duration = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 1700;
+      if (!duration) {
+        window.scrollTo(0, destination);
+        history.pushState(null, "", "#kontakt");
+        return;
+      }
+      const began = performance.now();
+      const animate = (now: number) => {
+        const progress = Math.min(1, (now - began) / duration);
+        const eased = 0.5 - Math.cos(Math.PI * progress) / 2;
+        window.scrollTo({ top: start + delta * eased, behavior: "instant" });
+        if (progress < 1) requestAnimationFrame(animate);
+        else history.pushState(null, "", "#kontakt");
+      };
+      requestAnimationFrame(animate);
+    });
     menu.querySelectorAll("a").forEach((link) => {
       link.addEventListener("click", () => {
         menu.open = false;

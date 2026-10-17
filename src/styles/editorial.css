@@ -1028,3 +1028,9 @@ body.nav-is-docked .site-header.on-hero .menu[open] nav {
   opacity: .75;
   cursor: default;
 }
+
+/* Ensure placeholder social labels meet WCAG AA contrast. */
+.contact-social-placeholder {
+  color: var(--ink);
+  opacity: 1;
+}

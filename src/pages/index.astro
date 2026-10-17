@@ -239,7 +239,7 @@ import mountains from "../assets/mountains.png";
         // The last category catches up with the others near the burger.
         // Reveal the full-width bar at that point, rather than waiting for
         // the original category container to leave the viewport.
-        const active = scroll > 0 && progress >= 0.88;
+        const active = scroll > 0 && progress >= 0.98;
         document.body.classList.toggle("mobile-nav-active", active);
         document.body.classList.remove("nav-is-docked");
         return;
@@ -290,6 +290,26 @@ import mountains from "../assets/mountains.png";
     window.addEventListener("resize", updateNavigation);
     updateNavigation();
   }
+</script>
+
+<script>
+  // Mobile typography uses measurements rather than guessed viewport units.
+  const fitEmergencyTitle = () => {
+    if (window.innerWidth > 760) return;
+    const section = document.getElementById("notfallpsychologie");
+    const subtitle = section?.querySelector<HTMLElement>(".service-copy h2 > span:last-child");
+    const image = section?.querySelector<HTMLElement>(".service-image");
+    if (!subtitle || !image) return;
+    subtitle.style.fontSize = "20px";
+    const naturalWidth = subtitle.scrollWidth;
+    const available = image.getBoundingClientRect().width;
+    if (naturalWidth > 0 && available > 0) {
+      subtitle.style.fontSize = `${Math.max(12, 20 * available / naturalWidth)}px`;
+    }
+  };
+  window.addEventListener("resize", fitEmergencyTitle);
+  document.fonts?.ready.then(fitEmergencyTitle);
+  fitEmergencyTitle();
 </script>
 
 <script>

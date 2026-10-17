@@ -920,3 +920,22 @@ body.nav-is-docked .site-header.on-hero .menu[open] nav {
     transition: opacity 2600ms cubic-bezier(.22, 1, .36, 1);
   }
 }
+
+/* Red editorial markers: copy awaiting Georg's approval. */
+.needs-review, .intro-copy.needs-review p, .intro-copy.needs-review h2 {
+  color: #a62d35;
+}
+.service-details { margin-top: 2rem; }
+.service-details h3 {
+  font-size: .88rem;
+  font-weight: 500;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  margin-bottom: .9rem;
+}
+.service-details ul { list-style: none; padding: 0; margin: 0; }
+.service-details li {
+  padding: .7rem 0;
+  border-bottom: 1px solid var(--rule);
+  line-height: 1.5;
+}

@@ -2519,3 +2519,31 @@ html.programmatic-scroll { scroll-behavior: auto !important; }
     padding-top: .65rem;
   }
 }
+
+/* Mobile sport: let Größer cover trainieren, and bring body text closer. */
+@media (max-width: 760px) {
+  #sportpsychologie .service-copy h2 {
+    height: clamp(6.7rem, 27vw, 9.2rem);
+    margin-bottom: -.65rem;
+    overflow: visible;
+  }
+  #sportpsychologie .service-copy h2 > .sport-lead {
+    position: relative;
+    z-index: 1;
+  }
+  #sportpsychologie .service-copy h2 > .sport-grow {
+    position: absolute;
+    top: 49%;
+    z-index: 4;
+    isolation: isolate;
+  }
+  #sportpsychologie .service-copy h2 .sport-grow-word {
+    position: relative;
+    z-index: 5;
+    transform-origin: left bottom;
+  }
+  #sportpsychologie .service-copy .service-description {
+    margin-top: 0;
+    padding-top: .45rem;
+  }
+}

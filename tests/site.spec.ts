@@ -13,7 +13,7 @@ test("editorial page is accessible, local and responsive", async ({ page }) => {
     "Georg Schmeistenbeißer",
   );
   await expect(
-    page.getByRole("heading", { name: /Wissenschaft\.\s*Praxis\.\s*Mensch\./ }),
+    page.getByRole("heading", { name: /Neuro\.\s*Sport\.\s*Notfall\./ }),
   ).toBeVisible();
   await page.locator("#kontakt").scrollIntoViewIfNeeded();
   await expect(

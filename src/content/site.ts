@@ -1,6 +1,6 @@
 // Replace explicitly marked placeholders only with verified, approved information.
 export const profile = {
-  name: "Georg Schmeistenbeißer",
+  name: "Georg Leistenschneider",
   role: "Psychologe",
   location: "Freiburg im Breisgau",
   email: null as string | null,

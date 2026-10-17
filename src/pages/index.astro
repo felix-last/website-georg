@@ -330,15 +330,16 @@ import mountains from "../assets/mountains.png";
     if (!link || !link.hash || link.origin !== window.location.origin ||
         link.pathname !== window.location.pathname) return;
     const id = decodeURIComponent(link.hash.slice(1));
-    if (!categoryIds.has(id)) return;
+    if (!categoryIds.has(id) && !(id === "kontakt" && link.matches(".service-bottom .button"))) return;
     const target = document.getElementById(id);
     if (!target) return;
     event.preventDefault();
     cancelCategoryScroll();
     const start = window.scrollY;
     // Align the top of the actual image, not the section's outer border or padding.
-    const visual = target.querySelector<HTMLElement>(".service-image, .service-art");
-    const offset = window.innerWidth <= 760 ? 90 : 105;
+    const isContact = id === "kontakt";
+    const visual = isContact ? null : target.querySelector<HTMLElement>(".service-image, .service-art");
+    const offset = isContact ? (window.innerWidth <= 760 ? 85 : 105) : (window.innerWidth <= 760 ? 90 : 105);
     const anchor = visual ?? target;
     const targetY = () => Math.max(0, anchor.getBoundingClientRect().top + window.scrollY - offset);
     const destination = targetY();
@@ -348,7 +349,7 @@ import mountains from "../assets/mountains.png";
       history.pushState(null, "", link.hash);
       return;
     }
-    const duration = Math.min(1900, Math.max(1100, Math.abs(distance) * 0.55));
+    const duration = isContact ? 2400 : Math.min(1900, Math.max(1100, Math.abs(distance) * 0.55));
     const started = performance.now();
     const animate = (now: number) => {
       const t = Math.min(1, (now - started) / duration);

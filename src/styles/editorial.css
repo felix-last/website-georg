@@ -2150,3 +2150,21 @@ html.programmatic-scroll { scroll-behavior: auto !important; }
 @media (max-width: 760px) and (prefers-reduced-motion: reduce) {
   .site-header.on-hero .mobile-monogram-l { transition: none; }
 }
+
+/* Mobile emergency: matching type sizes, subtitle fits one line and has
+   the same lower breathing room as the section's horizontal gutter. */
+@media (max-width: 760px) {
+  #notfallpsychologie .service-copy h2 {
+    --emergency-title-size: clamp(1.12rem, 5.05vw, 1.55rem);
+    margin-bottom: var(--gutter);
+  }
+  #notfallpsychologie .service-copy h2 > span:first-child,
+  #notfallpsychologie .service-copy h2 > span:last-child {
+    font-size: var(--emergency-title-size);
+    line-height: 1.12;
+    letter-spacing: -.045em;
+  }
+  #notfallpsychologie .service-copy h2 > span:last-child {
+    margin-bottom: 0;
+  }
+}

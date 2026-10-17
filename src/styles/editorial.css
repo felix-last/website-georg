@@ -2373,3 +2373,12 @@ html.programmatic-scroll { scroll-behavior: auto !important; }
     margin-top: 1.5rem;
   }
 }
+
+/* Hide duplicate contact CTA in the mobile bar while the menu is open. */
+@media (max-width: 760px) {
+  .site-header.on-hero:has(.menu[open]) .mobile-contact-cta {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}

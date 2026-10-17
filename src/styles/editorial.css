@@ -2495,3 +2495,27 @@ html.programmatic-scroll { scroll-behavior: auto !important; }
     ) scale(calc(1 - var(--flight) * .65));
   }
 }
+
+/* Mobile sport: preserve a common bottom baseline during zoom; close the gap to body copy. */
+@media (max-width: 760px) {
+  #sportpsychologie .service-copy h2 {
+    height: clamp(7.6rem, 31vw, 10.5rem);
+    margin-bottom: 0;
+  }
+  #sportpsychologie .service-copy h2 > .sport-grow {
+    top: 52%;
+    align-items: baseline;
+    line-height: 1;
+  }
+  #sportpsychologie .service-copy h2 .sport-grow-word {
+    transform-origin: left bottom;
+  }
+  #sportpsychologie .service-copy h2 .sport-think-word {
+    align-self: baseline;
+    transform-origin: left bottom;
+  }
+  #sportpsychologie .service-copy .service-description {
+    margin-top: 0;
+    padding-top: .65rem;
+  }
+}

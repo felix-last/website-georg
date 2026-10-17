@@ -57,6 +57,17 @@ const { hero = false } = Astro.props;
       if (!summary) return;
       const shouldDock = header.getBoundingClientRect().top + summary.offsetTop <= 9;
       document.body.classList.toggle("burger-is-docked", shouldDock);
+      // Ease the icon outward between its own docking point and the navigation docking.
+      const serviceNav = document.querySelector<HTMLElement>(".hero-services");
+      const placeholder = document.querySelector<HTMLElement>(".hero-services-placeholder");
+      const navTop = placeholder?.isConnected
+        ? placeholder.getBoundingClientRect().top
+        : serviceNav?.getBoundingClientRect().top ?? 0;
+      const distance = Math.max(1, navTop - 9);
+      const progress = document.body.classList.contains("nav-is-docked")
+        ? 1
+        : Math.max(0, Math.min(1, 1 - distance / Math.max(window.innerHeight * 0.32, 1)));
+      summary.style.setProperty("--burger-drift", String(progress));
     };
     window.addEventListener("scroll", updateBurgerDock, { passive: true });
     window.addEventListener("resize", updateBurgerDock);

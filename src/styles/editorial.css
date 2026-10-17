@@ -1227,3 +1227,16 @@ a.contact-social-placeholder:focus-visible {
   background: var(--rule);
   margin-bottom: 1.5rem;
 }
+
+/* Identical emergency dividers: one shared width based on the copy column,
+   not each text element's individual character width. */
+#notfallpsychologie .service-copy {
+  --emergency-line: min(100%, 300px);
+}
+#notfallpsychologie .service-description::after,
+#notfallpsychologie .emergency-audiences h3:not(:first-child)::before,
+#notfallpsychologie .emergency-audiences .emergency-scope::before {
+  width: var(--emergency-line);
+  max-width: none;
+  box-sizing: border-box;
+}

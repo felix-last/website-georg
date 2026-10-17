@@ -2382,3 +2382,14 @@ html.programmatic-scroll { scroll-behavior: auto !important; }
     pointer-events: none;
   }
 }
+
+/* Desktop About: align portrait top edge with the biography text. */
+@media (min-width: 761px) {
+  #ueber-mich .intro-image {
+    margin-top: 0;
+    align-self: start;
+  }
+  #ueber-mich .intro-copy {
+    padding-top: 0;
+  }
+}

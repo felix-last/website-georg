@@ -2077,3 +2077,33 @@ html.programmatic-scroll { scroll-behavior: auto !important; }
     overflow: visible;
   }
 }
+
+/* Mobile emergency heading: full "Halt in" inside photo, second line below. */
+@media (max-width: 760px) {
+  #notfallpsychologie .service-copy h2 {
+    margin-top: -4.5rem;
+    margin-bottom: 2rem;
+    width: 100%;
+    max-width: 100%;
+    overflow: visible;
+  }
+  #notfallpsychologie .service-copy h2 > span:first-child {
+    display: block;
+    color: #fff;
+    -webkit-text-fill-color: #fff;
+    font-size: clamp(2.3rem, 10vw, 3.5rem);
+    line-height: 1.05;
+    white-space: nowrap;
+    margin-bottom: 1.35rem;
+  }
+  #notfallpsychologie .service-copy h2 > span:last-child {
+    display: block;
+    width: 100%;
+    color: var(--ink);
+    -webkit-text-fill-color: var(--ink);
+    font-size: clamp(1.25rem, 5.2vw, 1.9rem);
+    line-height: 1.15;
+    letter-spacing: -.045em;
+    white-space: nowrap;
+  }
+}

@@ -2168,3 +2168,33 @@ html.programmatic-scroll { scroll-behavior: auto !important; }
     margin-bottom: 0;
   }
 }
+
+/* Mobile sport: the growing heading passes behind a frosted text surface. */
+@media (max-width: 760px) {
+  #sportpsychologie .service-copy {
+    isolation: isolate;
+  }
+  #sportpsychologie .service-copy h2 {
+    position: relative;
+    z-index: 0;
+    margin-bottom: -1.1rem;
+  }
+  #sportpsychologie .service-copy .service-description,
+  #sportpsychologie .service-copy .sport-offer,
+  #sportpsychologie .service-copy .content-note {
+    position: relative;
+    z-index: 2;
+  }
+  #sportpsychologie .service-copy .service-description {
+    padding: 1.4rem 1rem 1rem;
+    margin-inline: -1rem;
+    background: rgba(238,236,230,.78);
+    -webkit-backdrop-filter: blur(18px) saturate(130%);
+    backdrop-filter: blur(18px) saturate(130%);
+    border-top: 1px solid rgba(255,255,255,.48);
+    border-radius: 12px 12px 0 0;
+  }
+  #sportpsychologie .service-copy .sport-offer {
+    background: var(--paper);
+  }
+}

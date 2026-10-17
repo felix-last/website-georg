@@ -51,6 +51,17 @@ const { hero = false } = Astro.props;
     };
     menu.addEventListener("toggle", positionPanel);
     window.addEventListener("scroll", positionPanel, { passive: true });
+    const updateBurgerDock = () => {
+      if (!header?.classList.contains("on-hero")) return;
+      const summary = menu.querySelector<HTMLElement>("summary");
+      if (!summary) return;
+      const shouldDock = header.getBoundingClientRect().top + summary.offsetTop <= 9;
+      document.body.classList.toggle("burger-is-docked", shouldDock);
+    };
+    window.addEventListener("scroll", updateBurgerDock, { passive: true });
+    window.addEventListener("resize", updateBurgerDock);
+    updateBurgerDock();
+
     window.addEventListener("resize", positionPanel);
     menu.querySelectorAll("a").forEach((link) => {
       link.addEventListener("click", () => {

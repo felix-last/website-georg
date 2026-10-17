@@ -6,7 +6,8 @@ export const profile = {
   email: null as string | null,
 };
 
-export const services = [
+// Complete catalogue retained for future expansion; inactive sections are not rendered.
+export const allServices = [
   {
     id: "sportpsychologie",
     label: "Sportpsychologie",
@@ -48,3 +49,8 @@ export const services = [
     keywords: ["Zusammenarbeit", "Austausch", "Entwicklung"],
   },
 ];
+
+// Initial launch: keep the offering focused on three established areas.
+export const services = allServices.filter((service) =>
+  ["sportpsychologie", "notfallpsychologie", "neuropsychologie"].includes(service.id),
+);

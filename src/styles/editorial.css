@@ -2558,3 +2558,13 @@ html.programmatic-scroll { scroll-behavior: auto !important; }
     border-bottom: 0;
   }
 }
+
+/* More breathing room between trainieren and Größer on mobile. */
+@media (max-width: 760px) {
+  #sportpsychologie .service-copy h2 {
+    height: clamp(7.5rem, 30vw, 10rem);
+  }
+  #sportpsychologie .service-copy h2 > .sport-grow {
+    top: 63%;
+  }
+}

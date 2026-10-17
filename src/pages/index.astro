@@ -296,3 +296,43 @@ import mountains from "../assets/mountains.png";
     }
   }
 </script>
+
+<script>
+  // Category links: land a little lower, with gentle acceleration and braking.
+  const categoryIds = new Set(["sportpsychologie", "notfallpsychologie", "neuropsychologie"]);
+  let categoryScrollFrame = 0;
+  const cancelCategoryScroll = () => cancelAnimationFrame(categoryScrollFrame);
+  window.addEventListener("wheel", cancelCategoryScroll, { passive: true });
+  window.addEventListener("touchstart", cancelCategoryScroll, { passive: true });
+  document.addEventListener("click", (event) => {
+    const link = event.target instanceof Element
+      ? event.target.closest<HTMLAnchorElement>('a[href^="#"]')
+      : null;
+    if (!link) return;
+    const id = link.hash.slice(1);
+    if (!categoryIds.has(id)) return;
+    const target = document.getElementById(id);
+    if (!target) return;
+    event.preventDefault();
+    cancelCategoryScroll();
+    const start = window.scrollY;
+    const offset = window.innerWidth <= 760 ? 110 : 145;
+    const destination = Math.max(0, target.getBoundingClientRect().top + start - offset);
+    const distance = destination - start;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      window.scrollTo({ top: destination, behavior: "instant" });
+      history.pushState(null, "", link.hash);
+      return;
+    }
+    const duration = Math.min(1900, Math.max(1100, Math.abs(distance) * 0.55));
+    const started = performance.now();
+    const animate = (now: number) => {
+      const t = Math.min(1, (now - started) / duration);
+      const eased = t * t * t * (t * (t * 6 - 15) + 10);
+      window.scrollTo({ top: start + distance * eased, behavior: "instant" });
+      if (t < 1) categoryScrollFrame = requestAnimationFrame(animate);
+      else history.pushState(null, "", link.hash);
+    };
+    categoryScrollFrame = requestAnimationFrame(animate);
+  });
+</script>

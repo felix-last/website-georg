@@ -148,6 +148,29 @@ import mountains from "../assets/mountains.png";
 
 <script>
   const scrollCue = document.querySelector<HTMLElement>(".scroll-cue-delayed");
+  // Gentle, longer scroll from the hero arrow to the About section.
+  scrollCue?.addEventListener("click", (event) => {
+    const target = document.getElementById("ueber-mich");
+    if (!target) return;
+    event.preventDefault();
+    const start = window.scrollY;
+    const destination = Math.max(0, target.getBoundingClientRect().top + start - 105);
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      window.scrollTo({ top: destination, behavior: "instant" });
+      history.pushState(null, "", "#ueber-mich");
+      return;
+    }
+    const duration = 2400;
+    const started = performance.now();
+    const animate = (now: number) => {
+      const t = Math.min(1, (now - started) / duration);
+      const eased = t * t * t * (t * (t * 6 - 15) + 10);
+      window.scrollTo({ top: start + (destination - start) * eased, behavior: "instant" });
+      if (t < 1) requestAnimationFrame(animate);
+      else history.pushState(null, "", "#ueber-mich");
+    };
+    requestAnimationFrame(animate);
+  });
   const hero = document.querySelector<HTMLElement>(".hero");
   if (scrollCue && hero) {
     // Reveal after four seconds; then let the arrow respond to scrolling.

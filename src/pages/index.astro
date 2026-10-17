@@ -148,38 +148,37 @@ import mountains from "../assets/mountains.png";
 
 <script>
   const scrollCue = document.querySelector<HTMLElement>(".scroll-cue-delayed");
-  // Gentle, longer scroll from the hero arrow to the About section.
+  // Both hero links share one cancellable animation, independent of native anchors.
   const heroNameLink = document.querySelector<HTMLAnchorElement>(".hero-name-link");
+  let aboutScrollFrame = 0;
   const gentleAboutScroll = (event: MouseEvent) => {
+    event.preventDefault();
     const target = document.getElementById("ueber-mich");
     if (!target) return;
-    event.preventDefault();
+    cancelAnimationFrame(aboutScrollFrame);
     const start = window.scrollY;
     const destination = Math.max(0, target.getBoundingClientRect().top + start - 105);
-    // Temporarily override native CSS smooth scrolling; otherwise Safari may
-    // animate each requestAnimationFrame step a second time.
-    const root = document.documentElement;
-    const previousScrollBehavior = root.style.scrollBehavior;
-    root.style.scrollBehavior = "auto";
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      window.scrollTo({ top: destination, behavior: "instant" });
-      history.pushState(null, "", "#ueber-mich");
-      root.style.scrollBehavior = previousScrollBehavior;
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    document.documentElement.classList.add("programmatic-scroll");
+    if (reduced) {
+      window.scrollTo(0, destination);
+      document.documentElement.classList.remove("programmatic-scroll");
+      history.replaceState(null, "", "#ueber-mich");
       return;
     }
-    const duration = 2400;
     const started = performance.now();
+    const duration = 2400;
     const animate = (now: number) => {
       const t = Math.min(1, (now - started) / duration);
       const eased = t * t * t * (t * (t * 6 - 15) + 10);
-      window.scrollTo({ top: start + (destination - start) * eased, behavior: "instant" });
-      if (t < 1) requestAnimationFrame(animate);
+      window.scrollTo(0, start + (destination - start) * eased);
+      if (t < 1) aboutScrollFrame = requestAnimationFrame(animate);
       else {
-        history.pushState(null, "", "#ueber-mich");
-        root.style.scrollBehavior = previousScrollBehavior;
+        document.documentElement.classList.remove("programmatic-scroll");
+        history.replaceState(null, "", "#ueber-mich");
       }
     };
-    requestAnimationFrame(animate);
+    aboutScrollFrame = requestAnimationFrame(animate);
   };
   scrollCue?.addEventListener("click", gentleAboutScroll);
   heroNameLink?.addEventListener("click", gentleAboutScroll);

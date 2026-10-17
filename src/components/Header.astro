@@ -25,7 +25,6 @@ const { hero = false } = Astro.props;
       </span>
     </summary>
     <nav aria-label="Hauptnavigation">
-      <span class="eyebrow">Entdecken</span>
       <a href={path("#ansatz")}>Ansatz</a>
       {services.map((service) => (
         <a href={path(`#${service.id}`)}>{service.label}</a>

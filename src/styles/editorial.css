@@ -1820,3 +1820,20 @@ html.programmatic-scroll { scroll-behavior: auto !important; }
   justify-content: flex-start;
   margin-top: 1.5rem;
 }
+
+/* Mobile menu glyph: smaller burger and X, preserving the 44px touch target. */
+@media (max-width: 760px) {
+  .site-header.on-hero .menu .menu-icon {
+    width: 23px;
+    gap: 3px;
+  }
+  .site-header.on-hero .menu .menu-icon i {
+    height: 1px;
+  }
+  .site-header.on-hero .menu[open] .menu-icon i:first-child {
+    transform: translateY(4px) rotate(45deg);
+  }
+  .site-header.on-hero .menu[open] .menu-icon i:last-child {
+    transform: translateY(-4px) rotate(-45deg);
+  }
+}

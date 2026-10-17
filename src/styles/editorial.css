@@ -684,3 +684,19 @@ body { overflow-x: clip; }
   .sport-feature .service-copy h2 .sport-lead { font-size: .7em; }
   .sport-feature .service-copy h2 .sport-grow { font-size: 1.04em; }
 }
+
+/* Reveal content progressively from top to bottom, rather than sliding it upward. */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal-item {
+    transform: none;
+    clip-path: inset(0 0 100% 0);
+    transition:
+      clip-path 1200ms cubic-bezier(.22, 1, .36, 1),
+      opacity 1200ms cubic-bezier(.22, 1, .36, 1);
+  }
+  .reveal-item.is-revealed {
+    transform: none;
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+  }
+}

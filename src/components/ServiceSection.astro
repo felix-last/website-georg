@@ -48,7 +48,7 @@ const { service, index, image, alt = "" } = Astro.props;
     <p class="eyebrow line-label">{service.label}</p>
     <h2 id={`${service.id}-title`}>
       {service.title.split("\n").map((line, lineIndex) => (
-        <span class:list={{ "sport-grow": service.id === "sportpsychologie" && lineIndex === 1 }}>{line} </span>
+        <span class:list={{ "sport-grow": service.id === "sportpsychologie" && lineIndex === 1, "sport-lead": service.id === "sportpsychologie" && lineIndex === 0 }}>{line} </span>
       ))}
     </h2>
     <p class="service-description">{service.text}</p>

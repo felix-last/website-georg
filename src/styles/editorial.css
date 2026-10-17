@@ -1897,3 +1897,43 @@ html.programmatic-scroll { scroll-behavior: auto !important; }
     pointer-events: auto;
   }
 }
+
+/* Mobile: grow the actual word width so "denken." is pushed right, not overlaid.
+   The growth continues throughout the section's scroll-driven view timeline. */
+@media (max-width: 760px) {
+  #sportpsychologie .service-copy h2 .sport-grow {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: nowrap;
+    width: max-content;
+    max-width: none;
+    overflow: visible;
+    white-space: nowrap;
+    transform: none;
+    animation: none;
+  }
+  #sportpsychologie .service-copy h2 .sport-grow-word {
+    flex: 0 0 auto;
+    font-size: 1em;
+    line-height: 1;
+    transform: none;
+    animation: none;
+  }
+  #sportpsychologie .service-copy h2 .sport-think-word {
+    flex: 0 0 auto;
+    white-space: nowrap;
+  }
+}
+@media (max-width: 760px) and (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    #sportpsychologie .service-copy h2 .sport-grow-word {
+      animation: mobile-groesser-expand linear both;
+      animation-timeline: view(block);
+      animation-range: entry 0% exit 100%;
+    }
+    @keyframes mobile-groesser-expand {
+      from { font-size: 1em; }
+      to { font-size: 2.8em; }
+    }
+  }
+}

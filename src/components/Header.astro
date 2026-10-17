@@ -48,6 +48,8 @@ const { hero = false } = Astro.props;
       const trigger = summary.getBoundingClientRect();
       const top = Math.max(0, trigger.bottom + 12);
       panel.style.top = top + "px";
+      // Align the right edge of the open panel with the moving burger.
+      panel.style.right = Math.max(8, window.innerWidth - trigger.right) + "px";
       panel.style.maxHeight = Math.max(160, window.innerHeight - top - 12) + "px";
     };
     menu.addEventListener("toggle", positionPanel);

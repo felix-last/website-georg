@@ -2423,3 +2423,7 @@ html.programmatic-scroll { scroll-behavior: auto !important; }
     margin-bottom: .1rem;
   }
 }
+
+@media (max-width: 760px) {
+  #neuropsychologie .service-copy > .line-label { display: none; }
+}

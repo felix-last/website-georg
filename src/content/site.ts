@@ -11,8 +11,8 @@ export const services = [
     id: "sportpsychologie",
     label: "Sportpsychologie",
     title: "Ganzheitlich trainieren.\nGrößer denken.",
-    text: "Fokus finden. Mit Druck umgehen. Den eigenen Weg im Sport gestalten. Hier entsteht ein Angebot für Menschen, die ihre mentale Seite im Training und im Wettkampf bewusster kennenlernen möchten.",
-    note: "Entwurf · Zielgruppen, Methoden und Umfang werden ergänzt.",
+    text: "Im Wettkampf zählt die Leistung. Hier zählt auch der Mensch dahinter. Sportpsychologische Begleitung bietet Raum, um offen über Druck, Zweifel und Herausforderungen zu sprechen und gemeinsam an mentalen Fähigkeiten für Training und Wettkampf zu arbeiten.",
+    note: "",
     keywords: ["Fokus", "Klarheit", "Entwicklung"],
   },
   {

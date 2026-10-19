@@ -810,3 +810,15 @@ p {
   .legal-body section h2 { margin: 0 0 1rem; }
   .legal-body section p { margin-bottom: .9rem; }
 }
+
+/* Accessible footer link targets on legal pages and the homepage. */
+.site-footer .footer-meta .footer-social a,
+.site-footer .footer-meta nav a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  box-sizing: border-box;
+  padding: .55rem .85rem;
+}
+.site-footer .footer-meta nav { gap: .65rem; }

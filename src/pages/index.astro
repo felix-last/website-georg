@@ -40,8 +40,8 @@ import mountains from "../assets/mountains.png";
               <span class="docked-menu-icon" aria-hidden="true"><i></i><i></i><i></i></span>
             </summary>
             <div class="docked-menu-panel">
-              <a href="#ueber-mich">Über mich</a>
               {services.map((service) => <a href={`#${service.id}`}>{service.label}</a>)}
+              <a href="#ueber-mich">Über mich</a>
               <a href="#kontakt">Kontakt aufnehmen ↗</a>
             </div>
           </details>
@@ -56,6 +56,34 @@ import mountains from "../assets/mountains.png";
         <span aria-hidden="true"></span>
       </p>
     </section>
+
+    <div class="services wrap">
+      {services.map((service, index) => (
+        <ServiceSection
+          service={service}
+          index={index}
+          image={service.id === "notfallpsychologie" ? lighthouse : undefined}
+          publicImage={
+            service.id === "sportpsychologie"
+              ? `${import.meta.env.BASE_URL}images/Alpine%20Freeride%20Through%20the%20Couloir.png`
+              : service.id === "beratung"
+                ? `${import.meta.env.BASE_URL}images/Sunlit%20Scandi%20Chair%20and%20Shadows.png`
+                : service.id === "neuropsychologie"
+                  ? `${import.meta.env.BASE_URL}images/Sunlit%20Scandi%20Chair%20and%20Shadows.png`
+                  : undefined
+          }
+          alt={
+            service.id === "sportpsychologie"
+              ? "Skifahrerin oder Skifahrer in einer steilen alpinen Wettkampfabfahrt; KI-generiertes Stimmungsbild"
+              : service.id === "beratung"
+                ? "Leerer Holzstuhl in einem hellen Raum mit geometrischen Fensterschatten; KI-generiertes Stimmungsbild"
+                : service.id === "neuropsychologie"
+                  ? "Heller Raum mit einem Holzstuhl und geometrischen Fensterschatten; KI-generiertes Stimmungsbild"
+                  : "Ruhige Meeresfläche im Nebel mit entferntem Leuchtturm; KI-generiertes Stimmungsbild"
+          }
+        />
+      ))}
+    </div>
 
     <section id="ueber-mich" class="intro wrap" aria-labelledby="about-title">
       <div class="about-lead">
@@ -109,34 +137,6 @@ import mountains from "../assets/mountains.png";
         </div>
       </div>
     </section>
-
-    <div class="services wrap">
-      {services.map((service, index) => (
-        <ServiceSection
-          service={service}
-          index={index}
-          image={service.id === "notfallpsychologie" ? lighthouse : undefined}
-          publicImage={
-            service.id === "sportpsychologie"
-              ? `${import.meta.env.BASE_URL}images/Alpine%20Freeride%20Through%20the%20Couloir.png`
-              : service.id === "beratung"
-                ? `${import.meta.env.BASE_URL}images/Sunlit%20Scandi%20Chair%20and%20Shadows.png`
-                : service.id === "neuropsychologie"
-                  ? `${import.meta.env.BASE_URL}images/Sunlit%20Scandi%20Chair%20and%20Shadows.png`
-                  : undefined
-          }
-          alt={
-            service.id === "sportpsychologie"
-              ? "Skifahrerin oder Skifahrer in einer steilen alpinen Wettkampfabfahrt; KI-generiertes Stimmungsbild"
-              : service.id === "beratung"
-                ? "Leerer Holzstuhl in einem hellen Raum mit geometrischen Fensterschatten; KI-generiertes Stimmungsbild"
-                : service.id === "neuropsychologie"
-                  ? "Heller Raum mit einem Holzstuhl und geometrischen Fensterschatten; KI-generiertes Stimmungsbild"
-                  : "Ruhige Meeresfläche im Nebel mit entferntem Leuchtturm; KI-generiertes Stimmungsbild"
-          }
-        />
-      ))}
-    </div>
 
     <ContactForm />
   </main>

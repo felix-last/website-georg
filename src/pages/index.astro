@@ -228,22 +228,10 @@ import mountains from "../assets/mountains.png";
           placeholder.remove();
           nav.classList.remove("is-docked");
         }
-        const rect = nav.getBoundingClientRect();
-        // Use the untransformed nav box and clamp rubber-band overscroll to zero.
-        // The animation begins only after actual downward page scrolling.
-        const scroll = Math.max(0, window.scrollY);
-        const start = Math.max(0, nav.getBoundingClientRect().top + scroll - window.innerHeight * .44);
-        const distance = Math.max(1, window.innerHeight * .44 - 62);
-        const progress = Math.max(0, Math.min(1, (scroll - start) / distance));
-        nav.style.setProperty("--mobile-collapse", String(progress));
-        links.forEach((link) => {
-          const finalRight = rect.left + link.offsetLeft + link.offsetWidth * 0.35;
-          link.style.setProperty("--flight-x", String(window.innerWidth - 18 - finalRight) + "px");
-        });
-        // The last category catches up with the others near the burger.
-        // Reveal the full-width bar at that point, rather than waiting for
-        // the original category container to leave the viewport.
-        const active = document.body.classList.contains("mobile-name-passed");
+        // On mobile the hero links remain static; the bar appears once
+        // the category list has scrolled out of the top of the viewport.
+        const active = Math.max(0, window.scrollY) > 0 &&
+          nav.getBoundingClientRect().bottom <= 62;
         document.body.classList.toggle("mobile-nav-active", active);
         document.body.classList.remove("nav-is-docked");
         return;

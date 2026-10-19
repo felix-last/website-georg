@@ -5,60 +5,44 @@ import Footer from "../components/Footer.astro";
 ---
 
 <Layout
-  title="Impressum · Georg [Nachname]"
-  description="Impressum – noch nicht vervollständigte Prüfvorlage für diesen Website-Entwurf."
+  title="Impressum · Georg Leistenschneider"
+  description="Impressum und Anbieterinformationen von Georg Leistenschneider, Psychologe in Freiburg im Breisgau."
 >
   <Header />
   <main id="inhalt" class="legal-page wrap">
-    <p class="eyebrow">Rechtliche Informationen</p>
-    <h1>Impressum</h1>
-    <p class="legal-warning">
-      Prüfvorlage – nicht zur Veröffentlichung freigegeben. Pflichtangaben
-      fehlen. Diese Seite ist noch kein vollständiges Impressum.
-    </p>
-    <h2>Angaben gemäß § 5 DDG</h2>
-    <p>
-      [Vollständiger Name / gegebenenfalls Unternehmensbezeichnung]
-      <br />
-      [Ladungsfähige Anschrift]
-      <br />
-      [Postleitzahl und Ort]
-    </p>
-    <h2>Kontakt</h2>
-    <p>
-      [E-Mail-Adresse]
-      <br />
-      [Weiterer erforderlicher direkter Kontaktweg]
-    </p>
-    <h2>Berufsbezogene Angaben</h2>
-    <p>
-      [Tatsächliche Berufsbezeichnung, gegebenenfalls Staat der Verleihung,
-      zuständige Aufsichtsbehörde oder Kammer und anwendbare berufsrechtliche
-      Regelungen prüfen und ergänzen.]
-    </p>
-    <h2>Weitere Angaben nach tatsächlicher Anwendbarkeit</h2>
-    <p>
-      [Registereintrag, Umsatzsteuer-Identifikationsnummer und gegebenenfalls
-      Wirtschafts-Identifikationsnummer prüfen. Verantwortlichkeit nach § 18
-      Abs. 2 MStV nur bei einschlägigen journalistisch-redaktionellen Inhalten
-      ergänzen.]
-    </p>
-    <p>
-      [Informationspflichten nach dem Verbraucherstreitbeilegungsgesetz für den
-      konkreten Anbieter prüfen. Keine Teilnahmebereitschaft oder Verpflichtung
-      ohne tatsächliche Grundlage behaupten.]
-    </p>
-    <h2>Bildmaterial</h2>
-    <p>
-      Die Landschaftsbilder dieses Entwurfs wurden mit KI erzeugt. Sie zeigen
-      keine persönliche Tätigkeit des Anbieters. Schrift: Geist, lokal
-      bereitgestellt unter der SIL Open Font License.
-    </p>
-    <p>
-      Vor dem öffentlichen Betrieb müssen Identität, Berufsstatus,
-      Leistungsangebot und alle anwendbaren Pflichtangaben fachlich und
-      rechtlich geprüft werden.
-    </p>
+    <div class="legal-intro">
+      <p class="eyebrow line-label">Rechtliches / 01</p>
+      <h1>Impressum<span class="legal-title-dot">.</span></h1>
+      <p class="legal-lead">Informationen zum Anbieter dieser Website.</p>
+    </div>
+    <div class="legal-body">
+      <section>
+        <h2>Angaben gemäß § 5 DDG</h2>
+        <p><strong>Georg Leistenschneider</strong><br />Psychologe · Freiburg im Breisgau</p>
+        <p class="legal-placeholder">Ladungsfähige Anschrift und Postleitzahl werden vor der Veröffentlichung ergänzt.</p>
+      </section>
+      <section>
+        <h2>Kontakt</h2>
+        <p class="legal-placeholder">Die Kontakt-E-Mail-Adresse wird vor der Veröffentlichung ergänzt. Das Kontaktformular ist derzeit deaktiviert.</p>
+      </section>
+      <section>
+        <h2>Beruf und Tätigkeitsbereiche</h2>
+        <p>Psychologe (M.Sc.). Tätigkeitsbereiche sind Sportpsychologie, Notfallpsychologie sowie psychologische und neuropsychologische Begutachtung. Die Weiterbildungen in Sport- und Notfallpsychologie befinden sich im Aufbau beziehungsweise in Ausbildung.</p>
+        <p>Es werden keine psychotherapeutischen Leistungen angeboten. Das Angebot ersetzt keine psychotherapeutische oder psychiatrische Behandlung.</p>
+        <p class="legal-placeholder">Gegebenenfalls anwendbare berufsrechtliche Angaben, zuständige Aufsichtsstellen und weitere gesetzliche Pflichtangaben sind vor Veröffentlichung zu prüfen und zu ergänzen.</p>
+      </section>
+      <section>
+        <h2>Weitere gesetzliche Angaben</h2>
+        <p class="legal-placeholder">Registerangaben, Steueridentifikationsmerkmale, Angaben zur Verbraucherstreitbeilegung sowie eine gegebenenfalls erforderliche inhaltliche Verantwortlichkeit werden entsprechend ihrer tatsächlichen Anwendbarkeit geprüft und ergänzt.</p>
+      </section>
+      <section>
+        <h2>Bildmaterial und Gestaltung</h2>
+        <p>Die Website enthält ein persönliches Porträt sowie teilweise KI-generierte Stimmungsbilder. Die Schriftfamilie Geist wird lokal bereitgestellt.</p>
+        <p class="legal-placeholder">Nutzungsrechte sämtlicher verwendeter Bilder und gegebenenfalls erforderliche Bildnachweise sind vor Veröffentlichung abschließend zu prüfen.</p>
+      </section>
+    </div>
+    <p class="legal-review-note">Diese Seite enthält noch offene Pflichtangaben und ist nicht als vollständiges, rechtlich geprüftes Impressum zu verstehen.</p>
+    <a class="legal-back" href={import.meta.env.BASE_URL}>← Zur Startseite</a>
   </main>
   <Footer />
 </Layout>

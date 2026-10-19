@@ -2763,3 +2763,118 @@ html.programmatic-scroll { scroll-behavior: auto !important; }
     font-size: 1em;
   }
 }
+
+/* Short landscape phones: compact desktop-inspired composition.
+   Height-based so rotated phones do not inherit the tall portrait layout. */
+@media (orientation: landscape) and (max-height: 520px) and (pointer: coarse) {
+  :root { --gutter: clamp(16px, 3vw, 32px); }
+  html, body { overflow-x: clip; }
+  .hero {
+    height: 100svh;
+    min-height: 300px;
+    max-height: none;
+  }
+  .hero-content {
+    top: 20%;
+    padding-inline: var(--gutter);
+  }
+  .hero h1 { font-size: clamp(1.3rem, 2.8vw, 2rem); }
+  .hero-role { font-size: .65rem; }
+  .hero-services:not(.is-docked) {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: clamp(.5rem, 2.5vw, 1.8rem);
+    margin-top: clamp(1rem, 7vh, 2rem);
+    width: 100%;
+  }
+  .hero-services:not(.is-docked) > a {
+    width: auto;
+    font-size: clamp(.8rem, 1.7vw, 1rem);
+    font-weight: 600;
+    padding: .5rem 0;
+    white-space: nowrap;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+  .hero-location { bottom: .8rem; }
+  .scroll-cue { bottom: .4rem; }
+  .services .service-section {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: start;
+    column-gap: clamp(1.5rem, 4vw, 3rem);
+    padding-block: 3rem;
+  }
+  .service-section .mobile-service-label {
+    grid-column: 1 / -1;
+    display: block;
+    order: initial;
+  }
+  .service-section .service-image,
+  .service-section .service-art {
+    grid-column: 1;
+    grid-row: 2;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    min-height: 0;
+    order: initial;
+  }
+  .service-section .service-copy {
+    grid-column: 2;
+    grid-row: 2;
+    width: 100%;
+    order: initial;
+    padding: 0;
+  }
+  #sportpsychologie .service-copy h2,
+  #notfallpsychologie .service-copy h2,
+  #neuropsychologie .service-copy h2 {
+    position: relative;
+    height: auto;
+    margin: 0 0 1.3rem;
+    overflow: visible;
+    contain: none;
+    font-size: clamp(1.35rem, 3vw, 2.3rem);
+  }
+  #sportpsychologie .service-copy h2 > .sport-lead {
+    display: block;
+    font-size: .65em;
+    white-space: normal;
+  }
+  #sportpsychologie .service-copy h2 .sport-train-word { display: inline; }
+  #sportpsychologie .service-copy h2 > .sport-grow {
+    position: static;
+    display: flex;
+    font-size: 1em;
+    transform: none !important;
+    animation: none !important;
+  }
+  #sportpsychologie .service-copy h2 .sport-grow-word,
+  #sportpsychologie .service-copy h2 .sport-think-word {
+    transform: none !important;
+    animation: none !important;
+  }
+  #notfallpsychologie .service-copy h2 > span:first-child,
+  #notfallpsychologie .service-copy h2 > span:last-child {
+    color: var(--ink);
+    -webkit-text-fill-color: var(--ink);
+    font-size: clamp(1.25rem, 2.7vw, 2rem) !important;
+    white-space: normal;
+    margin: 0;
+  }
+  #ueber-mich.intro {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 1.5rem 2rem;
+  }
+  #ueber-mich .about-lead { grid-column: 1 / -1; }
+  #ueber-mich .about-lead h2 { font-size: clamp(2.4rem, 5vw, 4rem); }
+  #ueber-mich .intro-copy { grid-column: 1; grid-row: 2; }
+  #ueber-mich .intro-image { grid-column: 2; grid-row: 2; margin: 0; }
+  #ueber-mich .intro-image img { aspect-ratio: 4 / 5; }
+  #ueber-mich .profile-section { grid-column: 1 / -1; }
+  .service-bottom .button { min-height: 44px; }
+}

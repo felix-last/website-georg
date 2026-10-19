@@ -3046,3 +3046,32 @@ html.programmatic-scroll { scroll-behavior: auto !important; }
     text-transform: uppercase;
   }
 }
+
+/* Desktop header: align CTA and Menu using the same flex row, not absolute centering. */
+@media (min-width: 761px) {
+  .site-header.on-hero {
+    justify-content: flex-end;
+    gap: 1.4rem;
+  }
+  .site-header.on-hero .small-brand { margin-right: auto; }
+  .site-header.on-hero .desktop-header-cta {
+    position: static;
+    inset: auto;
+    transform: none;
+    top: auto;
+    right: auto;
+    flex: 0 0 auto;
+    align-self: center;
+    height: 44px;
+    min-height: 44px;
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    margin: 0;
+  }
+  .site-header.on-hero > .menu {
+    flex: 0 0 auto;
+    align-self: center;
+    margin: 0;
+  }
+}

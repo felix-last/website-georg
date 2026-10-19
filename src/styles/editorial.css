@@ -3009,3 +3009,20 @@ html.programmatic-scroll { scroll-behavior: auto !important; }
 @media (prefers-reduced-motion: reduce) {
   .site-header.on-hero .desktop-header-cta { animation: none; opacity: 1; }
 }
+
+/* Assessment editorial finishing: remove unnecessary rules and refine mobile title. */
+#neuropsychologie .service-details li:last-child { border-bottom: 0; }
+#neuropsychologie .service-bottom {
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: clamp(1.5rem, 3vw, 2.5rem);
+}
+@media (max-width: 760px) {
+  /* No dividing line between the hero and the first service. */
+  #sportpsychologie.service-section { border-top: 0; }
+  #neuropsychologie .service-copy h2 {
+    font-size: clamp(1.85rem, 6.5vw, 2.75rem);
+    line-height: 1.08;
+    margin-top: -.6rem;
+  }
+  #neuropsychologie.service-section { gap: 1rem; }
+}

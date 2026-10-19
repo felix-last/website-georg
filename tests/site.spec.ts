@@ -50,9 +50,9 @@ test("keyboard menu and legal links work under the project base path", async ({
   await expect(menu).toBeFocused();
   await page.getByRole("link", { name: "Impressum", exact: true }).click();
   await expect(page).toHaveURL(/\/website-georg\/impressum\/$/);
-  await expect(page.getByRole("heading", { level: 1 })).toHaveText("Impressum");
-  await expect(page.locator(".legal-warning")).toContainText(
-    "nicht zur Veröffentlichung freigegeben",
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("Impressum.");
+  await expect(page.locator(".legal-review-note")).toContainText(
+    "offene Pflichtangaben",
   );
   expect(
     (
@@ -63,7 +63,7 @@ test("keyboard menu and legal links work under the project base path", async ({
   ).toEqual([]);
   await page.getByRole("link", { name: "Datenschutz", exact: true }).click();
   await expect(page.getByRole("heading", { level: 1 })).toHaveText(
-    "Datenschutz",
+    "Datenschutz.",
   );
 });
 

@@ -2723,3 +2723,43 @@ html.programmatic-scroll { scroll-behavior: auto !important; }
   text-decoration: none;
   line-height: 1.1;
 }
+
+/* Desktop: animate only "Größer"; "denken." retains its own size. */
+@media (min-width: 761px) {
+  #sportpsychologie .service-copy h2 > .sport-grow {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: nowrap;
+    width: max-content;
+    max-width: none;
+    gap: .16em;
+    transform: none;
+    animation: none;
+    white-space: nowrap;
+  }
+  #sportpsychologie .service-copy h2 .sport-grow-word {
+    display: inline-block;
+    flex: 0 0 auto;
+    font-size: 1em;
+    animation: desktop-grow-word linear both;
+    animation-timeline: view();
+    animation-range: entry 10% cover 65%;
+  }
+  #sportpsychologie .service-copy h2 .sport-think-word {
+    display: inline-block;
+    flex: 0 0 auto;
+    font-size: 1em;
+    transform: none;
+    animation: none;
+  }
+  @keyframes desktop-grow-word {
+    from { font-size: .86em; }
+    to { font-size: 1.08em; }
+  }
+}
+@media (min-width: 761px) and (prefers-reduced-motion: reduce) {
+  #sportpsychologie .service-copy h2 .sport-grow-word {
+    animation: none;
+    font-size: 1em;
+  }
+}

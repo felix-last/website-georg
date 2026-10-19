@@ -2599,3 +2599,50 @@ html.programmatic-scroll { scroll-behavior: auto !important; }
     top: 48%;
   }
 }
+
+/* Stable-weight topic dissolve, same on desktop and mobile. */
+.sport-topics .topic-emphasis,
+.sport-topics .topic-emphasis.is-bold {
+  position: relative;
+  font-weight: 400;
+  white-space: nowrap;
+}
+.sport-topics .topic-emphasis::after {
+  content: attr(data-word) !important;
+  display: block !important;
+  position: absolute;
+  inset: 0 auto auto 0;
+  font: inherit;
+  font-weight: 700;
+  line-height: inherit;
+  color: var(--ink);
+  opacity: 0;
+  pointer-events: none;
+  animation: none !important;
+  transition: opacity 1900ms cubic-bezier(.22,1,.36,1);
+}
+.sport-topics .topic-emphasis.is-bold::after { opacity: 1; }
+@media (prefers-reduced-motion: reduce) {
+  .sport-topics .topic-emphasis.is-bold::after { transition: none; }
+}
+/* Mobile: categories stay still and scroll away normally. */
+@media (max-width: 760px) {
+  .hero-services:not(.is-docked) > a,
+  .hero-services:not(.is-docked) > a:nth-of-type(n) {
+    transform: none !important;
+    translate: none !important;
+    opacity: 1 !important;
+    transition: none;
+    will-change: auto;
+  }
+  #sportpsychologie .service-copy h2 { margin-bottom: -1.1rem; }
+  #sportpsychologie .service-copy .service-description { padding-top: .15rem; }
+  #sportpsychologie .service-copy h2 .sport-lead .sport-accent {
+    color: #5e6566;
+    -webkit-text-fill-color: #5e6566;
+  }
+  #sportpsychologie .service-copy h2 .sport-train-word {
+    color: #ba4718;
+    -webkit-text-fill-color: #ba4718;
+  }
+}

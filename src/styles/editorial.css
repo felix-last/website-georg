@@ -3026,3 +3026,8 @@ html.programmatic-scroll { scroll-behavior: auto !important; }
   }
   #neuropsychologie.service-section { gap: 1rem; }
 }
+
+/* Separate assessment from About across desktop and mobile. */
+#neuropsychologie .service-bottom {
+  border-bottom: 1px solid var(--rule);
+}

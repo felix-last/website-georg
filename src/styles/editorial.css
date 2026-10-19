@@ -2689,3 +2689,37 @@ html.programmatic-scroll { scroll-behavior: auto !important; }
 @media (prefers-reduced-motion: reduce) {
   .sport-topics .topic-emphasis { transition: none; }
 }
+
+/* Desktop: restore the original single-line sport slogan and orange "denken.". */
+@media (min-width: 761px) {
+  #sportpsychologie .service-copy h2 > .sport-lead {
+    display: block;
+    white-space: nowrap;
+  }
+  #sportpsychologie .service-copy h2 .sport-accent {
+    color: #ba4718;
+    -webkit-text-fill-color: #ba4718;
+  }
+  #sportpsychologie .service-copy h2 .sport-train-word {
+    display: inline;
+    white-space: nowrap;
+    color: inherit;
+    -webkit-text-fill-color: currentColor;
+  }
+  #sportpsychologie .service-copy h2 .sport-think-word {
+    color: #ba4718;
+    -webkit-text-fill-color: #ba4718;
+  }
+}
+/* Both screen sizes: pill-shaped professional profile links in the footer. */
+.site-footer .footer-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: .65rem 1.1rem;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  text-decoration: none;
+  line-height: 1.1;
+}

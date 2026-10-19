@@ -2974,25 +2974,37 @@ html.programmatic-scroll { scroll-behavior: auto !important; }
 }
 #ueber-mich .timeline .timeline-entry:has(p:empty) p { display: none; }
 
-/* Desktop hero contact CTA: delayed soft dissolve beside Menu. */
+/* Desktop header CTA: aligned with Menu in one flex row. */
 @media (min-width: 761px) {
+  .site-header.on-hero { justify-content: flex-end; gap: 1.4rem; }
+  .site-header.on-hero .small-brand { margin-right: auto; }
   .site-header.on-hero .desktop-header-cta {
-    position: absolute;
-    right: clamp(7.5rem, 12vw, 12rem);
-    top: 50%;
-    transform: translateY(-50%);
+    position: static;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: .65rem 1.15rem;
+    align-self: center;
+    flex: 0 0 auto;
+    height: 44px;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0 1.15rem;
     border: 1px solid currentColor;
     border-radius: 999px;
     color: inherit;
-    font-size: .8rem;
+    font-size: .68rem;
+    line-height: 1;
+    letter-spacing: .16em;
+    text-transform: uppercase;
     text-decoration: none;
     white-space: nowrap;
     opacity: 0;
     animation: header-contact-dissolve 1400ms ease-out 3s forwards;
+  }
+  .site-header.on-hero > .menu {
+    flex: 0 0 auto;
+    align-self: center;
+    margin: 0;
   }
   .site-header.on-hero:has(.menu[open]) .desktop-header-cta {
     visibility: hidden;
@@ -3003,9 +3015,7 @@ html.programmatic-scroll { scroll-behavior: auto !important; }
   from { opacity: 0; }
   to { opacity: 1; }
 }
-@media (max-width: 760px) {
-  .desktop-header-cta { display: none; }
-}
+@media (max-width: 760px) { .desktop-header-cta { display: none; } }
 @media (prefers-reduced-motion: reduce) {
   .site-header.on-hero .desktop-header-cta { animation: none; opacity: 1; }
 }
@@ -3030,50 +3040,6 @@ html.programmatic-scroll { scroll-behavior: auto !important; }
 /* Separate assessment from About across desktop and mobile. */
 #neuropsychologie .service-bottom {
   border-bottom: 1px solid var(--rule);
-}
-
-/* Align the desktop contact CTA's text baseline with the Menu label. */
-@media (min-width: 761px) {
-  .site-header.on-hero .desktop-header-cta {
-    top: 50%;
-    transform: translateY(-50%);
-    min-height: 44px;
-    box-sizing: border-box;
-    padding: 0 1.15rem;
-    font-size: .68rem;
-    line-height: 1;
-    letter-spacing: .16em;
-    text-transform: uppercase;
-  }
-}
-
-/* Desktop header: align CTA and Menu using the same flex row, not absolute centering. */
-@media (min-width: 761px) {
-  .site-header.on-hero {
-    justify-content: flex-end;
-    gap: 1.4rem;
-  }
-  .site-header.on-hero .small-brand { margin-right: auto; }
-  .site-header.on-hero .desktop-header-cta {
-    position: static;
-    inset: auto;
-    transform: none;
-    top: auto;
-    right: auto;
-    flex: 0 0 auto;
-    align-self: center;
-    height: 44px;
-    min-height: 44px;
-    box-sizing: border-box;
-    display: inline-flex;
-    align-items: center;
-    margin: 0;
-  }
-  .site-header.on-hero > .menu {
-    flex: 0 0 auto;
-    align-self: center;
-    margin: 0;
-  }
 }
 
 /* Stable phone landscape: avoid forcing a cramped desktop two-column grid. */

@@ -3153,3 +3153,12 @@ html.programmatic-scroll { scroll-behavior: auto !important; }
   background: var(--paper);
   padding: .2rem .3rem;
 }
+
+/* Timeline: preserve explicit line breaks in the combined training entry.
+   Give the research milestone more room above the rail. */
+#ueber-mich .timeline .timeline-entry p {
+  white-space: pre-line;
+}
+#ueber-mich .timeline .timeline-entry:nth-child(5) p {
+  bottom: 137px;
+}

@@ -3117,3 +3117,25 @@ html.programmatic-scroll { scroll-behavior: auto !important; }
 }
 /* Contact fields match the rounded corners of the side navigation panel. */
 .field input, .field textarea { border-radius: 18px; }
+
+/* Assessment-to-About separator spans the complete content width. */
+#neuropsychologie .service-bottom {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+#neuropsychologie.service-section {
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: clamp(3rem, 5vw, 5rem);
+}
+@media (max-width: 760px) {
+  #neuropsychologie.service-section {
+    gap: 1.65rem;
+    padding-bottom: 4rem;
+  }
+  #neuropsychologie .service-image {
+    margin-bottom: .65rem;
+  }
+  #neuropsychologie .service-bottom {
+    margin-bottom: 0;
+  }
+}

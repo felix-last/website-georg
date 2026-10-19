@@ -3140,20 +3140,6 @@ html.programmatic-scroll { scroll-behavior: auto !important; }
   }
 }
 
-/* Small directional cue for the horizontally scrollable vitae. */
-#ueber-mich .profile-section { position: relative; }
-#ueber-mich .timeline-end-arrow {
-  position: absolute;
-  right: 0;
-  bottom: 1.25rem;
-  font-size: 1.2rem;
-  line-height: 1;
-  color: var(--muted);
-  pointer-events: none;
-  background: var(--paper);
-  padding: .2rem .3rem;
-}
-
 /* Timeline: preserve explicit line breaks in the combined training entry.
    Give the research milestone more room above the rail. */
 #ueber-mich .timeline .timeline-entry p {
@@ -3164,7 +3150,6 @@ html.programmatic-scroll { scroll-behavior: auto !important; }
 }
 
 /* The vitae rail terminates in an arrowhead at its actual scrollable end. */
-#ueber-mich .timeline-end-arrow { display: none; }
 #ueber-mich .timeline .timeline-rail-tip {
   position: relative;
   display: block;
@@ -3196,3 +3181,6 @@ html.programmatic-scroll { scroll-behavior: auto !important; }
 @media (max-width: 760px) {
   #ueber-mich .timeline .timeline-rail-tip { height: 260px; }
 }
+
+/* First service follows the hero without an introductory divider. */
+#sportpsychologie.service-section { border-top: 0; }

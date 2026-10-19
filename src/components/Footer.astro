@@ -7,7 +7,7 @@ import { path } from "../lib/paths";
   <div class="footer-meta">
   <a class="footer-brand" href={path()}>
     {profile.name}
-    <span>{profile.role}</span>
+    <span><span class="initial-orange">G</span>{profile.role.slice(1)}</span>
   </a>
     <p>© {new Date().getFullYear()}</p>
     <div class="footer-social" aria-label="Berufliche und wissenschaftliche Profile">

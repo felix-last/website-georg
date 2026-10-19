@@ -3162,3 +3162,37 @@ html.programmatic-scroll { scroll-behavior: auto !important; }
 #ueber-mich .timeline .timeline-entry:nth-child(5) p {
   bottom: 137px;
 }
+
+/* The vitae rail terminates in an arrowhead at its actual scrollable end. */
+#ueber-mich .timeline-end-arrow { display: none; }
+#ueber-mich .timeline .timeline-rail-tip {
+  position: relative;
+  display: block;
+  flex: 0 0 19px;
+  width: 19px;
+  height: 250px;
+  padding: 0;
+  margin: 0;
+}
+#ueber-mich .timeline .timeline-rail-tip::before {
+  content: "";
+  position: absolute;
+  top: 124px;
+  left: 0;
+  width: 11px;
+  border-top: 1px solid var(--muted);
+}
+#ueber-mich .timeline .timeline-rail-tip::after {
+  content: "";
+  position: absolute;
+  top: 120px;
+  right: 4px;
+  width: 8px;
+  height: 8px;
+  border-top: 1px solid var(--muted);
+  border-right: 1px solid var(--muted);
+  transform: rotate(45deg);
+}
+@media (max-width: 760px) {
+  #ueber-mich .timeline .timeline-rail-tip { height: 260px; }
+}

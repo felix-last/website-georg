@@ -3241,3 +3241,30 @@ html.programmatic-scroll { scroll-behavior: auto !important; }
   #ueber-mich.intro { gap: 1.8rem; }
   #ueber-mich .profile-section { padding-top: 0; }
 }
+
+/* Footer identity and links share one baseline; identity stays two lines. */
+.site-footer .footer-meta {
+  align-items: center;
+}
+.site-footer .footer-meta .footer-brand {
+  display: inline-flex;
+  flex-direction: column;
+  flex: 0 0 auto;
+  justify-content: center;
+  line-height: 1.15;
+}
+.site-footer .footer-meta .footer-brand span {
+  margin-top: .3rem;
+}
+@media (max-width: 760px) {
+  .site-footer .footer-meta {
+    align-items: center;
+    gap: 1rem 1.4rem;
+  }
+}
+/* Form begins level with "Am Anfang" rather than the Contact eyebrow. */
+@media (min-width: 761px) {
+  #kontakt.contact-section > form {
+    padding-top: calc(2rem + 1.1em);
+  }
+}

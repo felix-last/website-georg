@@ -3271,3 +3271,6 @@ html.programmatic-scroll { scroll-behavior: auto !important; }
 
 /* Copyright year uses the Sportpsychologie accent orange. */
 .site-footer .footer-meta > p { color: #b44517; }
+
+/* Accent initial letter in confidentiality statement. */
+.initial-orange { color: #b44517; }

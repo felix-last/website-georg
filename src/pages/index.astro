@@ -306,7 +306,7 @@ import mountains from "../assets/mountains.png";
     const section = document.getElementById("sportpsychologie");
     const word = section?.querySelector<HTMLElement>(".sport-grow-word");
     const thinking = section?.querySelector<HTMLElement>(".sport-think-word");
-    if (!section || !word || !thinking || window.innerWidth > 760) return;
+    if (!section || !word || !thinking || window.innerWidth > 760 || window.matchMedia("(orientation: landscape) and (max-height: 520px) and (pointer: coarse)").matches) { if (word && thinking) { word.style.transform = "none"; thinking.style.transform = "none"; } return; }
     const rect = word.parentElement?.getBoundingClientRect() ?? section.getBoundingClientRect();
     const progress = Math.max(0, Math.min(1, (window.innerHeight * 0.9 - rect.top) / Math.max(window.innerHeight * .8, 1)));
     // Scale the word smoothly without changing the layout below.

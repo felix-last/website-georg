@@ -3274,3 +3274,24 @@ html.programmatic-scroll { scroll-behavior: auto !important; }
 
 /* Accent initial letter in confidentiality statement. */
 .initial-orange { color: #b44517; }
+
+/* Footer-only initials and profession accent. */
+.site-footer .footer-brand .footer-name {
+  display: block;
+  margin-top: 0;
+  font-size: 1.2rem;
+  font-weight: 400;
+  letter-spacing: -.04em;
+  text-transform: none;
+}
+.site-footer .footer-brand .footer-role {
+  display: block;
+  margin-top: .3rem;
+}
+.site-footer .footer-brand .footer-accent {
+  color: #b44517;
+  -webkit-text-fill-color: #b44517;
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+}

@@ -52,11 +52,11 @@ const configured = secureEndpoint && !!siteKey;
     aria-describedby="form-state"
     novalidate
   >
-    <p id="form-state" class="form-state">
-      {configured
-        ? "Der Spam-Schutz wird erst nach deiner Aktivierung geladen. Dabei wird eine Verbindung zu Cloudflare hergestellt. Informationen findest du in den Datenschutzhinweisen."
-        : "Entwicklungsstand: Das Kontaktformular ist noch nicht angeschlossen. Es werden keine Anfragen versendet."}
-    </p>
+    {configured && (
+      <p id="form-state" class="form-state">
+        Der Spam-Schutz wird erst nach Aktivierung geladen. Dabei wird eine Verbindung zu Cloudflare hergestellt. Weitere Informationen stehen in den Datenschutzhinweisen.
+      </p>
+    )}
     <div class="field">
       <label for="name">
         Name <span>(erforderlich)</span>

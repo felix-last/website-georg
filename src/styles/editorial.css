@@ -2881,3 +2881,58 @@ html.programmatic-scroll { scroll-behavior: auto !important; }
 
 /* Keep the parenthesized neuro- prefix intact on narrow screens. */
 .nowrap-term { white-space: nowrap; }
+
+/* Alternating biography timeline: one central rail, entries above and below. */
+#ueber-mich .timeline {
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+  align-items: stretch;
+  height: 250px;
+  margin-top: 2rem;
+  padding: 0 0 1rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x proximity;
+}
+#ueber-mich .timeline .timeline-entry {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex: 0 0 clamp(165px, 17vw, 235px);
+  height: 100%;
+  padding: 137px 1.1rem 0 0;
+  border: 0;
+  scroll-snap-align: start;
+}
+#ueber-mich .timeline .timeline-entry::after {
+  content: "";
+  position: absolute;
+  top: 124px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--muted);
+}
+#ueber-mich .timeline .timeline-entry::before {
+  top: 121px;
+  left: 0;
+  z-index: 1;
+}
+#ueber-mich .timeline .timeline-entry:nth-child(odd) {
+  justify-content: flex-end;
+  padding: 0 1.1rem 137px 0;
+}
+#ueber-mich .timeline .timeline-entry span { margin-bottom: .35rem; }
+#ueber-mich .timeline .timeline-entry p { line-height: 1.35; }
+@media (max-width: 760px) {
+  #ueber-mich .timeline {
+    height: 260px;
+    gap: 0;
+    padding-bottom: 1rem;
+  }
+  #ueber-mich .timeline .timeline-entry {
+    flex: 0 0 min(58vw, 210px);
+  }
+}

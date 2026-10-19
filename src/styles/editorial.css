@@ -3031,3 +3031,18 @@ html.programmatic-scroll { scroll-behavior: auto !important; }
 #neuropsychologie .service-bottom {
   border-bottom: 1px solid var(--rule);
 }
+
+/* Align the desktop contact CTA's text baseline with the Menu label. */
+@media (min-width: 761px) {
+  .site-header.on-hero .desktop-header-cta {
+    top: 50%;
+    transform: translateY(-50%);
+    min-height: 44px;
+    box-sizing: border-box;
+    padding: 0 1.15rem;
+    font-size: .68rem;
+    line-height: 1;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+  }
+}

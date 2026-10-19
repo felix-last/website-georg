@@ -3075,3 +3075,45 @@ html.programmatic-scroll { scroll-behavior: auto !important; }
     margin: 0;
   }
 }
+
+/* Stable phone landscape: avoid forcing a cramped desktop two-column grid. */
+@media (orientation: landscape) and (max-height: 520px) and (pointer: coarse) {
+  .services .service-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    padding-block: 2.5rem;
+  }
+  .service-section .mobile-service-label { order: -1; }
+  .service-section .service-image,
+  .service-section .service-art {
+    order: 0;
+    width: 100%;
+    max-width: 100%;
+    aspect-ratio: 16 / 9;
+    grid-column: auto;
+    grid-row: auto;
+  }
+  .service-section .service-copy {
+    order: 1;
+    width: 100%;
+    grid-column: auto;
+    grid-row: auto;
+  }
+  #ueber-mich.intro {
+    display: flex;
+    flex-direction: column;
+  }
+  #ueber-mich .about-lead,
+  #ueber-mich .intro-copy,
+  #ueber-mich .intro-image,
+  #ueber-mich .profile-section {
+    width: 100%;
+    grid-column: auto;
+    grid-row: auto;
+  }
+  #ueber-mich .intro-image img { aspect-ratio: 16 / 9; }
+  .hero { min-height: 300px; }
+}
+/* Contact fields match the rounded corners of the side navigation panel. */
+.field input, .field textarea { border-radius: 18px; }

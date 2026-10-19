@@ -19,6 +19,7 @@ const { hero = false } = Astro.props;
     <a class="mobile-monogram" href={path("#ueber-mich")} aria-label="GL – Über mich"><span class="mobile-monogram-g">G</span><span class="mobile-monogram-l">L</span></a>
     <a class="mobile-contact-cta" href={path("#kontakt")}>Kontakt</a>
   </div>
+  {hero && <a class="desktop-header-cta" href={path("#kontakt")}>Kontakt aufnehmen</a>}
   <details class="menu">
     <summary aria-label="Menü öffnen oder schließen">
       <span class="menu-word">Menü</span>

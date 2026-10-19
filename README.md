@@ -77,3 +77,7 @@ Web-DNS und iCloud+-Mail-DNS getrennt konfigurieren. iCloud+-Einrichtung gemäß
 [Kontaktarchitektur und Backend-Vertrag](docs/contact.md) sowie [Checkliste vor Veröffentlichung](docs/launch.md) beachten. Das Formular bleibt deaktiviert, bis beide öffentlichen Konfigurationswerte gesetzt sind; erfolgreicher Versand muss anschließend mit einem echten Backend und dem Zielpostfach getestet werden.
 
 GitHub Pages, Cloudflare und iCloud+ sind die gewünschten Dienste, bieten hier aber keine garantierte ausschließliche EU-Datenverarbeitung. Eine streng auf EU-Server beschränkte Lösung würde einen Wechsel der Infrastruktur erfordern und wird nicht stillschweigend eingeführt. Deutsche Rechtskonformität setzt geprüfte Anbieterangaben, die tatsächliche berufliche Befugnis sowie geprüfte Datenschutz- und Dienstleisterkonfiguration voraus.
+
+## Geplante Domain
+
+**glpsych.de** ist die vorläufig bevorzugte Domain. Sie ist noch nicht als registriert oder verfügbar bestätigt und wird derzeit nicht in GitHub Pages oder DNS aktiviert. Nach Registrierung: GitHub Pages Custom Domain und DNS konfigurieren, anschließend HTTPS und Links prüfen.

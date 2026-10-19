@@ -2666,3 +2666,26 @@ html.programmatic-scroll { scroll-behavior: auto !important; }
     line-height: 1.1;
   }
 }
+
+/* Topic emphasis: a single text layer prevents bold-overlay misalignment.
+   Build visual weight smoothly using a symmetric text shadow, without reflow. */
+.sport-topics .topic-emphasis,
+.sport-topics .topic-emphasis.is-bold {
+  font-weight: 400 !important;
+  color: var(--ink);
+  position: static;
+  white-space: nowrap;
+  text-shadow: 0 0 0 transparent, 0 0 0 transparent;
+  transition: text-shadow 1700ms ease-in-out;
+}
+.sport-topics .topic-emphasis::before,
+.sport-topics .topic-emphasis::after {
+  content: none !important;
+  display: none !important;
+}
+.sport-topics .topic-emphasis.is-bold {
+  text-shadow: -.38px 0 currentColor, .38px 0 currentColor;
+}
+@media (prefers-reduced-motion: reduce) {
+  .sport-topics .topic-emphasis { transition: none; }
+}

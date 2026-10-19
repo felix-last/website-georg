@@ -3184,3 +3184,33 @@ html.programmatic-scroll { scroll-behavior: auto !important; }
 
 /* First service follows the hero without an introductory divider. */
 #sportpsychologie.service-section { border-top: 0; }
+
+/* Align every above-rail timeline description at a shared top edge. */
+#ueber-mich .timeline .timeline-entry:nth-child(odd) p {
+  top: 8px;
+  bottom: auto;
+}
+#ueber-mich .timeline .timeline-entry:nth-child(5) p {
+  top: 8px;
+  bottom: auto;
+}
+/* Footer: brand above, copyright + social + legal links on a single row. */
+.site-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 1.2rem;
+}
+.site-footer .footer-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  width: 100%;
+}
+.site-footer .footer-meta > p { margin: 0; white-space: nowrap; }
+.site-footer .footer-meta .footer-social { gap: .65rem; }
+.site-footer .footer-meta nav { align-items: center; white-space: nowrap; }
+@media (max-width: 760px) {
+  .site-footer .footer-meta { flex-wrap: wrap; justify-content: flex-start; }
+}

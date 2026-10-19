@@ -3268,3 +3268,6 @@ html.programmatic-scroll { scroll-behavior: auto !important; }
     padding-top: calc(2rem + 1.1em);
   }
 }
+
+/* Copyright year uses the Sportpsychologie accent orange. */
+.site-footer .footer-meta > p { color: #ba4718; }

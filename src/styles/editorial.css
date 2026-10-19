@@ -3139,3 +3139,17 @@ html.programmatic-scroll { scroll-behavior: auto !important; }
     margin-bottom: 0;
   }
 }
+
+/* Small directional cue for the horizontally scrollable vitae. */
+#ueber-mich .profile-section { position: relative; }
+#ueber-mich .timeline-end-arrow {
+  position: absolute;
+  right: 0;
+  bottom: 1.25rem;
+  font-size: 1.2rem;
+  line-height: 1;
+  color: var(--muted);
+  pointer-events: none;
+  background: var(--paper);
+  padding: .2rem .3rem;
+}

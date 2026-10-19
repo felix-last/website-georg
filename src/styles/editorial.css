@@ -2646,3 +2646,23 @@ html.programmatic-scroll { scroll-behavior: auto !important; }
     -webkit-text-fill-color: #ba4718;
   }
 }
+
+/* Mobile footer: outlined pill buttons for professional profiles. */
+@media (max-width: 760px) {
+  .site-footer .footer-social {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .65rem;
+  }
+  .site-footer .footer-social a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: .65rem 1.1rem;
+    border: 1px solid currentColor;
+    border-radius: 999px;
+    text-decoration: none;
+    line-height: 1.1;
+  }
+}

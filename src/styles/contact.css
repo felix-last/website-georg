@@ -57,8 +57,8 @@
 .field textarea {
   display: block;
   width: 100%;
-  border: 1px solid #92988e;
-  border-radius: 0;
+  border: 1px solid rgba(60, 66, 62, .16);
+  border-radius: 12px;
   background: #f5f3ee;
   color: var(--ink);
   padding: 0.85rem;

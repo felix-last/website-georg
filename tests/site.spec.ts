@@ -19,7 +19,7 @@ test("editorial page is accessible, local and responsive", async ({ page }) => {
   await expect(
     page.getByRole("button", { name: "Anfrage senden" }),
   ).toBeDisabled();
-  await expect(page.locator("#form-state")).toContainText("Entwicklungsstand");
+  await expect(page.locator("#form-state")).toHaveCount(0);
   await expect(page.locator("#form-status")).toBeEmpty();
   const overflow = await page.evaluate(
     () => document.documentElement.scrollWidth > window.innerWidth,

@@ -29,10 +29,10 @@ const { hero = false } = Astro.props;
       </span>
     </summary>
     <nav aria-label="Hauptnavigation">
-      <a href={path("#ueber-mich")}>Über mich</a>
       {services.map((service) => (
         <a href={path(`#${service.id}`)}>{service.label}</a>
       ))}
+      <a href={path("#ueber-mich")}>Über mich</a>
       <a href={path("#kontakt")} class="menu-contact">
         Kontakt aufnehmen
       </a>

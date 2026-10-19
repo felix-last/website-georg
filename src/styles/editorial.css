@@ -3214,3 +3214,30 @@ html.programmatic-scroll { scroll-behavior: auto !important; }
 @media (max-width: 760px) {
   .site-footer .footer-meta { flex-wrap: wrap; justify-content: flex-start; }
 }
+
+/* Vitae belongs to About: consistent spacing between lead, portrait/copy and rail. */
+#ueber-mich.intro {
+  --about-section-gap: clamp(1.8rem, 3vw, 3rem);
+  row-gap: var(--about-section-gap);
+}
+#ueber-mich .about-lead > p:not(.eyebrow) {
+  margin-bottom: 0;
+}
+#ueber-mich .intro-image {
+  margin-top: 0;
+}
+#ueber-mich .profile-section {
+  grid-column: 1 / -1;
+  padding-top: 0;
+  margin-top: 0;
+}
+#ueber-mich .profile-section > .line-label {
+  margin: 0 0 .7rem;
+}
+#ueber-mich .profile-section .timeline {
+  margin-top: .8rem;
+}
+@media (max-width: 760px) {
+  #ueber-mich.intro { gap: 1.8rem; }
+  #ueber-mich .profile-section { padding-top: 0; }
+}

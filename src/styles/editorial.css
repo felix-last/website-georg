@@ -3301,3 +3301,6 @@ html.programmatic-scroll { scroll-behavior: auto !important; }
   letter-spacing: inherit;
   text-transform: inherit;
 }
+
+/* Subtle orange details in About, without changing typography or layout. */
+#ueber-mich .about-orange { color: #b44517; -webkit-text-fill-color: #b44517; }
